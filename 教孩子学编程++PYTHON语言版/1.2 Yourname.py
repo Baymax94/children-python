@@ -1,3 +1,3 @@
 # Yourname.py
 name = input("What is your name?\n")
-print("Hi, ",name*3)
+print("Hi, ", name * 3)
