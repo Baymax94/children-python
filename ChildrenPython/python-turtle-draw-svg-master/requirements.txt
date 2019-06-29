@@ -10,13 +10,65 @@ https://pypi.org/project/opencv-python/
 pywin32==223
 https://pypi.org/project/pywin32/
 
-ÓÃ·¨£ºmain.py [-h] [-c COLOR]ÎÄ¼şÃû
-½«Î»Í¼×ª»»ÎªSVG²¢Ê¹ÓÃtraw libray»æÖÆËü¡£
-Î»ÖÃ²ÎÊı£º
-   filenameÄúµÄÎÄ¼şµÄÎÄ¼ş£¨* .jpg£¬* .png£¬* .bmp£©Ãû³Æ
-                         Ïë×ª»»¡£
-¿ÉÑ¡²ÎÊı£º
-   -h£¬ -  helpÏÔÊ¾´Ë°ïÖúÏûÏ¢²¢ÍË³ö
-   -c COLOR£¬ -  color COLOR
-                         ÄãÏëÒª»æÖÆ¶àÉÙÖÖÑÕÉ«£¨Èç¹ûÊı×ÖÒ²ÊÇÈç´Ë£©
-                         ºÜ´ó£¬¸Ã³ÌĞò¿ÉÄÜ»áºÜÂı¡££©
+ç”¨æ³•ï¼šmain.py [-h] [-c COLOR]æ–‡ä»¶å
+å°†ä½å›¾è½¬æ¢ä¸ºSVGå¹¶ä½¿ç”¨traw librayç»˜åˆ¶å®ƒã€‚
+ä½ç½®å‚æ•°ï¼š
+   filenameæ‚¨çš„æ–‡ä»¶çš„æ–‡ä»¶ï¼ˆ* .jpgï¼Œ* .pngï¼Œ* .bmpï¼‰åç§°
+                         æƒ³è½¬æ¢ã€‚
+å¯é€‰å‚æ•°ï¼š
+   -hï¼Œ -  helpæ˜¾ç¤ºæ­¤å¸®åŠ©æ¶ˆæ¯å¹¶é€€å‡º
+   -c COLORï¼Œ -  color COLOR
+                         ä½ æƒ³è¦ç»˜åˆ¶å¤šå°‘ç§é¢œè‰²ï¼ˆå¦‚æœæ•°å­—ä¹Ÿæ˜¯å¦‚æ­¤ï¼‰
+                         å¾ˆå¤§ï¼Œè¯¥ç¨‹åºå¯èƒ½ä¼šå¾ˆæ…¢ã€‚ï¼‰
+                         
+# python-turtle-draw-svg
+
+
+[![GitHub issues](https://img.shields.io/github/issues/tfx2001/python-turtle-draw-svg.svg?style=flat-square)](https://github.com/tfx2001/python-turtle-draw-svg/issues)
+[![GitHub forks](https://img.shields.io/github/forks/tfx2001/python-turtle-draw-svg.svg?style=flat-square)](https://github.com/tfx2001/python-turtle-draw-svg/network)
+[![GitHub stars](https://img.shields.io/github/stars/tfx2001/python-turtle-draw-svg.svg?style=flat-square)](https://github.com/tfx2001/python-turtle-draw-svg/stargazers)
+[![GitHub license](https://img.shields.io/github/license/tfx2001/python-turtle-draw-svg.svg?style=flat-square)](https://github.com/tfx2001/python-turtle-draw-svg/blob/master/LICENSE)
+
+
+
+
+å¯ä»¥æŠŠä½å›¾è½¬åŒ–ä¸ºsvgç„¶åä½¿ç”¨turtleåº“ç”»å‡ºæ¥ã€‚
+
+# Usage
+
+```
+usage: main.py [-h] [-c COLOR] filename
+
+Convert an bitmap to SVG and use turtle libray to draw it.
+
+positional arguments:
+  filename              The file(*.jpg, *.png, *.bmp) name of the file you
+                        want to convert.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c COLOR, --color COLOR
+                        How many colors you want to draw.(If the number is too
+                        large that the program may be very slow.)
+```
+
+# Dependents
+
+See `requirements.txt` .
+
+# Demo Video
+
+[ã€è‡ªåˆ¶å±•ç¤ºã€‘ç”¨ Pythonçš„ turtleåº“ç”»å°å§å§](http://www.bilibili.com/video/av20349733?share_medium=android&share_source=copy_link&bbid=37902872-DA4A-4D5D-878B-AEE788048F4217066infoc&ts=1533854267282)
+
+# Reference
+
+1. [potrace.exe](http://potrace.sourceforge.net/)
+2. [Python123](https://www.python123.io/index/turtle_drawing/5a006e85283c653c6d3219d8)
+3. [æ·±åº¦æŒæ¡SVGè·¯å¾„pathçš„è´å¡å°”æ›²çº¿æŒ‡ä»¤](https://www.zhangxinxu.com/wordpress/2014/06/deep-understand-svg-path-bezier-curves-command/)
+4. [K-Means Clustering in OpenCV](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_ml/py_kmeans/py_kmeans_opencv/py_kmeans_opencv.html)
+
+# License
+
+The GNU GPLv3 License.
+
+Copyright (c) 2018 tfx2001
