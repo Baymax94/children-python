@@ -1,0 +1,22 @@
+-i https://pypi.org/simple
+beautifulsoup4==4.6.0
+https://pypi.org/project/beautifulsoup4/
+lxml==4.2.1
+https://pypi.org/project/lxml/
+numpy==1.14.5
+
+opencv-python==3.4.1.15
+https://pypi.org/project/opencv-python/
+pywin32==223
+https://pypi.org/project/pywin32/
+
+用法：main.py [-h] [-c COLOR]文件名
+将位图转换为SVG并使用traw libray绘制它。
+位置参数：
+   filename您的文件的文件（* .jpg，* .png，* .bmp）名称
+                         想转换。
+可选参数：
+   -h， -  help显示此帮助消息并退出
+   -c COLOR， -  color COLOR
+                         你想要绘制多少种颜色（如果数字也是如此）
+                         很大，该程序可能会很慢。）
