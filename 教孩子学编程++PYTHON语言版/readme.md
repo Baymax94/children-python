@@ -11,4 +11,5 @@
 随机函数  
 pygame  
 https://nostarch.com/teachkids/  
-[Teach_Your_Kids_to_Code_program_files.zip](https://github.com/Baymax94/children-python/files/3317554/Teach_Your_Kids_to_Code_program_files.zip)
+[Teach_Your_Kids_to_Code_program_files.zip](https://github.com/Baymax94/children-python/files/3317554/Teach_Your_Kids_to_Code_program_files.zip)  
+![教孩子学编程（Python语言版）](https://user-images.githubusercontent.com/26005547/60779107-0ee5ec80-a16c-11e9-8627-127abd41b6c6.png)
