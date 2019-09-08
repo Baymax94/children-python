@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import sympy
+import matplotlib.pyplot as plt
+import numpy as np
+
 # 分解因式 sympy.factor
 a, b = sympy.symbols('a b')
 f = a**3 - b**3
@@ -27,6 +30,18 @@ f4 = x**4 - 8 * (x**3) + 24 * (x**2) - 32 * x + 15
 print(sympy.solve(f4, x))
 
 # 绘方程曲线图
+x = np.linspace(-np.pi, np.pi, 256, endpoint=True)
+C, S = np.cos(x), np.sin(x)
+plt.title("sin(x) and cos(x)")
+plt.plot(x, C)
+plt.plot(x, S)
+plt.show()
+
+x1 = np.arange(-4, 4, 0.1)
+y1 = 2*(x1**2) + 3*x1 + 5
+plt.title("一元二次函数")
+plt.plot(x1, y1)
+plt.show()
 
 # 1.2 人工智能可以为我们做什么
 # 1.2.1 符号运算
