@@ -1,8 +1,16 @@
 {
-    "python.pythonPath": "C:\\Users\\LejuRobot\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "D:\\Users\\LejuRobot\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     //"python.pythonPath": "C:\\Users\\LejuRobot\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E501, E262",
+    ],
     "python.linting.enabled": true,
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": [
+        "--sytle=yapf_style.cfg"
+    ]
 }
