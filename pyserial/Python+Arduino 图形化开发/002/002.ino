@@ -1,13 +1,15 @@
 //int val;
-int a=1;
-int b=2;
-int c=3;
-void setup() {
+int a = 1;
+int b = 2;
+int c = 3;
+void setup()
+{
   // put your setup code here, to run once:
   Serial.begin(9600);
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
   /*while(Serial.available()>0)
   {
@@ -15,7 +17,9 @@ void loop() {
     Serial.println(val);
   }
   */
-  while(!Serial){}
+  while (!Serial)
+  {
+  }
   Serial.print(a);
   Serial.print(",");
   Serial.print(b);
