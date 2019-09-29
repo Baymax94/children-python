@@ -16,3 +16,4 @@
 [Python深度学习](https://github.com/Baymax94/children-python/tree/master/Python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0)  
 [Python_CodeCards](https://github.com/Baymax94/children-python/tree/master/Python_CodeCards)  
 [人工智能初步（选修）](https://github.com/Baymax94/children-python/tree/master/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%88%9D%E6%AD%A5%EF%BC%88%E9%80%89%E4%BF%AE%EF%BC%89)  
+[算法图解](https://github.com/Baymax94/children-python/tree/master/Python_Books/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3)  
