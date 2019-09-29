@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pymata_core</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>pymata_core</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><br></font></td></tr></table>
+    <p><tt>Copyright&nbsp;(c)&nbsp;2015-16&nbsp;Alan&nbsp;Yorinks&nbsp;All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or<br>
+modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;&nbsp;General&nbsp;Public<br>
+License&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either<br>
+version&nbsp;3&nbsp;of&nbsp;the&nbsp;License,&nbsp;or&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.<br>
+&nbsp;<br>
+This&nbsp;library&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,<br>
+but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of<br>
+MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;GNU<br>
+General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
+&nbsp;<br>
+You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public<br>
+License&nbsp;along&nbsp;with&nbsp;this&nbsp;library;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software<br>
+Foundation,&nbsp;Inc.,&nbsp;51&nbsp;Franklin&nbsp;St,&nbsp;Fifth&nbsp;Floor,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02110-1301&nbsp;&nbsp;USA</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">PymataCore</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PymataCore">class <strong>PymataCore</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;exposes&nbsp;and&nbsp;implements&nbsp;the&nbsp;pymata_core&nbsp;asyncio&nbsp;API,<br>
+It&nbsp;includes&nbsp;the&nbsp;public&nbsp;API&nbsp;methods&nbsp;as&nbsp;well&nbsp;as<br>
+a&nbsp;set&nbsp;of&nbsp;private&nbsp;methods.&nbsp;If&nbsp;your&nbsp;application&nbsp;is&nbsp;using&nbsp;asyncio,<br>
+this&nbsp;is&nbsp;the&nbsp;API&nbsp;that&nbsp;you&nbsp;should&nbsp;use.<br>
+&nbsp;<br>
+After&nbsp;instantiating&nbsp;this&nbsp;class,&nbsp;its&nbsp;"start"&nbsp;method&nbsp;MUST&nbsp;be&nbsp;called&nbsp;to<br>
+perform&nbsp;Arduino&nbsp;pin&nbsp;auto-detection.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PymataCore-__init__"><strong>__init__</strong></a>(self, arduino_wait=2, sleep_tune=0.0001, log_output=False, com_port=None, ip_address=None, ip_port=2000, ip_handshake='*HELLO*')</dt><dd><tt>This&nbsp;is&nbsp;the&nbsp;"constructor"&nbsp;method&nbsp;for&nbsp;the&nbsp;PymataCore</a>&nbsp;class.<br>
+&nbsp;<br>
+If&nbsp;log_output&nbsp;is&nbsp;set&nbsp;to&nbsp;True,&nbsp;a&nbsp;log&nbsp;file&nbsp;called&nbsp;'pymata_log'<br>
+&nbsp;<br>
+will&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;and&nbsp;all&nbsp;pymata_aio&nbsp;output<br>
+will&nbsp;be&nbsp;redirected&nbsp;to&nbsp;the&nbsp;log&nbsp;with&nbsp;no&nbsp;output&nbsp;appearing&nbsp;on&nbsp;the&nbsp;console.<br>
+&nbsp;<br>
+&nbsp;<br>
+:param&nbsp;arduino_wait:&nbsp;Amount&nbsp;of&nbsp;time&nbsp;to&nbsp;wait&nbsp;for&nbsp;Arduino&nbsp;to&nbsp;reset.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNO&nbsp;takes&nbsp;2&nbsp;seconds,&nbsp;Leonardo&nbsp;can&nbsp;be&nbsp;zero<br>
+:param&nbsp;sleep_tune:&nbsp;This&nbsp;parameter&nbsp;sets&nbsp;the&nbsp;amount&nbsp;of&nbsp;time&nbsp;PyMata&nbsp;core<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses&nbsp;to&nbsp;set&nbsp;asyncio.sleep<br>
+:param&nbsp;log_output:&nbsp;If&nbsp;false,&nbsp;all&nbsp;output&nbsp;goes&nbsp;to&nbsp;console,&nbsp;else&nbsp;output<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redirected&nbsp;to&nbsp;log&nbsp;file.<br>
+:param&nbsp;com_port:&nbsp;Manually&nbsp;selected&nbsp;com&nbsp;port&nbsp;-&nbsp;normally&nbsp;it&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto-detected<br>
+:param&nbsp;ip_address:&nbsp;If&nbsp;using&nbsp;a&nbsp;WiFly&nbsp;module,&nbsp;set&nbsp;its&nbsp;address&nbsp;here<br>
+:param&nbsp;ip_port:&nbsp;Port&nbsp;to&nbsp;used&nbsp;with&nbsp;ip_address<br>
+:param&nbsp;ip_handshake:&nbsp;Connectivity&nbsp;handshake&nbsp;string&nbsp;sent&nbsp;by&nbsp;IP&nbsp;device<br>
+&nbsp;<br>
+:returns:&nbsp;This&nbsp;method&nbsp;never&nbsp;returns</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-analog_read"><strong>analog_read</strong></a>(self, pin)</dt><dd><tt>Retrieve&nbsp;the&nbsp;last&nbsp;data&nbsp;update&nbsp;for&nbsp;the&nbsp;specified&nbsp;analog&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number&nbsp;(ex.&nbsp;A2&nbsp;is&nbsp;specified&nbsp;as&nbsp;2)<br>
+:returns:&nbsp;Last&nbsp;value&nbsp;reported&nbsp;for&nbsp;the&nbsp;analog&nbsp;pin</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-analog_write"><strong>analog_write</strong></a>(self, pin, value)</dt><dd><tt>Set&nbsp;the&nbsp;selected&nbsp;pin&nbsp;to&nbsp;the&nbsp;specified&nbsp;value.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;PWM&nbsp;pin&nbsp;number<br>
+:param&nbsp;value:&nbsp;Pin&nbsp;value&nbsp;(0&nbsp;-&nbsp;0x4000)<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-digital_pin_write"><strong>digital_pin_write</strong></a>(self, pin, value)</dt><dd><tt>Set&nbsp;the&nbsp;specified&nbsp;pin&nbsp;to&nbsp;the&nbsp;specified&nbsp;value&nbsp;directly&nbsp;without&nbsp;port&nbsp;manipulation.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;pin&nbsp;number<br>
+:param&nbsp;value:&nbsp;pin&nbsp;value<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-digital_read"><strong>digital_read</strong></a>(self, pin)</dt><dd><tt>Retrieve&nbsp;the&nbsp;last&nbsp;data&nbsp;update&nbsp;for&nbsp;the&nbsp;specified&nbsp;digital&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;number<br>
+:returns:&nbsp;Last&nbsp;value&nbsp;reported&nbsp;for&nbsp;the&nbsp;digital&nbsp;pin</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-digital_write"><strong>digital_write</strong></a>(self, pin, value)</dt><dd><tt>Set&nbsp;the&nbsp;specified&nbsp;pin&nbsp;to&nbsp;the&nbsp;specified&nbsp;value.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;pin&nbsp;number<br>
+:param&nbsp;value:&nbsp;pin&nbsp;value<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-disable_analog_reporting"><strong>disable_analog_reporting</strong></a>(self, pin)</dt><dd><tt>Disables&nbsp;analog&nbsp;reporting&nbsp;for&nbsp;a&nbsp;single&nbsp;analog&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number.&nbsp;For&nbsp;example&nbsp;for&nbsp;A0,&nbsp;the&nbsp;number&nbsp;is&nbsp;0.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-disable_digital_reporting"><strong>disable_digital_reporting</strong></a>(self, pin)</dt><dd><tt>Disables&nbsp;digital&nbsp;reporting.&nbsp;By&nbsp;turning&nbsp;reporting&nbsp;off&nbsp;for&nbsp;this&nbsp;pin,<br>
+Reporting&nbsp;is&nbsp;disabled&nbsp;for&nbsp;all&nbsp;8&nbsp;bits&nbsp;in&nbsp;the&nbsp;"port"<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;and&nbsp;all&nbsp;pins&nbsp;for&nbsp;this&nbsp;port<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-enable_analog_reporting"><strong>enable_analog_reporting</strong></a>(self, pin)</dt><dd><tt>Enables&nbsp;analog&nbsp;reporting.&nbsp;By&nbsp;turning&nbsp;reporting&nbsp;on&nbsp;for&nbsp;a&nbsp;single&nbsp;pin,<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number.&nbsp;For&nbsp;example&nbsp;for&nbsp;A0,&nbsp;the&nbsp;number&nbsp;is&nbsp;0.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-enable_digital_reporting"><strong>enable_digital_reporting</strong></a>(self, pin)</dt><dd><tt>Enables&nbsp;digital&nbsp;reporting.&nbsp;By&nbsp;turning&nbsp;reporting&nbsp;on&nbsp;for&nbsp;all&nbsp;8&nbsp;bits<br>
+in&nbsp;the&nbsp;"port"&nbsp;-&nbsp;this&nbsp;is&nbsp;part&nbsp;of&nbsp;Firmata's&nbsp;protocol&nbsp;specification.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;and&nbsp;all&nbsp;pins&nbsp;for&nbsp;this&nbsp;port<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-encoder_config"><strong>encoder_config</strong></a>(self, pin_a, pin_b, cb=None, cb_type=None, hall_encoder=False)</dt><dd><tt>This&nbsp;command&nbsp;enables&nbsp;the&nbsp;rotary&nbsp;encoder&nbsp;support&nbsp;and&nbsp;will<br>
+enable&nbsp;encoder&nbsp;reporting.<br>
+&nbsp;<br>
+This&nbsp;command&nbsp;is&nbsp;not&nbsp;part&nbsp;of&nbsp;StandardFirmata.&nbsp;For&nbsp;2&nbsp;pin&nbsp;+&nbsp;ground<br>
+encoders,&nbsp;FirmataPlus&nbsp;is&nbsp;required&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;2&nbsp;pin&nbsp;rotary&nbsp;encoder,<br>
+and&nbsp;for&nbsp;hell&nbsp;effect&nbsp;wheel&nbsp;encoder&nbsp;support,&nbsp;FirmataPlusRB&nbsp;is&nbsp;required.<br>
+&nbsp;<br>
+Encoder&nbsp;data&nbsp;is&nbsp;retrieved&nbsp;by&nbsp;performing&nbsp;a&nbsp;digital_read&nbsp;from&nbsp;pin&nbsp;a<br>
+(encoder&nbsp;pin_a).<br>
+&nbsp;<br>
+When&nbsp;using&nbsp;2&nbsp;hall&nbsp;effect&nbsp;sensors&nbsp;(e.g.&nbsp;2&nbsp;wheel&nbsp;robot)<br>
+specify&nbsp;pin_a&nbsp;for&nbsp;1st&nbsp;encoder&nbsp;and&nbsp;pin_b&nbsp;for&nbsp;2nd&nbsp;encoder.<br>
+&nbsp;<br>
+:param&nbsp;pin_a:&nbsp;Encoder&nbsp;pin&nbsp;1.<br>
+:param&nbsp;pin_b:&nbsp;Encoder&nbsp;pin&nbsp;2.<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;encoder&nbsp;changes<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:param&nbsp;hall_encoder:&nbsp;wheel&nbsp;hall_encoder&nbsp;-&nbsp;set&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;to&nbsp;select&nbsp;hall&nbsp;encoder&nbsp;support&nbsp;support.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-encoder_read"><strong>encoder_read</strong></a>(self, pin)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;latest&nbsp;encoder&nbsp;data&nbsp;value<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Encoder&nbsp;Pin<br>
+:returns:&nbsp;encoder&nbsp;data&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-extended_analog"><strong>extended_analog</strong></a>(self, pin, data)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;send&nbsp;an&nbsp;extended-data&nbsp;analog&nbsp;write&nbsp;command&nbsp;to&nbsp;the<br>
+selected&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;0&nbsp;-&nbsp;127<br>
+:param&nbsp;data:&nbsp;0&nbsp;-&nbsp;0xfffff<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_analog_latch_data"><strong>get_analog_latch_data</strong></a>(self, pin)</dt><dd><tt>A&nbsp;list&nbsp;is&nbsp;returned&nbsp;containing&nbsp;the&nbsp;latch&nbsp;state&nbsp;for&nbsp;the&nbsp;pin,&nbsp;the<br>
+latched&nbsp;value,&nbsp;and&nbsp;the&nbsp;time&nbsp;stamp<br>
+[latched_state,&nbsp;threshold_type,&nbsp;threshold_value,<br>
+&nbsp;latched_data,&nbsp;time_stamp]<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number.<br>
+:returns:&nbsp;&nbsp;[latched_state,&nbsp;threshold_type,&nbsp;threshold_value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latched_data,&nbsp;time_stamp]</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_analog_map"><strong>get_analog_map</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;requests&nbsp;a&nbsp;Firmata&nbsp;analog&nbsp;map&nbsp;query&nbsp;and&nbsp;returns&nbsp;the&nbsp;results.<br>
+&nbsp;<br>
+:returns:&nbsp;An&nbsp;analog&nbsp;map&nbsp;response&nbsp;or&nbsp;None&nbsp;if&nbsp;a&nbsp;timeout&nbsp;occurs</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_capability_report"><strong>get_capability_report</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;requests&nbsp;and&nbsp;returns&nbsp;a&nbsp;Firmata&nbsp;capability&nbsp;query&nbsp;report<br>
+&nbsp;<br>
+:returns:&nbsp;A&nbsp;capability&nbsp;report&nbsp;in&nbsp;the&nbsp;form&nbsp;of&nbsp;a&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_digital_latch_data"><strong>get_digital_latch_data</strong></a>(self, pin)</dt><dd><tt>A&nbsp;list&nbsp;is&nbsp;returned&nbsp;containing&nbsp;the&nbsp;latch&nbsp;state&nbsp;for&nbsp;the&nbsp;pin,&nbsp;the<br>
+latched&nbsp;value,&nbsp;and&nbsp;the&nbsp;time&nbsp;stamp<br>
+[pin_num,&nbsp;latch_state,&nbsp;latched_value,&nbsp;time_stamp]<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number.<br>
+:returns:&nbsp;&nbsp;[latched_state,&nbsp;threshold_type,&nbsp;threshold_value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latched_data,&nbsp;time_stamp]</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_firmware_version"><strong>get_firmware_version</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;Firmata&nbsp;firmware&nbsp;version<br>
+&nbsp;<br>
+:returns:&nbsp;Firmata&nbsp;firmware&nbsp;version</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_pin_state"><strong>get_pin_state</strong></a>(self, pin)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;a&nbsp;pin&nbsp;state&nbsp;report&nbsp;for&nbsp;the&nbsp;specified&nbsp;pin<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;of&nbsp;interest<br>
+:returns:&nbsp;pin&nbsp;state&nbsp;report</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_protocol_version"><strong>get_protocol_version</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;returns&nbsp;the&nbsp;major&nbsp;and&nbsp;minor&nbsp;values&nbsp;for&nbsp;the&nbsp;protocol<br>
+version,&nbsp;i.e.&nbsp;2.4<br>
+&nbsp;<br>
+:returns:&nbsp;Firmata&nbsp;protocol&nbsp;version</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-get_pymata_version"><strong>get_pymata_version</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;PyMata&nbsp;version&nbsp;number<br>
+&nbsp;<br>
+:returns:&nbsp;PyMata&nbsp;version&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-i2c_config"><strong>i2c_config</strong></a>(self, read_delay_time=0)</dt><dd><tt>NOTE:&nbsp;THIS&nbsp;METHOD&nbsp;MUST&nbsp;BE&nbsp;CALLED&nbsp;BEFORE&nbsp;ANY&nbsp;I2C&nbsp;REQUEST&nbsp;IS&nbsp;MADE<br>
+This&nbsp;method&nbsp;initializes&nbsp;Firmata&nbsp;for&nbsp;I2c&nbsp;operations.<br>
+&nbsp;<br>
+:param&nbsp;read_delay_time&nbsp;(in&nbsp;microseconds):&nbsp;an&nbsp;optional&nbsp;parameter,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;is&nbsp;0<br>
+:returns:&nbsp;No&nbsp;Return&nbsp;Value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-i2c_read_data"><strong>i2c_read_data</strong></a>(self, address)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;cached&nbsp;i2c&nbsp;data&nbsp;to&nbsp;support&nbsp;a&nbsp;polling&nbsp;mode.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;I2C&nbsp;device&nbsp;address<br>
+:returns:&nbsp;Last&nbsp;cached&nbsp;value&nbsp;read</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-i2c_read_request"><strong>i2c_read_request</strong></a>(self, address, register, number_of_bytes, read_type, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;requests&nbsp;the&nbsp;read&nbsp;of&nbsp;an&nbsp;i2c&nbsp;device.&nbsp;Results&nbsp;are&nbsp;retrieved<br>
+by&nbsp;a&nbsp;call&nbsp;to&nbsp;i2c_get_read_data().&nbsp;or&nbsp;by&nbsp;callback.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;callback&nbsp;method&nbsp;is&nbsp;provided,&nbsp;when&nbsp;data&nbsp;is&nbsp;received&nbsp;from&nbsp;the<br>
+device&nbsp;it&nbsp;will&nbsp;be&nbsp;sent&nbsp;to&nbsp;the&nbsp;callback&nbsp;method.<br>
+Some&nbsp;devices&nbsp;require&nbsp;that&nbsp;transmission&nbsp;be&nbsp;restarted<br>
+(e.g.&nbsp;MMA8452Q&nbsp;accelerometer).<br>
+Use&nbsp;Constants.I2C_READ&nbsp;|&nbsp;Constants.I2C_RESTART_TX&nbsp;for&nbsp;those&nbsp;cases.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;i2c&nbsp;device&nbsp;address<br>
+:param&nbsp;register:&nbsp;register&nbsp;number&nbsp;(can&nbsp;be&nbsp;set&nbsp;to&nbsp;zero)<br>
+:param&nbsp;number_of_bytes:&nbsp;number&nbsp;of&nbsp;bytes&nbsp;expected&nbsp;to&nbsp;be&nbsp;returned<br>
+:param&nbsp;read_type:&nbsp;I2C_READ&nbsp;&nbsp;or&nbsp;I2C_READ_CONTINUOUSLY.&nbsp;I2C_RESTART_TX<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may&nbsp;be&nbsp;OR'ed&nbsp;when&nbsp;required<br>
+:param&nbsp;cb:&nbsp;Optional&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;i2c&nbsp;data&nbsp;as&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;of&nbsp;read&nbsp;command<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-i2c_write_request"><strong>i2c_write_request</strong></a>(self, address, args)</dt><dd><tt>Write&nbsp;data&nbsp;to&nbsp;an&nbsp;i2c&nbsp;device.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;i2c&nbsp;device&nbsp;address<br>
+:param&nbsp;args:&nbsp;A&nbsp;variable&nbsp;number&nbsp;of&nbsp;bytes&nbsp;to&nbsp;be&nbsp;sent&nbsp;to&nbsp;the&nbsp;device<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passed&nbsp;in&nbsp;as&nbsp;a&nbsp;list<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-keep_alive"><strong>keep_alive</strong></a>(self, period=1, margin=0.3)</dt><dd><tt>Periodically&nbsp;send&nbsp;a&nbsp;keep&nbsp;alive&nbsp;message&nbsp;to&nbsp;the&nbsp;Arduino.<br>
+Frequency&nbsp;of&nbsp;keep&nbsp;alive&nbsp;transmission&nbsp;is&nbsp;calculated&nbsp;as&nbsp;follows:<br>
+keep_alive_sent&nbsp;=&nbsp;period&nbsp;-&nbsp;(period&nbsp;*&nbsp;margin)<br>
+&nbsp;<br>
+&nbsp;<br>
+:param&nbsp;period:&nbsp;Time&nbsp;period&nbsp;between&nbsp;keepalives.&nbsp;Range&nbsp;is&nbsp;0-10&nbsp;seconds.&nbsp;0&nbsp;disables&nbsp;the&nbsp;keepalive&nbsp;mechanism.<br>
+:param&nbsp;margin:&nbsp;Safety&nbsp;margin&nbsp;to&nbsp;assure&nbsp;keepalives&nbsp;are&nbsp;sent&nbsp;before&nbsp;period&nbsp;expires.&nbsp;Range&nbsp;is&nbsp;0.1&nbsp;to&nbsp;0.9<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-pixy_init"><strong>pixy_init</strong></a>(self, max_blocks=5, cb=None, cb_type=None)</dt><dd><tt>Initialize&nbsp;Pixy&nbsp;and&nbsp;enable&nbsp;Pixy&nbsp;block&nbsp;reporting.<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlusRB&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;Pixy&nbsp;blocks<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:param&nbsp;max_blocks:&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;Pixy&nbsp;blocks&nbsp;to&nbsp;report&nbsp;when&nbsp;many&nbsp;signatures&nbsp;are&nbsp;found.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-pixy_set_brightness"><strong>pixy_set_brightness</strong></a>(self, brightness)</dt><dd><tt>Sends&nbsp;the&nbsp;setBrightness&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;brightness&nbsp;(exposure)&nbsp;of&nbsp;Pixy's&nbsp;camera.<br>
+&nbsp;<br>
+:param&nbsp;brightness:&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255&nbsp;with&nbsp;255&nbsp;being&nbsp;the&nbsp;brightest&nbsp;setting<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-pixy_set_led"><strong>pixy_set_led</strong></a>(self, r, g, b)</dt><dd><tt>Sends&nbsp;the&nbsp;setLed&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;RGB&nbsp;LED&nbsp;on&nbsp;front&nbsp;of&nbsp;Pixy.<br>
+&nbsp;<br>
+:param&nbsp;r:&nbsp;red&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:param&nbsp;g:&nbsp;green&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:param&nbsp;b:&nbsp;blue&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-pixy_set_servos"><strong>pixy_set_servos</strong></a>(self, s0, s1)</dt><dd><tt>Sends&nbsp;the&nbsp;setServos&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;pan/tilt&nbsp;servos&nbsp;that&nbsp;are&nbsp;plugged&nbsp;into&nbsp;Pixy's&nbsp;two&nbsp;servo&nbsp;ports.<br>
+&nbsp;<br>
+:param&nbsp;s0:&nbsp;value&nbsp;0&nbsp;to&nbsp;1000<br>
+:param&nbsp;s1:&nbsp;value&nbsp;0&nbsp;to&nbsp;1000<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-play_tone"><strong>play_tone</strong></a>(self, pin, tone_command, frequency, duration)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;call&nbsp;the&nbsp;Tone&nbsp;library&nbsp;for&nbsp;the&nbsp;selected&nbsp;pin.<br>
+It&nbsp;requires&nbsp;FirmataPlus&nbsp;to&nbsp;be&nbsp;loaded&nbsp;onto&nbsp;the&nbsp;arduino<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;tone&nbsp;command&nbsp;is&nbsp;set&nbsp;to&nbsp;TONE_TONE,&nbsp;then&nbsp;the&nbsp;specified&nbsp;tone&nbsp;will&nbsp;be&nbsp;played.<br>
+&nbsp;<br>
+Else,&nbsp;if&nbsp;the&nbsp;tone&nbsp;command&nbsp;is&nbsp;TONE_NO_TONE,&nbsp;then&nbsp;any&nbsp;currently&nbsp;playing&nbsp;tone&nbsp;will&nbsp;be&nbsp;disabled.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number<br>
+:param&nbsp;tone_command:&nbsp;Either&nbsp;TONE_TONE,&nbsp;or&nbsp;TONE_NO_TONE<br>
+:param&nbsp;frequency:&nbsp;Frequency&nbsp;of&nbsp;tone<br>
+:param&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;tone&nbsp;in&nbsp;milliseconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-send_reset"><strong>send_reset</strong></a>(self)</dt><dd><tt>Send&nbsp;a&nbsp;Sysex&nbsp;reset&nbsp;command&nbsp;to&nbsp;the&nbsp;arduino<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-servo_config"><strong>servo_config</strong></a>(self, pin, min_pulse=544, max_pulse=2400)</dt><dd><tt>Configure&nbsp;a&nbsp;pin&nbsp;as&nbsp;a&nbsp;servo&nbsp;pin.&nbsp;Set&nbsp;pulse&nbsp;min,&nbsp;max&nbsp;in&nbsp;ms.<br>
+Use&nbsp;this&nbsp;method&nbsp;(not&nbsp;set_pin_mode)&nbsp;to&nbsp;configure&nbsp;a&nbsp;pin&nbsp;for&nbsp;servo<br>
+operation.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Servo&nbsp;Pin.<br>
+:param&nbsp;min_pulse:&nbsp;Min&nbsp;pulse&nbsp;width&nbsp;in&nbsp;ms.<br>
+:param&nbsp;max_pulse:&nbsp;Max&nbsp;pulse&nbsp;width&nbsp;in&nbsp;ms.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-set_analog_latch"><strong>set_analog_latch</strong></a>(self, pin, threshold_type, threshold_value, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;"arms"&nbsp;an&nbsp;analog&nbsp;pin&nbsp;for&nbsp;its&nbsp;data&nbsp;to&nbsp;be&nbsp;latched&nbsp;and&nbsp;saved<br>
+in&nbsp;the&nbsp;latching&nbsp;table<br>
+If&nbsp;a&nbsp;callback&nbsp;method&nbsp;is&nbsp;provided,&nbsp;when&nbsp;latching&nbsp;criteria&nbsp;is&nbsp;achieved,<br>
+the&nbsp;callback&nbsp;function&nbsp;is&nbsp;called&nbsp;with&nbsp;latching&nbsp;data&nbsp;notification.<br>
+&nbsp;<br>
+Data&nbsp;returned&nbsp;in&nbsp;the&nbsp;callback&nbsp;list&nbsp;has&nbsp;the&nbsp;pin&nbsp;number&nbsp;as&nbsp;the<br>
+first&nbsp;element,<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(value&nbsp;following&nbsp;an&nbsp;'A'&nbsp;designator,&nbsp;i.e.&nbsp;A5&nbsp;=&nbsp;5<br>
+:param&nbsp;threshold_type:&nbsp;ANALOG_LATCH_GT&nbsp;|&nbsp;ANALOG_LATCH_LT&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANALOG_LATCH_GTE&nbsp;|&nbsp;ANALOG_LATCH_LTE<br>
+:param&nbsp;threshold_value:&nbsp;numerical&nbsp;value&nbsp;-&nbsp;between&nbsp;0&nbsp;and&nbsp;1023<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;method<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;if&nbsp;parameter&nbsp;data&nbsp;is&nbsp;invalid</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-set_digital_latch"><strong>set_digital_latch</strong></a>(self, pin, threshold_value, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;"arms"&nbsp;a&nbsp;digital&nbsp;pin&nbsp;for&nbsp;its&nbsp;data&nbsp;to&nbsp;be&nbsp;latched&nbsp;and<br>
+saved&nbsp;in&nbsp;the&nbsp;latching&nbsp;table<br>
+If&nbsp;a&nbsp;callback&nbsp;method&nbsp;is&nbsp;provided,&nbsp;when&nbsp;latching&nbsp;criteria&nbsp;is&nbsp;achieved,<br>
+the&nbsp;callback&nbsp;function&nbsp;is&nbsp;called&nbsp;with&nbsp;latching&nbsp;data&nbsp;notification.<br>
+&nbsp;<br>
+Data&nbsp;returned&nbsp;in&nbsp;the&nbsp;callback&nbsp;list&nbsp;has&nbsp;the&nbsp;pin&nbsp;number&nbsp;as&nbsp;the<br>
+first&nbsp;element,<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;number<br>
+:param&nbsp;threshold_value:&nbsp;0&nbsp;or&nbsp;1<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;if&nbsp;parameter&nbsp;data&nbsp;is&nbsp;invalid</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-set_pin_mode"><strong>set_pin_mode</strong></a>(self, pin_number, pin_state, callback=None, callback_type=None)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;pin&nbsp;mode&nbsp;for&nbsp;the&nbsp;specified&nbsp;pin.<br>
+For&nbsp;Servo,&nbsp;use&nbsp;<a href="#PymataCore-servo_config">servo_config</a>()&nbsp;instead.<br>
+&nbsp;<br>
+:param&nbsp;pin_number:&nbsp;Arduino&nbsp;Pin&nbsp;Number<br>
+:param&nbsp;pin_state:&nbsp;INPUT/OUTPUT/ANALOG/PWM&nbsp;-&nbsp;for&nbsp;SERVO&nbsp;use<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PymataCore-servo_config">servo_config</a>()<br>
+:param&nbsp;callback:&nbsp;Optional:&nbsp;A&nbsp;reference&nbsp;to&nbsp;a&nbsp;call&nbsp;back&nbsp;function&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;called&nbsp;when&nbsp;pin&nbsp;data&nbsp;value&nbsp;changes<br>
+:param&nbsp;callback_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-set_sampling_interval"><strong>set_sampling_interval</strong></a>(self, interval)</dt><dd><tt>This&nbsp;method&nbsp;sends&nbsp;the&nbsp;desired&nbsp;sampling&nbsp;interval&nbsp;to&nbsp;Firmata.<br>
+Note:&nbsp;Standard&nbsp;Firmata&nbsp;&nbsp;will&nbsp;ignore&nbsp;any&nbsp;interval&nbsp;less&nbsp;than<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;milliseconds<br>
+&nbsp;<br>
+:param&nbsp;interval:&nbsp;Integer&nbsp;value&nbsp;for&nbsp;desired&nbsp;sampling&nbsp;interval<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;milliseconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-shutdown"><strong>shutdown</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;attempts&nbsp;an&nbsp;orderly&nbsp;shutdown<br>
+If&nbsp;any&nbsp;exceptions&nbsp;are&nbsp;thrown,&nbsp;just&nbsp;ignore&nbsp;them.<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-sleep"><strong>sleep</strong></a>(self, sleep_time)</dt><dd><tt>This&nbsp;method&nbsp;is&nbsp;a&nbsp;proxy&nbsp;method&nbsp;for&nbsp;asyncio.sleep<br>
+&nbsp;<br>
+:param&nbsp;sleep_time:&nbsp;Sleep&nbsp;interval&nbsp;in&nbsp;seconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-sonar_config"><strong>sonar_config</strong></a>(self, trigger_pin, echo_pin, cb=None, ping_interval=50, max_distance=200, cb_type=None)</dt><dd><tt>Configure&nbsp;the&nbsp;pins,ping&nbsp;interval&nbsp;and&nbsp;maximum&nbsp;distance&nbsp;for&nbsp;an&nbsp;HC-SR04<br>
+type&nbsp;device.<br>
+Single&nbsp;pin&nbsp;configuration&nbsp;may&nbsp;be&nbsp;used.&nbsp;To&nbsp;do&nbsp;so,&nbsp;set&nbsp;both&nbsp;the&nbsp;trigger<br>
+and&nbsp;echo&nbsp;pins&nbsp;to&nbsp;the&nbsp;same&nbsp;value.<br>
+Up&nbsp;to&nbsp;a&nbsp;maximum&nbsp;of&nbsp;6&nbsp;SONAR&nbsp;devices&nbsp;is&nbsp;supported<br>
+If&nbsp;the&nbsp;maximum&nbsp;is&nbsp;exceeded&nbsp;a&nbsp;message&nbsp;is&nbsp;sent&nbsp;to&nbsp;the&nbsp;console&nbsp;and&nbsp;the<br>
+request&nbsp;is&nbsp;ignored.<br>
+NOTE:&nbsp;data&nbsp;is&nbsp;measured&nbsp;in&nbsp;centimeters<br>
+&nbsp;<br>
+:param&nbsp;trigger_pin:&nbsp;The&nbsp;pin&nbsp;number&nbsp;of&nbsp;for&nbsp;the&nbsp;trigger&nbsp;(transmitter).<br>
+:param&nbsp;echo_pin:&nbsp;The&nbsp;pin&nbsp;number&nbsp;for&nbsp;the&nbsp;received&nbsp;echo.<br>
+:param&nbsp;cb:&nbsp;optional&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;sonar&nbsp;data&nbsp;changes<br>
+:param&nbsp;ping_interval:&nbsp;Minimum&nbsp;interval&nbsp;between&nbsp;pings.&nbsp;Lowest&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;use&nbsp;is&nbsp;33&nbsp;ms.Max&nbsp;is&nbsp;127<br>
+:param&nbsp;max_distance:&nbsp;Maximum&nbsp;distance&nbsp;in&nbsp;cm.&nbsp;Max&nbsp;is&nbsp;200.<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-sonar_data_retrieve"><strong>sonar_data_retrieve</strong></a>(self, trigger_pin)</dt><dd><tt>Retrieve&nbsp;Ping&nbsp;(HC-SR04&nbsp;type)&nbsp;data.&nbsp;The&nbsp;data&nbsp;is&nbsp;presented&nbsp;as&nbsp;a<br>
+dictionary.<br>
+The&nbsp;'key'&nbsp;is&nbsp;the&nbsp;trigger&nbsp;pin&nbsp;specified&nbsp;in&nbsp;<a href="#PymataCore-sonar_config">sonar_config</a>()<br>
+and&nbsp;the&nbsp;'data'&nbsp;is&nbsp;the&nbsp;current&nbsp;measured&nbsp;distance&nbsp;(in&nbsp;centimeters)<br>
+for&nbsp;that&nbsp;pin.&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;data,&nbsp;the&nbsp;value&nbsp;is&nbsp;set&nbsp;to&nbsp;None.<br>
+&nbsp;<br>
+:param&nbsp;trigger_pin:&nbsp;key&nbsp;into&nbsp;sonar&nbsp;data&nbsp;map<br>
+:returns:&nbsp;active_sonar_map</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-start"><strong>start</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;must&nbsp;be&nbsp;called&nbsp;immediately&nbsp;after&nbsp;the&nbsp;class&nbsp;is&nbsp;instantiated.<br>
+It&nbsp;instantiates&nbsp;the&nbsp;serial&nbsp;interface&nbsp;and&nbsp;then&nbsp;performs&nbsp;auto&nbsp;pin<br>
+discovery.<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;use&nbsp;by&nbsp;pymata3&nbsp;applications&nbsp;that&nbsp;do&nbsp;not<br>
+use&nbsp;asyncio&nbsp;coroutines&nbsp;directly.<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-start_aio"><strong>start_aio</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;must&nbsp;be&nbsp;called&nbsp;immediately&nbsp;after&nbsp;the&nbsp;class&nbsp;is&nbsp;instantiated.<br>
+It&nbsp;instantiates&nbsp;the&nbsp;serial&nbsp;interface&nbsp;and&nbsp;then&nbsp;performs&nbsp;auto&nbsp;pin<br>
+discovery.<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;use&nbsp;by&nbsp;applications&nbsp;that&nbsp;directly&nbsp;uses&nbsp;asyncio.<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-stepper_config"><strong>stepper_config</strong></a>(self, steps_per_revolution, stepper_pins)</dt><dd><tt>Configure&nbsp;stepper&nbsp;motor&nbsp;prior&nbsp;to&nbsp;operation.<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;steps_per_revolution:&nbsp;number&nbsp;of&nbsp;steps&nbsp;per&nbsp;motor&nbsp;revolution<br>
+:param&nbsp;stepper_pins:&nbsp;a&nbsp;list&nbsp;of&nbsp;control&nbsp;pin&nbsp;numbers&nbsp;-&nbsp;either&nbsp;4&nbsp;or&nbsp;2<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PymataCore-stepper_step"><strong>stepper_step</strong></a>(self, motor_speed, number_of_steps)</dt><dd><tt>Move&nbsp;a&nbsp;stepper&nbsp;motor&nbsp;for&nbsp;the&nbsp;number&nbsp;of&nbsp;steps&nbsp;at&nbsp;the&nbsp;specified&nbsp;speed<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;motor_speed:&nbsp;21&nbsp;bits&nbsp;of&nbsp;data&nbsp;to&nbsp;set&nbsp;motor&nbsp;speed<br>
+:param&nbsp;number_of_steps:&nbsp;14&nbsp;bits&nbsp;for&nbsp;number&nbsp;of&nbsp;steps&nbsp;&amp;&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positive&nbsp;is&nbsp;forward,&nbsp;negative&nbsp;is&nbsp;reverse<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

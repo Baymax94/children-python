@@ -1,0 +1,2653 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pymata_aio package &mdash; pymata_aio  documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pymata_aio  documentation" href="index.html" />
+    <link rel="prev" title="Welcome to pymata_aio’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pymata_aio’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">pymata_aio  documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="pymata-aio-package">
+<h1>pymata_aio package<a class="headerlink" href="#pymata-aio-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pymata_aio.constants">
+<span id="pymata-aio-constants-module"></span><h2>pymata_aio.constants module<a class="headerlink" href="#module-pymata_aio.constants" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.constants.Constants">
+<em class="property">class </em><tt class="descclassname">pymata_aio.constants.</tt><tt class="descname">Constants</tt><a class="headerlink" href="#pymata_aio.constants.Constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>This class contains a set of constants that may be used by
+the applications writer.</p>
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.ANALOG">
+<tt class="descname">ANALOG</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.constants.Constants.ANALOG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.CB_TYPE_ASYNCIO">
+<tt class="descname">CB_TYPE_ASYNCIO</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.CB_TYPE_ASYNCIO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.CB_TYPE_DIRECT">
+<tt class="descname">CB_TYPE_DIRECT</tt><em class="property"> = None</em><a class="headerlink" href="#pymata_aio.constants.Constants.CB_TYPE_DIRECT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.ENCODER">
+<tt class="descname">ENCODER</tt><em class="property"> = 10</em><a class="headerlink" href="#pymata_aio.constants.Constants.ENCODER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C">
+<tt class="descname">I2C</tt><em class="property"> = 6</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_10BIT_ADDRESS_MODE_MASK">
+<tt class="descname">I2C_10BIT_ADDRESS_MODE_MASK</tt><em class="property"> = 32</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_10BIT_ADDRESS_MODE_MASK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_END_TX_MASK">
+<tt class="descname">I2C_END_TX_MASK</tt><em class="property"> = 64</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_END_TX_MASK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_READ">
+<tt class="descname">I2C_READ</tt><em class="property"> = 8</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_READ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_READ_CONTINUOUSLY">
+<tt class="descname">I2C_READ_CONTINUOUSLY</tt><em class="property"> = 16</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_READ_CONTINUOUSLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_READ_WRITE_MODE_MASK">
+<tt class="descname">I2C_READ_WRITE_MODE_MASK</tt><em class="property"> = 24</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_READ_WRITE_MODE_MASK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_RESTART_TX">
+<tt class="descname">I2C_RESTART_TX</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_RESTART_TX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_STOP_READING">
+<tt class="descname">I2C_STOP_READING</tt><em class="property"> = 24</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_STOP_READING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_STOP_TX">
+<tt class="descname">I2C_STOP_TX</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_STOP_TX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.I2C_WRITE">
+<tt class="descname">I2C_WRITE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.I2C_WRITE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.IGNORE">
+<tt class="descname">IGNORE</tt><em class="property"> = 127</em><a class="headerlink" href="#pymata_aio.constants.Constants.IGNORE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.INPUT">
+<tt class="descname">INPUT</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.INPUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCHED_DATA">
+<tt class="descname">LATCHED_DATA</tt><em class="property"> = 3</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCHED_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCHED_THRESHOLD_TYPE">
+<tt class="descname">LATCHED_THRESHOLD_TYPE</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCHED_THRESHOLD_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCHED_TIME_STAMP">
+<tt class="descname">LATCHED_TIME_STAMP</tt><em class="property"> = 4</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCHED_TIME_STAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_ARMED">
+<tt class="descname">LATCH_ARMED</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_ARMED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_CALLBACK">
+<tt class="descname">LATCH_CALLBACK</tt><em class="property"> = 5</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_CALLBACK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_CALLBACK_TIME_STAMP">
+<tt class="descname">LATCH_CALLBACK_TIME_STAMP</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_CALLBACK_TIME_STAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_CALL_BACK_DATA">
+<tt class="descname">LATCH_CALL_BACK_DATA</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_CALL_BACK_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_CALL_BACK_PIN">
+<tt class="descname">LATCH_CALL_BACK_PIN</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_CALL_BACK_PIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_DATA_TARGET">
+<tt class="descname">LATCH_DATA_TARGET</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_DATA_TARGET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_EQ">
+<tt class="descname">LATCH_EQ</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_EQ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_GT">
+<tt class="descname">LATCH_GT</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_GT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_GTE">
+<tt class="descname">LATCH_GTE</tt><em class="property"> = 3</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_GTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_IGNORE">
+<tt class="descname">LATCH_IGNORE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_IGNORE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_LATCHED">
+<tt class="descname">LATCH_LATCHED</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_LATCHED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_LT">
+<tt class="descname">LATCH_LT</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_LT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_LTE">
+<tt class="descname">LATCH_LTE</tt><em class="property"> = 4</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_LTE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.LATCH_STATE">
+<tt class="descname">LATCH_STATE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.LATCH_STATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.ONEWIRE">
+<tt class="descname">ONEWIRE</tt><em class="property"> = 7</em><a class="headerlink" href="#pymata_aio.constants.Constants.ONEWIRE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.OUTPUT">
+<tt class="descname">OUTPUT</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.OUTPUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.PIXY">
+<tt class="descname">PIXY</tt><em class="property"> = 12</em><a class="headerlink" href="#pymata_aio.constants.Constants.PIXY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.PWM">
+<tt class="descname">PWM</tt><em class="property"> = 3</em><a class="headerlink" href="#pymata_aio.constants.Constants.PWM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.SERVO">
+<tt class="descname">SERVO</tt><em class="property"> = 4</em><a class="headerlink" href="#pymata_aio.constants.Constants.SERVO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.SONAR">
+<tt class="descname">SONAR</tt><em class="property"> = 11</em><a class="headerlink" href="#pymata_aio.constants.Constants.SONAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.STEPPER">
+<tt class="descname">STEPPER</tt><em class="property"> = 8</em><a class="headerlink" href="#pymata_aio.constants.Constants.STEPPER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.TONE">
+<tt class="descname">TONE</tt><em class="property"> = 9</em><a class="headerlink" href="#pymata_aio.constants.Constants.TONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.TONE_NO_TONE">
+<tt class="descname">TONE_NO_TONE</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.constants.Constants.TONE_NO_TONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.constants.Constants.TONE_TONE">
+<tt class="descname">TONE_TONE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.constants.Constants.TONE_TONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio.pin_data">
+<span id="pymata-aio-pin-data-module"></span><h2>pymata_aio.pin_data module<a class="headerlink" href="#module-pymata_aio.pin_data" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 20115 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.pin_data.PinData">
+<em class="property">class </em><tt class="descclassname">pymata_aio.pin_data.</tt><tt class="descname">PinData</tt><a class="headerlink" href="#pymata_aio.pin_data.PinData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Each analog and digital input pin is described by an instance of
+this class. It contains both the last data value received and a potential
+callback reference and the callback method type.
+The callback method type default is a non-asyncio call,
+but can be optionally be set to use yield from when required.</p>
+<dl class="attribute">
+<dt id="pymata_aio.pin_data.PinData.cb">
+<tt class="descname">cb</tt><a class="headerlink" href="#pymata_aio.pin_data.PinData.cb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.pin_data.PinData.cb_type">
+<tt class="descname">cb_type</tt><a class="headerlink" href="#pymata_aio.pin_data.PinData.cb_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.pin_data.PinData.current_value">
+<tt class="descname">current_value</tt><a class="headerlink" href="#pymata_aio.pin_data.PinData.current_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio.private_constants">
+<span id="pymata-aio-private-constants-module"></span><h2>pymata_aio.private_constants module<a class="headerlink" href="#module-pymata_aio.private_constants" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 20115 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.private_constants.PrivateConstants">
+<em class="property">class </em><tt class="descclassname">pymata_aio.private_constants.</tt><tt class="descname">PrivateConstants</tt><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>This class contains a set of constants for PyMata internal use .</p>
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_QUERY">
+<tt class="descname">ANALOG_MAPPING_QUERY</tt><em class="property"> = 105</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_QUERY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_RESPONSE">
+<tt class="descname">ANALOG_MAPPING_RESPONSE</tt><em class="property"> = 106</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_RESPONSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.ANALOG_MESSAGE">
+<tt class="descname">ANALOG_MESSAGE</tt><em class="property"> = 224</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.ANALOG_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.CAPABILITY_QUERY">
+<tt class="descname">CAPABILITY_QUERY</tt><em class="property"> = 107</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.CAPABILITY_QUERY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.CAPABILITY_RESPONSE">
+<tt class="descname">CAPABILITY_RESPONSE</tt><em class="property"> = 108</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.CAPABILITY_RESPONSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.DIGITAL_MESSAGE">
+<tt class="descname">DIGITAL_MESSAGE</tt><em class="property"> = 144</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.DIGITAL_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.DIGITAL_OUTPUT_PORT_PINS">
+<tt class="descname">DIGITAL_OUTPUT_PORT_PINS</tt><em class="property"> = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.DIGITAL_OUTPUT_PORT_PINS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.ENCODER_CONFIG">
+<tt class="descname">ENCODER_CONFIG</tt><em class="property"> = 96</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.ENCODER_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.ENCODER_DATA">
+<tt class="descname">ENCODER_DATA</tt><em class="property"> = 97</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.ENCODER_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.END_SYSEX">
+<tt class="descname">END_SYSEX</tt><em class="property"> = 247</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.END_SYSEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.EXTENDED_ANALOG">
+<tt class="descname">EXTENDED_ANALOG</tt><em class="property"> = 111</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.EXTENDED_ANALOG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.I2C_CONFIG">
+<tt class="descname">I2C_CONFIG</tt><em class="property"> = 120</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.I2C_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.I2C_REPLY">
+<tt class="descname">I2C_REPLY</tt><em class="property"> = 119</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.I2C_REPLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.I2C_REQUEST">
+<tt class="descname">I2C_REQUEST</tt><em class="property"> = 118</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.I2C_REQUEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.KEEP_ALIVE">
+<tt class="descname">KEEP_ALIVE</tt><em class="property"> = 80</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.KEEP_ALIVE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.LSB">
+<tt class="descname">LSB</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.LSB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.MSB">
+<tt class="descname">MSB</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.MSB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.MSG_CMD_MIN">
+<tt class="descname">MSG_CMD_MIN</tt><em class="property"> = 128</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.MSG_CMD_MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIN_PIXY_MOSI">
+<tt class="descname">PIN_PIXY_MOSI</tt><em class="property"> = 11</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIN_PIXY_MOSI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIN_STATE_QUERY">
+<tt class="descname">PIN_STATE_QUERY</tt><em class="property"> = 109</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIN_STATE_QUERY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIN_STATE_RESPONSE">
+<tt class="descname">PIN_STATE_RESPONSE</tt><em class="property"> = 110</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIN_STATE_RESPONSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_CONFIG">
+<tt class="descname">PIXY_CONFIG</tt><em class="property"> = 100</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_DATA">
+<tt class="descname">PIXY_DATA</tt><em class="property"> = 101</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_INIT">
+<tt class="descname">PIXY_INIT</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_INIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_BRIGHTNESS">
+<tt class="descname">PIXY_SET_BRIGHTNESS</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_SET_BRIGHTNESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_LED">
+<tt class="descname">PIXY_SET_LED</tt><em class="property"> = 3</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_SET_LED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_SERVOS">
+<tt class="descname">PIXY_SET_SERVOS</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PIXY_SET_SERVOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.PYMATA_VERSION">
+<tt class="descname">PYMATA_VERSION</tt><em class="property"> = '2.7'</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.PYMATA_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORTING_DISABLE">
+<tt class="descname">REPORTING_DISABLE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORTING_DISABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORTING_ENABLE">
+<tt class="descname">REPORTING_ENABLE</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORTING_ENABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORT_ANALOG">
+<tt class="descname">REPORT_ANALOG</tt><em class="property"> = 192</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORT_ANALOG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORT_DIGITAL">
+<tt class="descname">REPORT_DIGITAL</tt><em class="property"> = 208</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORT_DIGITAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORT_FIRMWARE">
+<tt class="descname">REPORT_FIRMWARE</tt><em class="property"> = 121</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORT_FIRMWARE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.REPORT_VERSION">
+<tt class="descname">REPORT_VERSION</tt><em class="property"> = 249</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.REPORT_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SAMPLING_INTERVAL">
+<tt class="descname">SAMPLING_INTERVAL</tt><em class="property"> = 122</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SAMPLING_INTERVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SERVO_CONFIG">
+<tt class="descname">SERVO_CONFIG</tt><em class="property"> = 112</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SERVO_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SET_PIN_MODE">
+<tt class="descname">SET_PIN_MODE</tt><em class="property"> = 244</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SET_PIN_MODE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SONAR_CONFIG">
+<tt class="descname">SONAR_CONFIG</tt><em class="property"> = 98</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SONAR_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SONAR_DATA">
+<tt class="descname">SONAR_DATA</tt><em class="property"> = 99</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SONAR_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.START_SYSEX">
+<tt class="descname">START_SYSEX</tt><em class="property"> = 240</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.START_SYSEX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.STEPPER_CONFIGURE">
+<tt class="descname">STEPPER_CONFIGURE</tt><em class="property"> = 0</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.STEPPER_CONFIGURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.STEPPER_DATA">
+<tt class="descname">STEPPER_DATA</tt><em class="property"> = 114</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.STEPPER_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.STEPPER_LIBRARY_VERSION">
+<tt class="descname">STEPPER_LIBRARY_VERSION</tt><em class="property"> = 2</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.STEPPER_LIBRARY_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.STEPPER_STEP">
+<tt class="descname">STEPPER_STEP</tt><em class="property"> = 1</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.STEPPER_STEP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.STRING_DATA">
+<tt class="descname">STRING_DATA</tt><em class="property"> = 113</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.STRING_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SYSEX_NON_REALTIME">
+<tt class="descname">SYSEX_NON_REALTIME</tt><em class="property"> = 126</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SYSEX_NON_REALTIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SYSEX_REALTIME">
+<tt class="descname">SYSEX_REALTIME</tt><em class="property"> = 127</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SYSEX_REALTIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.SYSTEM_RESET">
+<tt class="descname">SYSTEM_RESET</tt><em class="property"> = 255</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.SYSTEM_RESET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pymata_aio.private_constants.PrivateConstants.TONE_DATA">
+<tt class="descname">TONE_DATA</tt><em class="property"> = 95</em><a class="headerlink" href="#pymata_aio.private_constants.PrivateConstants.TONE_DATA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio.pymata3">
+<span id="pymata-aio-pymata3-module"></span><h2>pymata_aio.pymata3 module<a class="headerlink" href="#module-pymata_aio.pymata3" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.pymata3.PyMata3">
+<em class="property">class </em><tt class="descclassname">pymata_aio.pymata3.</tt><tt class="descname">PyMata3</tt><big>(</big><em>arduino_wait=2</em>, <em>sleep_tune=0.0001</em>, <em>log_output=False</em>, <em>com_port=None</em>, <em>ip_address=None</em>, <em>ip_port=2000</em>, <em>ip_handshake='*HELLO*'</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>This class exposes and implements a proxy API for the pymata_core asyncio
+API,  If your application does not use asyncio directly, this is
+the API that you should use..</p>
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.analog_read">
+<tt class="descname">analog_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.analog_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the last data update for the specified analog pin.
+It is intended for a polling application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number (ex. A2 is specified as 2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Last value reported for the analog pin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.analog_write">
+<tt class="descname">analog_write</tt><big>(</big><em>pin</em>, <em>value</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.analog_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the selected PWM pin to the specified value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; PWM pin number</li>
+<li><strong>value</strong> &#8211; Set the selected pin to the specified
+value. 0-0x4000 (14 bits)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.digital_read">
+<tt class="descname">digital_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.digital_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the last data update for the specified digital pin.
+It is intended for a polling application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Digital pin number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Last value reported for the digital pin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.digital_write">
+<tt class="descname">digital_write</tt><big>(</big><em>pin</em>, <em>value=0</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.digital_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified digital input pin to the provided value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Digital pin to be set</li>
+<li><strong>value</strong> &#8211; 0 or 1</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.disable_analog_reporting">
+<tt class="descname">disable_analog_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.disable_analog_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables analog reporting for a single analog pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number. For example for A0, the number is 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.disable_digital_reporting">
+<tt class="descname">disable_digital_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.disable_digital_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables digital reporting. By turning reporting off for this pin,
+reporting is disabled for all 8 bits in the &#8220;port&#8221;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin and all pins for this port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.enable_analog_reporting">
+<tt class="descname">enable_analog_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.enable_analog_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables analog reporting for a single analog pin,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number. For example for A0, the number is 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.enable_digital_reporting">
+<tt class="descname">enable_digital_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.enable_digital_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables digital reporting. By turning reporting on for all
+8 bits in the &#8220;port&#8221;.
+This is part of Firmata&#8217;s protocol specification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin and all pins for this port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.encoder_config">
+<tt class="descname">encoder_config</tt><big>(</big><em>pin_a</em>, <em>pin_b</em>, <em>cb=None</em>, <em>cb_type=None</em>, <em>hall_encoder=False</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.encoder_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command enables the rotary encoder (2 pin + ground) and will
+enable encoder reporting.</p>
+<p>This is a FirmataPlus feature.</p>
+<p>Encoder data is retrieved by performing a digital_read from
+pin a (encoder pin 1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin_a</strong> &#8211; Encoder pin 1.</li>
+<li><strong>pin_b</strong> &#8211; Encoder pin 2.</li>
+<li><strong>cb</strong> &#8211; callback function to report encoder changes</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call
+or Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+<li><strong>hall_encoder</strong> &#8211; wheel hall_encoder - set to True to select
+hall encoder support support.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.encoder_read">
+<tt class="descname">encoder_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.encoder_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the latest encoder data value.
+It is a FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Encoder Pin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">encoder data value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.extended_analog">
+<tt class="descname">extended_analog</tt><big>(</big><em>pin</em>, <em>data</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.extended_analog" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will send an extended-data analog write command
+to the selected pin..</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; 0 - 127</li>
+<li><strong>data</strong> &#8211; 0 - 0-0x4000 (14 bits)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_analog_latch_data">
+<tt class="descname">get_analog_latch_data</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_analog_latch_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list is returned containing the latch state for the pin, the
+latched value, and the time stamp
+[pin_num, latch_state, latched_value, time_stamp]
+If the the latch state is LATCH_LATCHED, the table is reset
+(data and timestamp set to zero)
+It is intended to be used for a polling application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[latched_state, threshold_type, threshold_value,
+latched_data, time_stamp]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_analog_map">
+<tt class="descname">get_analog_map</tt><big>(</big><em>cb=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_analog_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method requests and returns an analog map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cb</strong> &#8211; Optional callback reference</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An analog map response or None if a timeout occurs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_capability_report">
+<tt class="descname">get_capability_report</tt><big>(</big><em>raw=True</em>, <em>cb=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_capability_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the Firmata capability report</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>raw</strong> &#8211; <dl class="docutils">
+<dt>If True, it either stores or provides the callback</dt>
+<dd>with a report as list.</dd>
+</dl>
+<p>If False, prints a formatted report to the console</p>
+</li>
+<li><strong>cb</strong> &#8211; Optional callback reference to receive a raw report</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">capability report</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_digital_latch_data">
+<tt class="descname">get_digital_latch_data</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_digital_latch_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list is returned containing the latch state for the pin, the
+latched value, and the time stamp</p>
+<p>[pin_num, latch_state, latched_value, time_stamp]</p>
+<p>If the the latch state is LATCH_LATCHED, the table is reset
+(data and timestamp set to zero).
+It is intended for use by a polling application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[latched_state, threshold_type, threshold_value,
+latched_data, time_stamp]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_firmware_version">
+<tt class="descname">get_firmware_version</tt><big>(</big><em>cb=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the Firmata firmware version</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cb</strong> &#8211; Reference to a callback function</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:If no callback is specified, the firmware version</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_pin_state">
+<tt class="descname">get_pin_state</tt><big>(</big><em>pin</em>, <em>cb=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_pin_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves a pin state report for the specified pin</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Pin of interest</li>
+<li><strong>cb</strong> &#8211; optional callback reference</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pin state report</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_protocol_version">
+<tt class="descname">get_protocol_version</tt><big>(</big><em>cb=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_protocol_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the Firmata protocol version</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cb</strong> &#8211; Optional callback reference.</td>
+</tr>
+</tbody>
+</table>
+<p>:returns:If no callback is specified, the firmware version</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.get_pymata_version">
+<tt class="descname">get_pymata_version</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.get_pymata_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the PyMata version number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">PyMata version number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.i2c_config">
+<tt class="descname">i2c_config</tt><big>(</big><em>read_delay_time=0</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.i2c_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method configures Arduino i2c with an optional read delay time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>read_delay_time</strong> &#8211; firmata i2c delay time</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.i2c_read_data">
+<tt class="descname">i2c_read_data</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.i2c_read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve result of last data read from i2c device.
+i2c_read_request should be called before trying to retrieve data.
+It is intended for use by a polling application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> &#8211; i2c</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">last data read or None if no data is present.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.i2c_read_request">
+<tt class="descname">i2c_read_request</tt><big>(</big><em>address</em>, <em>register</em>, <em>number_of_bytes</em>, <em>read_type</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.i2c_read_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method issues an i2c read request for a single read,continuous
+read or a stop, specified by the read_type.
+Because different i2c devices return data at different rates,
+if a callback is not specified, the user must first call this method
+and then call i2c_read_data  after waiting for sufficient time for the
+i2c device to respond.
+Some devices require that transmission be restarted
+(e.g. MMA8452Q accelerometer).
+Use I2C_READ | I2C_RESTART_TX for those cases.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>address</strong> &#8211; i2c device</li>
+<li><strong>register</strong> &#8211; i2c register number</li>
+<li><strong>number_of_bytes</strong> &#8211; number of bytes to be returned</li>
+<li><strong>read_type</strong> &#8211; Constants.I2C_READ, Constants.I2C_READ_CONTINUOUSLY
+or Constants.I2C_STOP_READING.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Constants.I2C_RESTART_TX may be OR&#8217;ed when required
+:param cb: optional callback reference
+:param cb_type: Constants.CB_TYPE_DIRECT = direct call or</p>
+<blockquote>
+<div>Constants.CB_TYPE_ASYNCIO = asyncio coroutine</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.i2c_write_request">
+<tt class="descname">i2c_write_request</tt><big>(</big><em>address</em>, <em>args</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.i2c_write_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to an i2c device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>address</strong> &#8211; i2c device address</li>
+<li><strong>args</strong> &#8211; A variable number of bytes to be sent to the device
+passed in as a list.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.keep_alive">
+<tt class="descname">keep_alive</tt><big>(</big><em>period=1</em>, <em>margin=0.3</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.keep_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodically send a keep alive message to the Arduino.
+Frequency of keep alive transmission is calculated as follows:
+keep_alive_sent = period - (period * margin)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>period</strong> &#8211; Time period between keepalives. Range is 0-10 seconds. 0 disables the keepalive mechanism.</li>
+<li><strong>margin</strong> &#8211; Safety margin to assure keepalives are sent before period expires. Range is 0.1 to 0.9</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.pixy_get_blocks">
+<tt class="descname">pixy_get_blocks</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.pixy_get_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the latest Pixy data value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Pixy data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.pixy_init">
+<tt class="descname">pixy_init</tt><big>(</big><em>max_blocks=5</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.pixy_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize Pixy and will enable Pixy block reporting.
+This is a FirmataPlusRB feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cb</strong> &#8211; callback function to report Pixy blocks</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+<li><strong>max_blocks</strong> &#8211; Maximum number of Pixy blocks to report when many signatures are found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.pixy_set_brightness">
+<tt class="descname">pixy_set_brightness</tt><big>(</big><em>brightness</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.pixy_set_brightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setBrightness Pixy command.
+This method sets the brightness (exposure) of Pixy&#8217;s camera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>brightness</strong> &#8211; range between 0 and 255 with 255 being the brightest setting</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.pixy_set_led">
+<tt class="descname">pixy_set_led</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.pixy_set_led" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setLed Pixy command.
+This method sets the RGB LED on front of Pixy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> &#8211; red range between 0 and 255</li>
+<li><strong>g</strong> &#8211; green range between 0 and 255</li>
+<li><strong>b</strong> &#8211; blue range between 0 and 255</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.pixy_set_servos">
+<tt class="descname">pixy_set_servos</tt><big>(</big><em>s0</em>, <em>s1</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.pixy_set_servos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setServos Pixy command.
+This method sets the pan/tilt servos that are plugged into Pixy&#8217;s two servo ports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s0</strong> &#8211; value 0 to 1000</li>
+<li><strong>s1</strong> &#8211; value 0 to 1000</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.play_tone">
+<tt class="descname">play_tone</tt><big>(</big><em>pin</em>, <em>tone_command</em>, <em>frequency</em>, <em>duration=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.play_tone" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will call the Tone library for the selected pin.
+It requires FirmataPlus to be loaded onto the arduino</p>
+<p>If the tone command is set to TONE_TONE, then the specified tone will be played.</p>
+<p>Else, if the tone command is TONE_NO_TONE, then any currently playing tone will be disabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Pin number</li>
+<li><strong>tone_command</strong> &#8211; Either TONE_TONE, or TONE_NO_TONE</li>
+<li><strong>frequency</strong> &#8211; Frequency of tone</li>
+<li><strong>duration</strong> &#8211; Duration of tone in milliseconds</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.send_reset">
+<tt class="descname">send_reset</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.send_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a Firmata reset command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.servo_config">
+<tt class="descname">servo_config</tt><big>(</big><em>pin</em>, <em>min_pulse=544</em>, <em>max_pulse=2400</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.servo_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method configures the Arduino for servo operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Servo control pin</li>
+<li><strong>min_pulse</strong> &#8211; Minimum pulse width</li>
+<li><strong>max_pulse</strong> &#8211; Maximum pulse width</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.set_analog_latch">
+<tt class="descname">set_analog_latch</tt><big>(</big><em>pin</em>, <em>threshold_type</em>, <em>threshold_value</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.set_analog_latch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method &#8220;arms&#8221; an analog pin for its data to be latched and
+saved in the latching table.
+If a callback method is provided, when latching criteria is achieved,
+the callback function is called with latching data notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Analog pin number (value following an &#8216;A&#8217; designator,
+i.e. A5 = 5</li>
+<li><strong>threshold_type</strong> &#8211; Constants.LATCH_GT | Constants.LATCH_LT  |
+Constants.LATCH_GTE | Constants.LATCH_LTE</li>
+<li><strong>threshold_value</strong> &#8211; numerical value - between 0 and 1023</li>
+<li><strong>cb</strong> &#8211; callback method</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful, False if parameter data is invalid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.set_digital_latch">
+<tt class="descname">set_digital_latch</tt><big>(</big><em>pin</em>, <em>threshold_value</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.set_digital_latch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method &#8220;arms&#8221; a digital pin for its data to be latched and saved
+in the latching table.
+If a callback method is provided, when latching criteria is achieved,
+the callback function is called
+with latching data notification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Digital pin number</li>
+<li><strong>threshold_value</strong> &#8211; 0 or 1</li>
+<li><strong>cb</strong> &#8211; callback function</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful, False if parameter data is invalid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.set_pin_mode">
+<tt class="descname">set_pin_mode</tt><big>(</big><em>pin_number</em>, <em>pin_state</em>, <em>callback=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.set_pin_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the  pin mode for the specified pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin_number</strong> &#8211; Arduino Pin Number</li>
+<li><strong>pin_state</strong> &#8211; INPUT/OUTPUT/ANALOG/PWM - for SERVO use
+servo_config()</li>
+<li><strong>callback</strong> &#8211; Optional: A reference to a call back function to be
+called when pin data value changes</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.set_sampling_interval">
+<tt class="descname">set_sampling_interval</tt><big>(</big><em>interval</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.set_sampling_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the sampling interval for the Firmata loop method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>interval</strong> &#8211; time in milliseconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the application and exit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.sleep">
+<tt class="descname">sleep</tt><big>(</big><em>time</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform an asyncio sleep for the time specified in seconds. T
+his method should be used in place of time.sleep()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>time</strong> &#8211; time in seconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.sonar_config">
+<tt class="descname">sonar_config</tt><big>(</big><em>trigger_pin</em>, <em>echo_pin</em>, <em>cb=None</em>, <em>ping_interval=50</em>, <em>max_distance=200</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.sonar_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the pins,ping interval and maximum distance for an HC-SR04
+type device.
+Single pin configuration may be used. To do so, set both the trigger
+and echo pins to the same value.
+Up to a maximum of 6 SONAR devices is supported
+If the maximum is exceeded a message is sent to the console and the
+request is ignored.
+NOTE: data is measured in centimeters</p>
+<p>This is FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trigger_pin</strong> &#8211; The pin number of for the trigger (transmitter).</li>
+<li><strong>echo_pin</strong> &#8211; The pin number for the received echo.</li>
+<li><strong>cb</strong> &#8211; optional callback function to report sonar data changes</li>
+<li><strong>ping_interval</strong> &#8211; Minimum interval between pings. Lowest number
+to use is 33 ms.Max is 127</li>
+<li><strong>max_distance</strong> &#8211; Maximum distance in cm. Max is 200.</li>
+<li><strong>cb_type</strong> &#8211; direct call or asyncio yield from</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.sonar_data_retrieve">
+<tt class="descname">sonar_data_retrieve</tt><big>(</big><em>trigger_pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.sonar_data_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve Ping (HC-SR04 type) data. The data is presented as a
+dictionary.
+The &#8216;key&#8217; is the trigger pin specified in sonar_config() and the
+&#8216;data&#8217; is the current measured distance (in centimeters)
+for that pin. If there is no data, the value is set to None.
+This is a FirmataPlus feature.
+:param trigger_pin: trigger pin specified in sonar_config
+:returns: active_sonar_map</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.stepper_config">
+<tt class="descname">stepper_config</tt><big>(</big><em>steps_per_revolution</em>, <em>stepper_pins</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.stepper_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure stepper motor prior to operation.
+This is a FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>steps_per_revolution</strong> &#8211; number of steps per motor revolution</li>
+<li><strong>stepper_pins</strong> &#8211; a list of control pin numbers - either 4 or 2</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata3.PyMata3.stepper_step">
+<tt class="descname">stepper_step</tt><big>(</big><em>motor_speed</em>, <em>number_of_steps</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata3.PyMata3.stepper_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a stepper motor for the number of steps at the specified speed
+This is a FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>motor_speed</strong> &#8211; 21 bits of data to set motor speed</li>
+<li><strong>number_of_steps</strong> &#8211; 14 bits for number of steps &amp; direction
+positive is forward, negative is reverse</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio.pymata_core">
+<span id="pymata-aio-pymata-core-module"></span><h2>pymata_aio.pymata_core module<a class="headerlink" href="#module-pymata_aio.pymata_core" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.pymata_core.PymataCore">
+<em class="property">class </em><tt class="descclassname">pymata_aio.pymata_core.</tt><tt class="descname">PymataCore</tt><big>(</big><em>arduino_wait=2</em>, <em>sleep_tune=0.0001</em>, <em>log_output=False</em>, <em>com_port=None</em>, <em>ip_address=None</em>, <em>ip_port=2000</em>, <em>ip_handshake='*HELLO*'</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>This class exposes and implements the pymata_core asyncio API,
+It includes the public API methods as well as
+a set of private methods. If your application is using asyncio,
+this is the API that you should use.</p>
+<p>After instantiating this class, its &#8220;start&#8221; method MUST be called to
+perform Arduino pin auto-detection.</p>
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.analog_read">
+<tt class="descname">analog_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.analog_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the last data update for the specified analog pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number (ex. A2 is specified as 2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Last value reported for the analog pin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.analog_write">
+<tt class="descname">analog_write</tt><big>(</big><em>pin</em>, <em>value</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.analog_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the selected pin to the specified value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; PWM pin number</li>
+<li><strong>value</strong> &#8211; Pin value (0 - 0x4000)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.digital_read">
+<tt class="descname">digital_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.digital_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the last data update for the specified digital pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Digital pin number</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Last value reported for the digital pin</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.digital_write">
+<tt class="descname">digital_write</tt><big>(</big><em>pin</em>, <em>value</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.digital_write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the specified pin to the specified value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; pin number</li>
+<li><strong>value</strong> &#8211; pin value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.disable_analog_reporting">
+<tt class="descname">disable_analog_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.disable_analog_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables analog reporting for a single analog pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number. For example for A0, the number is 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.disable_digital_reporting">
+<tt class="descname">disable_digital_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.disable_digital_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables digital reporting. By turning reporting off for this pin,
+Reporting is disabled for all 8 bits in the &#8220;port&#8221;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin and all pins for this port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.enable_analog_reporting">
+<tt class="descname">enable_analog_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.enable_analog_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables analog reporting. By turning reporting on for a single pin,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Analog pin number. For example for A0, the number is 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.enable_digital_reporting">
+<tt class="descname">enable_digital_reporting</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.enable_digital_reporting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables digital reporting. By turning reporting on for all 8 bits
+in the &#8220;port&#8221; - this is part of Firmata&#8217;s protocol specification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin and all pins for this port</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.encoder_config">
+<tt class="descname">encoder_config</tt><big>(</big><em>pin_a</em>, <em>pin_b</em>, <em>cb=None</em>, <em>cb_type=None</em>, <em>hall_encoder=False</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.encoder_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command enables the rotary encoder support and will
+enable encoder reporting.</p>
+<p>This command is not part of StandardFirmata. For 2 pin + ground
+encoders, FirmataPlus is required to be used for 2 pin rotary encoder,
+and for hell effect wheel encoder support, FirmataPlusRB is required.</p>
+<p>Encoder data is retrieved by performing a digital_read from pin a
+(encoder pin_a).</p>
+<p>When using 2 hall effect sensors (e.g. 2 wheel robot)
+specify pin_a for 1st encoder and pin_b for 2nd encoder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin_a</strong> &#8211; Encoder pin 1.</li>
+<li><strong>pin_b</strong> &#8211; Encoder pin 2.</li>
+<li><strong>cb</strong> &#8211; callback function to report encoder changes</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+<li><strong>hall_encoder</strong> &#8211; wheel hall_encoder - set to
+True to select hall encoder support support.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.encoder_read">
+<tt class="descname">encoder_read</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.encoder_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the latest encoder data value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Encoder Pin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">encoder data value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.extended_analog">
+<tt class="descname">extended_analog</tt><big>(</big><em>pin</em>, <em>data</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.extended_analog" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will send an extended-data analog write command to the
+selected pin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; 0 - 127</li>
+<li><strong>data</strong> &#8211; 0 - 0xfffff</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_analog_latch_data">
+<tt class="descname">get_analog_latch_data</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_analog_latch_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list is returned containing the latch state for the pin, the
+latched value, and the time stamp
+[latched_state, threshold_type, threshold_value,</p>
+<blockquote>
+<div>latched_data, time_stamp]</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[latched_state, threshold_type, threshold_value,
+latched_data, time_stamp]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_analog_map">
+<tt class="descname">get_analog_map</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_analog_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method requests a Firmata analog map query and returns the results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An analog map response or None if a timeout occurs</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_capability_report">
+<tt class="descname">get_capability_report</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_capability_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method requests and returns a Firmata capability query report</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A capability report in the form of a list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_digital_latch_data">
+<tt class="descname">get_digital_latch_data</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_digital_latch_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list is returned containing the latch state for the pin, the
+latched value, and the time stamp
+[pin_num, latch_state, latched_value, time_stamp]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[latched_state, threshold_type, threshold_value,
+latched_data, time_stamp]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_firmware_version">
+<tt class="descname">get_firmware_version</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_firmware_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the Firmata firmware version</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Firmata firmware version</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_pin_state">
+<tt class="descname">get_pin_state</tt><big>(</big><em>pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_pin_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves a pin state report for the specified pin</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pin</strong> &#8211; Pin of interest</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">pin state report</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_protocol_version">
+<tt class="descname">get_protocol_version</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_protocol_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns the major and minor values for the protocol
+version, i.e. 2.4</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Firmata protocol version</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.get_pymata_version">
+<tt class="descname">get_pymata_version</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.get_pymata_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves the PyMata version number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">PyMata version number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.i2c_config">
+<tt class="descname">i2c_config</tt><big>(</big><em>read_delay_time=0</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.i2c_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOTE: THIS METHOD MUST BE CALLED BEFORE ANY I2C REQUEST IS MADE
+This method initializes Firmata for I2c operations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>(in microseconds)</strong> (<em>read_delay_time</em>) &#8211; an optional parameter,
+default is 0</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No Return Value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.i2c_read_data">
+<tt class="descname">i2c_read_data</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.i2c_read_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method retrieves cached i2c data to support a polling mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> &#8211; I2C device address</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Last cached value read</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.i2c_read_request">
+<tt class="descname">i2c_read_request</tt><big>(</big><em>address</em>, <em>register</em>, <em>number_of_bytes</em>, <em>read_type</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.i2c_read_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method requests the read of an i2c device. Results are retrieved
+by a call to i2c_get_read_data(). or by callback.</p>
+<p>If a callback method is provided, when data is received from the
+device it will be sent to the callback method.
+Some devices require that transmission be restarted
+(e.g. MMA8452Q accelerometer).
+Use Constants.I2C_READ | Constants.I2C_RESTART_TX for those cases.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>address</strong> &#8211; i2c device address</li>
+<li><strong>register</strong> &#8211; register number (can be set to zero)</li>
+<li><strong>number_of_bytes</strong> &#8211; number of bytes expected to be returned</li>
+<li><strong>read_type</strong> &#8211; I2C_READ  or I2C_READ_CONTINUOUSLY. I2C_RESTART_TX
+may be OR&#8217;ed when required</li>
+<li><strong>cb</strong> &#8211; Optional callback function to report i2c data as a
+result of read command</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.i2c_write_request">
+<tt class="descname">i2c_write_request</tt><big>(</big><em>address</em>, <em>args</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.i2c_write_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to an i2c device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>address</strong> &#8211; i2c device address</li>
+<li><strong>args</strong> &#8211; A variable number of bytes to be sent to the device
+passed in as a list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.keep_alive">
+<tt class="descname">keep_alive</tt><big>(</big><em>period=1</em>, <em>margin=0.3</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.keep_alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Periodically send a keep alive message to the Arduino.
+Frequency of keep alive transmission is calculated as follows:
+keep_alive_sent = period - (period * margin)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>period</strong> &#8211; Time period between keepalives. Range is 0-10 seconds. 0 disables the keepalive mechanism.</li>
+<li><strong>margin</strong> &#8211; Safety margin to assure keepalives are sent before period expires. Range is 0.1 to 0.9</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.pixy_init">
+<tt class="descname">pixy_init</tt><big>(</big><em>max_blocks=5</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.pixy_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize Pixy and enable Pixy block reporting.
+This is a FirmataPlusRB feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>cb</strong> &#8211; callback function to report Pixy blocks</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+<li><strong>max_blocks</strong> &#8211; Maximum number of Pixy blocks to report when many signatures are found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.pixy_set_brightness">
+<tt class="descname">pixy_set_brightness</tt><big>(</big><em>brightness</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.pixy_set_brightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setBrightness Pixy command.
+This method sets the brightness (exposure) of Pixy&#8217;s camera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>brightness</strong> &#8211; range between 0 and 255 with 255 being the brightest setting</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.pixy_set_led">
+<tt class="descname">pixy_set_led</tt><big>(</big><em>r</em>, <em>g</em>, <em>b</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.pixy_set_led" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setLed Pixy command.
+This method sets the RGB LED on front of Pixy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> &#8211; red range between 0 and 255</li>
+<li><strong>g</strong> &#8211; green range between 0 and 255</li>
+<li><strong>b</strong> &#8211; blue range between 0 and 255</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.pixy_set_servos">
+<tt class="descname">pixy_set_servos</tt><big>(</big><em>s0</em>, <em>s1</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.pixy_set_servos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the setServos Pixy command.
+This method sets the pan/tilt servos that are plugged into Pixy&#8217;s two servo ports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>s0</strong> &#8211; value 0 to 1000</li>
+<li><strong>s1</strong> &#8211; value 0 to 1000</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.play_tone">
+<tt class="descname">play_tone</tt><big>(</big><em>pin</em>, <em>tone_command</em>, <em>frequency</em>, <em>duration</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.play_tone" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will call the Tone library for the selected pin.
+It requires FirmataPlus to be loaded onto the arduino</p>
+<p>If the tone command is set to TONE_TONE, then the specified tone will be played.</p>
+<p>Else, if the tone command is TONE_NO_TONE, then any currently playing tone will be disabled.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Pin number</li>
+<li><strong>tone_command</strong> &#8211; Either TONE_TONE, or TONE_NO_TONE</li>
+<li><strong>frequency</strong> &#8211; Frequency of tone</li>
+<li><strong>duration</strong> &#8211; Duration of tone in milliseconds</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.send_reset">
+<tt class="descname">send_reset</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.send_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a Sysex reset command to the arduino</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.servo_config">
+<tt class="descname">servo_config</tt><big>(</big><em>pin</em>, <em>min_pulse=544</em>, <em>max_pulse=2400</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.servo_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure a pin as a servo pin. Set pulse min, max in ms.
+Use this method (not set_pin_mode) to configure a pin for servo
+operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Servo Pin.</li>
+<li><strong>min_pulse</strong> &#8211; Min pulse width in ms.</li>
+<li><strong>max_pulse</strong> &#8211; Max pulse width in ms.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.set_analog_latch">
+<tt class="descname">set_analog_latch</tt><big>(</big><em>pin</em>, <em>threshold_type</em>, <em>threshold_value</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.set_analog_latch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method &#8220;arms&#8221; an analog pin for its data to be latched and saved
+in the latching table
+If a callback method is provided, when latching criteria is achieved,
+the callback function is called with latching data notification.</p>
+<p>Data returned in the callback list has the pin number as the
+first element,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Analog pin number
+(value following an &#8216;A&#8217; designator, i.e. A5 = 5</li>
+<li><strong>threshold_type</strong> &#8211; ANALOG_LATCH_GT | ANALOG_LATCH_LT  |
+ANALOG_LATCH_GTE | ANALOG_LATCH_LTE</li>
+<li><strong>threshold_value</strong> &#8211; numerical value - between 0 and 1023</li>
+<li><strong>cb</strong> &#8211; callback method</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful, False if parameter data is invalid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.set_digital_latch">
+<tt class="descname">set_digital_latch</tt><big>(</big><em>pin</em>, <em>threshold_value</em>, <em>cb=None</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.set_digital_latch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method &#8220;arms&#8221; a digital pin for its data to be latched and
+saved in the latching table
+If a callback method is provided, when latching criteria is achieved,
+the callback function is called with latching data notification.</p>
+<p>Data returned in the callback list has the pin number as the
+first element,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin</strong> &#8211; Digital pin number</li>
+<li><strong>threshold_value</strong> &#8211; 0 or 1</li>
+<li><strong>cb</strong> &#8211; callback function</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful, False if parameter data is invalid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.set_pin_mode">
+<tt class="descname">set_pin_mode</tt><big>(</big><em>pin_number</em>, <em>pin_state</em>, <em>callback=None</em>, <em>callback_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.set_pin_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sets the pin mode for the specified pin.
+For Servo, use servo_config() instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pin_number</strong> &#8211; Arduino Pin Number</li>
+<li><strong>pin_state</strong> &#8211; INPUT/OUTPUT/ANALOG/PWM - for SERVO use
+servo_config()</li>
+<li><strong>callback</strong> &#8211; Optional: A reference to a call back function to be
+called when pin data value changes</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.set_sampling_interval">
+<tt class="descname">set_sampling_interval</tt><big>(</big><em>interval</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.set_sampling_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method sends the desired sampling interval to Firmata.
+Note: Standard Firmata  will ignore any interval less than</p>
+<blockquote>
+<div>10 milliseconds</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>interval</strong> &#8211; Integer value for desired sampling interval
+in milliseconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method attempts an orderly shutdown
+If any exceptions are thrown, just ignore them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.sleep">
+<tt class="descname">sleep</tt><big>(</big><em>sleep_time</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is a proxy method for asyncio.sleep</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sleep_time</strong> &#8211; Sleep interval in seconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.sonar_config">
+<tt class="descname">sonar_config</tt><big>(</big><em>trigger_pin</em>, <em>echo_pin</em>, <em>cb=None</em>, <em>ping_interval=50</em>, <em>max_distance=200</em>, <em>cb_type=None</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.sonar_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure the pins,ping interval and maximum distance for an HC-SR04
+type device.
+Single pin configuration may be used. To do so, set both the trigger
+and echo pins to the same value.
+Up to a maximum of 6 SONAR devices is supported
+If the maximum is exceeded a message is sent to the console and the
+request is ignored.
+NOTE: data is measured in centimeters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trigger_pin</strong> &#8211; The pin number of for the trigger (transmitter).</li>
+<li><strong>echo_pin</strong> &#8211; The pin number for the received echo.</li>
+<li><strong>cb</strong> &#8211; optional callback function to report sonar data changes</li>
+<li><strong>ping_interval</strong> &#8211; Minimum interval between pings. Lowest number
+to use is 33 ms.Max is 127</li>
+<li><strong>max_distance</strong> &#8211; Maximum distance in cm. Max is 200.</li>
+<li><strong>cb_type</strong> &#8211; Constants.CB_TYPE_DIRECT = direct call or
+Constants.CB_TYPE_ASYNCIO = asyncio coroutine</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.sonar_data_retrieve">
+<tt class="descname">sonar_data_retrieve</tt><big>(</big><em>trigger_pin</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.sonar_data_retrieve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve Ping (HC-SR04 type) data. The data is presented as a
+dictionary.
+The &#8216;key&#8217; is the trigger pin specified in sonar_config()
+and the &#8216;data&#8217; is the current measured distance (in centimeters)
+for that pin. If there is no data, the value is set to None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trigger_pin</strong> &#8211; key into sonar data map</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">active_sonar_map</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method must be called immediately after the class is instantiated.
+It instantiates the serial interface and then performs auto pin
+discovery.
+It is intended for use by pymata3 applications that do not
+use asyncio coroutines directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.start_aio">
+<tt class="descname">start_aio</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.start_aio" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method must be called immediately after the class is instantiated.
+It instantiates the serial interface and then performs auto pin
+discovery.
+It is intended for use by applications that directly uses asyncio.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">No return value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.stepper_config">
+<tt class="descname">stepper_config</tt><big>(</big><em>steps_per_revolution</em>, <em>stepper_pins</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.stepper_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure stepper motor prior to operation.
+This is a FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>steps_per_revolution</strong> &#8211; number of steps per motor revolution</li>
+<li><strong>stepper_pins</strong> &#8211; a list of control pin numbers - either 4 or 2</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_core.PymataCore.stepper_step">
+<tt class="descname">stepper_step</tt><big>(</big><em>motor_speed</em>, <em>number_of_steps</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_core.PymataCore.stepper_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a stepper motor for the number of steps at the specified speed
+This is a FirmataPlus feature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>motor_speed</strong> &#8211; 21 bits of data to set motor speed</li>
+<li><strong>number_of_steps</strong> &#8211; 14 bits for number of steps &amp; direction
+positive is forward, negative is reverse</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">No return value.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pymata-aio-pymata-iot-module">
+<h2>><a href="https://github.com/MrYsLab/pymata-aio/wiki/JSON-API-for-pymata_iot" >pymata_aio.pymata_iot module</a></h2></div>
+<div class="section" id="module-pymata_aio.pymata_serial">
+<span id="pymata-aio-pymata-serial-module"></span><h2>pymata_aio.pymata_serial module<a class="headerlink" href="#module-pymata_aio.pymata_serial" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.pymata_serial.PymataSerial">
+<em class="property">class </em><tt class="descclassname">pymata_aio.pymata_serial.</tt><tt class="descname">PymataSerial</tt><big>(</big><em>com_port='/dev/ttyACM0'</em>, <em>speed=57600</em>, <em>sleep_tune=0.001</em>, <em>log_output=False</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>This class encapsulates management of the serial port that communicates
+with the Arduino Firmata
+It provides a &#8216;futures&#8217; interface to make Pyserial compatible with asyncio</p>
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the serial port</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.get_serial">
+<tt class="descname">get_serial</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.get_serial" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns a reference to the serial port in case the
+user wants to call pyserial methods directly</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">pyserial instance</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.open">
+<tt class="descname">open</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open the serial port</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an asyncio adapted version of pyserial read
+that provides non-blocking read.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">One character</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.readline">
+<tt class="descname">readline</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.readline" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an asyncio adapted version of pyserial read.
+It provides a non-blocking read and returns a line of data read.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A line of data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.set_dtr">
+<tt class="descname">set_dtr</tt><big>(</big><em>state</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.set_dtr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set DTR state
+:param state: DTR state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_serial.PymataSerial.write">
+<tt class="descname">write</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_serial.PymataSerial.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an asyncio adapted version of pyserial write. It provides a
+non-blocking  write and returns the number of bytes written upon
+completion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> &#8211; Data to be written</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Number of bytes written</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio.pymata_socket">
+<span id="pymata-aio-pymata-socket-module"></span><h2>pymata_aio.pymata_socket module<a class="headerlink" href="#module-pymata_aio.pymata_socket" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<dl class="class">
+<dt id="pymata_aio.pymata_socket.PymataSocket">
+<em class="property">class </em><tt class="descclassname">pymata_aio.pymata_socket.</tt><tt class="descname">PymataSocket</tt><big>(</big><em>ip_address</em>, <em>port</em>, <em>loop</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_socket.PymataSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<dl class="method">
+<dt id="pymata_aio.pymata_socket.PymataSocket.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_socket.PymataSocket.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method reads one byte of data from IP device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Next byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_socket.PymataSocket.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="headerlink" href="#pymata_aio.pymata_socket.PymataSocket.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method opens an IP connection on the IP device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pymata_aio.pymata_socket.PymataSocket.write">
+<tt class="descname">write</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#pymata_aio.pymata_socket.PymataSocket.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method writes sends data to the IP device
+:param data:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pymata_aio">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pymata_aio" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2015 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU  General Public
+License as published by the Free Software Foundation; either
+version 3 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+<p>The pymata_aio package that implements a Python asyncio Arduino StandardFirmata client.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pymata_aio package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.constants">pymata_aio.constants module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.pin_data">pymata_aio.pin_data module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.private_constants">pymata_aio.private_constants module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.pymata3">pymata_aio.pymata3 module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.pymata_core">pymata_aio.pymata_core module</a></li>
+<li><a class="reference internal" href="#pymata-aio-pymata-iot-module">pymata_aio.pymata_iot module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.pymata_serial">pymata_aio.pymata_serial module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio.pymata_socket">pymata_aio.pymata_socket module</a></li>
+<li><a class="reference internal" href="#module-pymata_aio">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to pymata_aio&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pymata_aio.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to pymata_aio’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">pymata_aio  documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Alan Yorinks.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2035 @@
+<!doctype html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PyMata IOT Tester For Arduino Unoy</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+<form>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Digital Input</a></li>
+            <li><a href="#tabs-2">Digital/PWM Output</a></li>
+            <li><a href="#tabs-3">Analog Input</a></li>
+            <li><a href="#tabs-4">Reports</a></li>
+            <li><a href="#tabs-5">Polled Data Retrieval</a></li>
+            <li><a href="#tabs-6">Servo</a></li>
+            <li><a href="#tabs-7">i2c</a></li>
+            <li><a href="#tabs-8">FirmataPlus Features</a></li>
+        </ul>
+        <div id="tabs-1">
+
+            <h1>PyMata IoT</h1>
+
+            <p id="connected"><b>You Are Not Connected To PyMata IoT</b></p>
+            <input type="radio" name="e2" value="0" id="in2d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e2" value="1" id="out2d" onclick="clicked(this.id);">Enabled
+            <b>Pin 02:</b>
+            <input id="ip2" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch2" onchange="digitalLatch('2', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent2" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e3" value="0" id="in3d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e3" value="1" id="out3d" onclick="clicked(this.id);">Enabled
+            <b>Pin 03:</b>
+            <input id="ip3" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch4" onchange="digitalLatch('3', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent3" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e4" value="0" id="in4d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e4" value="1" id="out4d" onclick="clicked(this.id);">Enabled
+            <b>Pin 04:</b>
+            <input id="ip4" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch4" onchange="digitalLatch('4', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent4" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e5" value="0" id="in5d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e5" value="1" id="out5d" onclick="clicked(this.id);">Enabled
+            <b>Pin 05:</b>
+            <input id="ip5" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch5" onchange="digitalLatch('5', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent5" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e6" value="0" id="in6d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e6" value="1" id="out6d" onclick="clicked(this.id);">Enabled
+            <b>Pin 06:</b>
+            <input id="ip6" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch6" onchange="digitalLatch('6', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent6" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e7" value="0" id="in7d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e7" value="1" id="out7d" onclick="clicked(this.id);">Enabled
+            <b>Pin 07:</b>
+            <input id="ip7" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch7" onchange="digitalLatch('7', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent7" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e8" value="0" id="in8d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e8" value="1" id="out8d" onclick="clicked(this.id);">Enabled
+            <b>Pin 08:</b>
+            <input id="ip8" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch8" onchange="digitalLatch('8, (this.id)');">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent8" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e9" value="0" id="in9d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e9" value="1" id="out9" onclick="clicked(this.id);">Enabled
+            <b>Pin 09:</b>
+            <input id="ip9" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch9" onchange="digitalLatch('9', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent9" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e10" value="0" id="in10d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e10" value="1" id="out10d" onclick="clicked(this.id);">Enabled
+            <b>Pin 10:</b>
+            <input id="ip10" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch10" onchange="digitalLatch('10', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent10" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e11" value="0" id="in11d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e11" value="1" id="out11d" onclick="clicked(this.id);">Enabled
+            <b>Pin 11:</b>
+            <input id="ip11" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch11" onchange="digitalLatch('11', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent11" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e12" value="0" id="in12d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e12" value="1" id="out12d" onclick="clicked(this.id);">Enabled
+            <b>Pin 12:</b>
+            <input id="ip12" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch12" onchange="digitalLatch('12', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent12" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e13" value="0" id="in13d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e13" value="1" id="out13d" onclick="clicked(this.id);">Enabled
+            <b>Pin 13:</b>
+            <input id="ip13" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch13" onchange="digitalLatch('13', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent13" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e14" value="0" id="in14d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e14" value="1" id="out14d" onclick="clicked(this.id);">Enabled
+            <b>Pin 14:</b>
+            <input id="ip14" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch14" onchange="digitalLatch('14', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent14" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e15" value="0" id="in15d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e15" value="1" id="out15d" onclick="clicked(this.id);">Enabled
+            <b>Pin 15:</b>
+            <input id="ip15" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch15" onchange="digitalLatch('15', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent15" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e16" value="0" id="in16d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e16" value="1" id="out16d" onclick="clicked(this.id);">Enabled
+            <b>Pin 16:</b>
+            <input id="ip16" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch16" onchange="digitalLatch('16', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent16" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e17" value="0" id="in17d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e17" value="1" id="out17d" onclick="clicked(this.id);">Enabled
+            <b>Pin 17:</b>
+            <input id="ip17" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch17" onchange="digitalLatch('17', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent17" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e18" value="0" id="in18d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e18" value="1" id="out18d" onclick="clicked(this.id);">Enabled
+            <b>Pin 18:</b>
+            <input id="ip18" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch18" onchange="digitalLatch('18', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent18" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="e19" value="0" id="in19d" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="e19" value="1" id="out19d" onclick="clicked(this.id);">Enabled
+            <b>Pin 19:</b>
+            <input id="ip19" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 20px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Data Latch</b>
+            <select id="dlatch19" onchange="digitalLatch('19', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">Latch High</option>
+                <option value="3">Latch Low</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="dlevent19" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+        </div>
+        <div id="tabs-2">
+            <h1>PyMata IoT</h1>
+            <b>Pin 02:</b>
+            <input type="radio" name="p2" value="0" id="p2low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p2" value="1" id="p2high" onclick="clicked(this.id);">High
+            <br>            
+            <b>Pin 03:</b>
+            <input type="radio" name="p3" value="0" id="p3low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p3" value="1" id="p3high" onclick="clicked(this.id);">High
+            <input type="radio" name="p3" value="2" onclick="clicked(this.id);" id="pwm3">PWM
+            <input type="number" name="p3pwm" id="v3" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 04:</b>
+            <input type="radio" name="p4" value="3" id="p4low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p4" value="4" id="p4high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 05:</b>
+            <input type="radio" name="p5" value="5" id="p5low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p5" value="6" id="p5high" onclick="clicked(this.id);">High
+            <input type="radio" name="p5" value="7" id="pwm5" onclick="clicked(this.id);">PWM
+            <input type="number" name="p5pwm" id="v5" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 06:</b>
+            <input type="radio" name="p6" value="0" id="p6low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p6" value="1" id="p6high" onclick="clicked(this.id);">High
+            <input type="radio" name="p6" value="2" id="pwm6" onclick="clicked(this.id);">PWM
+            <input type="number" name="p6pwm" id="v6" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 07:</b>
+            <input type="radio" name="p7" value="0" id="p7low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p7" value="1" id="p7high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 08:</b>
+            <input type="radio" name="p8" value="0" id="p8low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p8" value="1" id="p8high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 09:</b>
+            <input type="radio" name="p9" value="0" id="p9low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p9" value="1" id="p9high" onclick="clicked(this.id);">High
+            <input type="radio" name="p9" value="2" id="pwm9" onclick="clicked(this.id);">PWM
+            <input type="number" name="p9pwm" id="v9" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 10:</b>
+            <input type="radio" name="p10" value="0" id="p10low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p10" value="1" id="p10high" onclick="clicked(this.id);">High
+            <input type="radio" name="p10" value="2" id="pwm10" onclick="clicked(this.id);">PWM
+            <input type="number" name="p10pwm" id="v10" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 11:</b>
+            <input type="radio" name="p11" value="0" id="p11low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p11" value="1" id="p11high" onclick="clicked(this.id);">High
+            <input type="radio" name="p11" value="2" id="pwm11" onclick="clicked(this.id);">PWM
+            <input type="number" name="p11pwm" id="v11" min="0" max="255" step="1" value="0"
+                   oninput="pwmChange(this.id);">
+            <br>
+            <b>Pin 12:</b>
+            <input type="radio" name="p12" value="0" id="p12low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p12" value="1" id="p12high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 13:</b>
+            <input type="radio" name="p13" value="0" id="p13low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p13" value="1" id="p13high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 14:</b>
+            <input type="radio" name="p14" value="0" id="p14low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p14" value="1" id="p14high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 15:</b>
+            <input type="radio" name="p15" value="0" id="p15low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p15" value="1" id="p15high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 16:</b>
+            <input type="radio" name="p16" value="0" id="p16low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p16" value="1" id="p16high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 17:</b>
+            <input type="radio" name="p17" value="0" id="p17low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p17" value="1" id="p17high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 18:</b>
+            <input type="radio" name="p18" value="0" id="p18low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p18" value="1" id="p18high" onclick="clicked(this.id);">High
+            <br>
+            <b>Pin 19:</b>
+            <input type="radio" name="p19" value="0" id="p196low" onclick="clicked(this.id);" checked>Low
+            <input type="radio" name="p19" value="1" id="p19high" onclick="clicked(this.id);">High
+            <br>
+        </div>
+        <div id="tabs-3">
+            <h1>PyMata IoT</h1>
+
+            <input type="radio" name="a0" value="0" id="in0a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a0" value="1" id="out0a" onclick="clicked(this.id);">Enabled
+            <b>Pin A0:</b>
+            <input id="ia0" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr0" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+            <select id="alatch0" onchange="analogLatch('0', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent0" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+            <input type="radio" name="a1" value="0" id="in1a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a1" value="1" id="out1a" onclick="clicked(this.id);">Enabled
+            <b>Pin A1:</b>
+            <input id="ia1" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+
+
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr1" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+
+            <select id="alatch1" onchange="analogLatch('1', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent1" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+
+            <br>
+            <input type="radio" name="a2" value="0" id="in2a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a2" value="1" id="out2a" onclick="clicked(this.id);">Enabled
+            <b>Pin A2:</b>
+            <input id="ia2" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr2" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+            <select id="alatch2" onchange="analogLatch('2', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent2" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+
+            <br>
+
+            <input type="radio" name="a3" value="0" id="in3a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a3" value="1" id="out3a" onclick="clicked(this.id);">Enabled
+            <b>Pin A3:</b>
+            <input id="ia3" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr3" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+            <select id="alatch3" onchange="analogLatch('3', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent3" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+
+            <input type="radio" name="a4" value="0" id="in4a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a4" value="1" id="out4a" onclick="clicked(this.id);">Enabled
+            <b>Pin A4:</b>
+            <input id="ia4" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr4" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+            <select id="alatch4" onchange="analogLatch('4', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent4" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+
+            <input type="radio" name="a5" value="0" id="in5a" onclick="clicked(this.id);" checked>Disabled
+            <input type="radio" name="a5" value="1" id="out5a" onclick="clicked(this.id);">Enabled
+            <b>Pin A5:</b>
+            <input id="ia5" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;&nbsp
+            <b>Latch Threshold</b>
+            <input id="a1thr5" name="pin" class="element text medium" type="text" maxlength="255" value="0"
+                   style="width: 80px;"/>
+            &nbsp;
+            <b>Data Latch:</b>
+            <select id="alatch5" onchange="analogLatch('5', (this.id));">
+                <option value="1">No Latch Set</option>
+                <option value="2">==</option>
+                <option value="3"><</option>
+                <option value="4"><=</option>
+                <option value="5">></option>
+                <option value="6">>=</option>
+            </select>
+            &nbsp;
+            <b>Latch Event Occurred On:</b>
+            <input id="alevent5" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+            <br>
+
+        </div>
+        <div id="tabs-4">
+            <h1>PyMata IoT</h1>
+            <textarea id="reports" rows="10" cols="70"></textarea>
+            <br>
+            <br>
+            <input id="analogReport" type="button" value="Get Analog Map" onclick="getAnalogMap();"/>
+            &nbsp
+            <input id="capabilityReport" type="button" value="Get CapablilityReport" onclick="getCapabilityReport();"/>
+            &nbsp
+            <input id="firmWareVersion" type="button" value="Get Firmware Version" onclick="getFirmwareVersion();"/>
+            &nbsp
+            <input id="protocolVersion" type="button" value="Get Protocol Version" onclick="getProtocolVersion();"/>
+            &nbsp
+            <input id="pymataVersion" type="button" value="Get PyMata Version" onclick="getPymataVersion();"/>
+            <br>
+            <br>
+            <input id="pinStateReport" type="button" value="Get Pin State Report for Pin:" onclick="getPinState();"/>
+            <INPUT id="pinSpinner" TYPE="NUMBER" MIN="0" MAX="127" STEP="1" VALUE="0" SIZE="3">
+            &nbsp
+            (For Pin State Reports, first select the pin number by using the spinner and then click the button to the
+            left)
+
+
+        </div>
+        <div id="tabs-5">
+            <h1>PyMata IoT</h1>
+
+            <b>Digital Pin: </b>
+            <INPUT TYPE="NUMBER" id="drPin" MIN="2" MAX="19" STEP="1" VALUE="2" SIZE="1">
+
+            <input id="digMan2" type="button" value="Read" onclick="digitalRead(this.id);"/>
+            &nbsp
+            <input id="ddata" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 80px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <b>Analog Pin: </b>
+            <INPUT TYPE="NUMBER" id="arPin" MIN="0" MAX="5" STEP="1" VALUE="0" SIZE="1">
+
+            <input id="alMan2" type="button" value="Read" onclick="analogRead(this.id);"/>
+            &nbsp
+            <input id="adata" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 80px;"/>
+
+            <br>
+            <br>
+
+            <br>
+            <br>
+            <b>Digital Latch Table Data: </b>
+            <INPUT TYPE="NUMBER" id="dlData" MIN="2" MAX="19" STEP="1" VALUE="2" SIZE="1">
+
+            <input id="digLatch2" type="button" value="Read" onclick="digitalLatchRead(this.id);"/>
+            &nbsp
+            <input id="dlatchdata" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+
+            <br>
+            <br>
+            <b>Analog Latch Table Data: </b>
+            <INPUT TYPE="NUMBER" id="alData" MIN="0" MAX="5" STEP="1" VALUE="0" SIZE="1">
+
+            <input id="anlLatch2" type="button" value="Read" onclick="analogLatchRead(this.id);"/>
+            &nbsp
+            <input id="alatchdata" name="pin" class="element text medium" type="text" maxlength="255" value=""
+                   style="width: 500px;"/>
+
+            <br>
+            <br>
+        </div>
+        <div id="tabs-6">
+            <h1>PyMata IoT</h1>
+
+            <b>Servo Pin</b>
+            <select id="servoPin">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Servo Angle in Degress</b>
+            <input id="servoAngle" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="moveServo" type="button" value="Set Servo" onclick="servo();"/>
+        </div>
+        <div id="tabs-7">
+            <h1>PyMata IoT</h1>
+            <b>Default Values Are Set to Read Temperature from </b>
+            <a href="https://www.sparkfun.com/products/11931" target="_blank">A Sparkfun TMP102 </a>
+            <h2>I2C Config (Use before an I2C read or write)</h2>
+            <input id="configI2C" type="button" value="Configure I2C" onclick="i2cConfig();"/>
+            <b>Read Delay Time</b>
+            <input id="i2cDelayTime" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+
+
+            <h2>I2C Read</h2>
+            <b>Device Address</b>
+            <input id="i2cReadAddress" name="pin" class="element text medium" type="text" maxlength="4" value="72"
+                   style="width: 120px;"/>
+            <b>Device Register</b>
+            <input id="i2cReadRegister" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+            <b>Number of Bytes To Read</b>
+            <input id="i2cReadNumBytes" name="pin" class="element text medium" type="text" maxlength="4" value="2"
+                   style="width: 120px;"/>
+            <b>Read Type</b>
+            <select id="i2cReadType">
+                <option value="I2C_READ">"I2C_READ"</option>
+                <option value="I2C_READ_CONTINUOUS" selected>"I2C_READ_CONTINUOUS"</option>
+                <option value="I2C_STOP_READING">"I2C_STOP_READING"</option>
+            </select>
+            <br>
+            <br>
+            <input id="i2cReadReq" type="button" value="I2C Read" onclick="i2cReadRequest();"/>
+            <input id="i2cRequestResult" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+            &nbsp;&nbsp<b>Celcius</b>
+            <input id="i2cRequestResultc" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+            &nbsp;&nbsp<b>Fahrenheit</b>
+            <input id="i2cRequestResultf" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+
+            <br> <br>
+            <input id="i2cRead" type="button" value="Retrieve Last Read Value" onclick="i2cReadData();"/>
+            <input id="i2cReadResult" name="pin" class="element text medium" type="text" maxlength="4" value="0"
+                   style="width: 120px;"/>
+
+            <br><br><hr size="6">
+            <h1>PyMata IoT</h1>
+            <b> Write Data To 8x8 BiColor LED Backpack</b>
+            <a href="https://www.adafruit.com/products/902" target="_blank">Adafruit Product ID 109 </a>
+            <br><br>
+            <input id="i2cWriteTest" type="button" value="First Row On" onclick="i2cWriteDemo(1);"/>
+            &nbsp;&nbsp
+            <input id="i2cWriteTest" type="button" value="First Row Off" onclick="i2cWriteDemo(0);"/>
+
+
+        </div>
+        <div id="tabs-8">
+            <h1>PyMata IoT</h1>
+
+            <h2>Tone</h2><br>
+            <b>Pin:</b>
+            <select id="tonePin">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Frequency (Hz)</b>
+            <input id="freq" class="element text medium" type="text" maxlength="4" value="1000"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Duration (ms)</b>
+            <input id="duration" class="element text medium" type="text" maxlength="4" value="100"
+                   style="width: 60px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="tone" type="button" value="Play Tone" onclick="playTone();"/>
+            <br><br>
+
+            <h2>Encoder</h2>
+            <b>Encoder Pin A:</b>
+            <select id="encoderPinA">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Encoder Pin B:</b>
+            <select id="encoderPinB">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="getAutoEncoder" type="button" value="Auto Encoder Read" onclick="encoderRead(0);"/>
+
+            <input id="encoderValue" class="element text medium" type="text" maxlength="4" value=""
+                   style="width: 100px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="getEncoder" type="button" value="Manual Encoder Read" onclick="encoderRead(1);"/>
+            <input id="encoderValue2" class="element text medium" type="text" maxlength="4" value=""
+                   style="width: 100px;"/>
+            <br><br>
+
+            <h2>Sonar</h2>
+            <b>Trigger Pin:</b>
+            <select id="sonarTriggerPin">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Echo Pin:</b>
+            <select id="sonarEchoPin">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="getAutoSonar" type="button" value="Auto Sonar Read" onclick="sonarRead(0);"/>
+
+            <input id="sonarValue" class="element text medium" type="text" maxlength="4" value=""
+                   style="width: 100px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="getEncoder" type="button" value="Manual Sonar Read" onclick="sonarRead(1);"/>
+            <input id="sonarValue2" class="element text medium" type="text" maxlength="4" value=""
+                   style="width: 100px;"/>
+            <br><br>
+
+            <h2>Stepper</h2>
+            <b>Pin 1:</b>
+            <select id="stepperPin1">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8" selected>8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Pin 2:</b>
+            <select id="stepperPin2">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9" selected>9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Pin 3:</b>
+            <select id="stepperPin3">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10" selected>10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Pin 4:</b>
+            <select id="stepperPin4">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11" selected>11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+            </select>
+
+
+            &nbsp
+            <b>Steps/Rev (<= 21 bits)</b>
+            <input id="stepRev" class="element text medium" type="text" maxlength="4" value="180"
+                   style="width: 100px;"/>
+            <br>
+            <br>
+
+            <b>Motor Speed (<= 21 bits)</b>
+            <input id="motorSpeed" class="element text medium" type="text" maxlength="4" value="20"
+                   style="width: 100px;"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <b># Steps (<= 14 bits)</b>
+            <input id="numSteps" class="element text medium" type="text" maxlength="4" value="500"
+                   style="width: 100px;"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input id="runStepper" type="button" value="Run Stepper" onclick="runStepMotor();"/>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        // hide all of the pwm input controls until selected
+
+
+        $("#v3").hide();
+        $("#v5").hide();
+        $("#v6").hide();
+        $("#v9").hide();
+        $("#v10").hide();
+        $("#v11").hide();
+
+        // connect to the server
+        var ipAddress = "localhost";
+        var ipPort = "9000";
+
+        var inputMode = "0";
+        var outputMode = "1";
+        var analogMode = "2";
+        var pwmMode = "3";
+
+        var socket = new WebSocket('ws://' + ipAddress + ':' + ipPort);
+        var pin_mode = "";
+        var pin = "";
+        var outputValue = "";
+
+
+        socket.onopen = function (event) {
+            $("#connected").text('PyMata IoT Has Successfully Connected');
+
+        };
+
+        socket.onclose = function (event) {
+            alert("The socket has closed!");
+        };
+
+        socket.onmessage = function (message) {
+            //console.log('got message' + message.data);
+            //console.log(message.data);
+            var msg = JSON.parse(message.data);
+            var method = msg["method"];
+            //console.log(method);
+            var params = msg["params"];
+            //console.log(params);
+
+            //var out = data;
+            ////console.log(out)
+            switch (method) {
+                case "analog_message_reply":
+                {
+                    //console.log('analog');
+                    var pin = params[0];
+                    ////console.log(a)
+                    var out = params[1];
+                    //console.log("out: " + out);
+                    switch (pin) {
+                        case 0:
+                            document.getElementById("ia0").value = out;
+                            break;
+                        case 1:
+                            document.getElementById("ia1").value = out;
+                            break;
+                        case 2:
+                            document.getElementById("ia2").value = out;
+                            break;
+                        case 3:
+                            document.getElementById("ia3").value = out;
+                            break;
+                        case 4:
+                            document.getElementById("ia4").value = out;
+                            break;
+                        case 5:
+                            document.getElementById("ia5").value = out;
+                            break;
+                        default:
+                            alert("unknown analog pin")
+
+
+                    }
+                    break;
+                }
+
+                case "digital_message_reply":
+                {
+                    //console.log('digital message');
+
+                    pin = params[0];
+                    ////console.log(a)
+                    out = params[1];
+                    //console.log('digital message');
+                    //console.log('pin: ' + pin);
+                    //console.log('value =' + out);
+                    switch (pin) {
+
+                        case 2:
+                            document.getElementById("ip2").value = out;
+                            break;
+                        case 3:
+                            document.getElementById("ip3").value = out;
+                            break;
+                        case 4:
+                            document.getElementById("ip4").value = out;
+                            break;
+                        case 5:
+                            document.getElementById("ip5").value = out;
+                            break;
+                        case 6:
+                            document.getElementById("ip6").value = out;
+                            break;
+                        case 7:
+                            document.getElementById("ip7").value = out;
+                            break;
+                        case 8:
+                            document.getElementById("ip8").value = out;
+                            break;
+                        case 9:
+                            document.getElementById("ip9").value = out;
+                            break;
+                        case 10:
+                            document.getElementById("ip10").value = out;
+                            break;
+                        case 11:
+                            document.getElementById("ip11").value = out;
+                            break;
+                        case 12:
+                            document.getElementById("ip12").value = out;
+                            break;
+                        case 13:
+                            document.getElementById("ip13").value = out;
+                            break;
+                        case 14:
+                            document.getElementById("ip14").value = out;
+                            break;
+                        case 15:
+                            document.getElementById("ip15").value = out;
+                            break;
+                        case 16:
+                            document.getElementById("ip16").value = out;
+                            break;
+                        case 17:
+                            document.getElementById("ip17").value = out;
+                            break;
+                        case 18:
+                            document.getElementById("ip18").value = out;
+                            break;
+                        case 19:
+                            document.getElementById("ip19").value = out;
+                            break;
+                        default:
+                            alert("unknown digital pin");
+                        //console.log('unknown digital pin: ' + pin);
+                    }
+                }
+                    break;
+                case "i2c_read_request_reply":
+                    console.log('i2c_request_result' + params);
+
+                    TemperatureSum = (params[1] << 8 | params[2]) >> 4
+
+                    celsius = TemperatureSum * 0.0625
+                    console.log(celsius)
+
+                    fahrenheit = (1.8 * celsius) + 32
+                    console.log(fahrenheit)
+                    document.getElementById("i2cRequestResult").value = params
+                    document.getElementById("i2cRequestResultf").value = fahrenheit
+                    document.getElementById("i2cRequestResultc").value = celsius
+                    break;
+
+                case "i2c_read_data_reply":
+                    console.log('i2c_read_result');
+                        console.log(params);
+                        document.getElementById("i2cReadResult").value = params
+                    break;
+
+                case "encoder_data_reply":
+                    console.log('received encoder data');
+                    console.log(params);
+                    document.getElementById("encoderValue").value = params[1];
+                    break;
+                case "encoder_read_reply":
+                    console.log('encoder_read_reply  ' + params);
+                    document.getElementById("encoderValue2").value = params[1];
+                    break;
+                case "sonar_data_reply":
+                    console.log('received sonar data');
+                    console.log(params[1]);
+                    document.getElementById("sonarValue").value = params[1];
+                    break;
+                case "sonar_read_reply":
+                    console.log('sonar_read_reply  ' + params);
+                    document.getElementById("sonarValue2").value = params[1];
+                    break;
+                case "analog_map_reply":
+                case "capability_report_reply":
+                case "firmware_version_reply":
+                case "protocol_version_reply":
+                case "pymata_version_reply":
+                case "pin_state_reply":
+                        console.log(params);
+                    document.getElementById("reports").value = params;
+                    break;
+                case "digital_latch_data_reply":
+                    //console.log('digital_latch_callback');
+                    pin = params[0].slice(1);
+                    var id = 'dlevent' + pin;
+                    //console.log(id)
+
+                    document.getElementById(id).value = params;
+                    id = 'dlatch' + pin;
+                    console.log('al: ' + id);
+                    //console.log(document.getElementyById(id).value);
+                    //document.getElementyById(id).value = '1';
+                    document.getElementById(id).selectedIndex = "0";
+
+                    //console.log(message.data);
+
+                    break;
+                case "analog_latch_data_reply":
+                    //console.log('analog_latch_callback');
+                    pin = params[0].slice(1);
+                    id = 'alevent' + pin;
+                    //console.log(id);
+
+                    document.getElementById(id).value = params;
+                    id = 'alatch' + pin;
+                    console.log('al: ' + id);
+                    //console.log(document.getElementyById(id).value);
+                    //document.getElementyById(id).value = '1';
+                    document.getElementById(id).selectedIndex = "0";
+                    break;
+
+                case "digital_read_reply":
+                    document.getElementById('ddata').value = params[1];
+                    break;
+
+                case "analog_read_reply":
+                    document.getElementById('adata').value = params[1];
+                    break;
+                case "get_digital_latch_data_reply":
+                    console.log(params);
+                    if (params[1] == null) {
+                        document.getElementById('dlatchdata').value = "No Latch Set"
+                    }
+                    else {
+
+                        document.getElementById('dlatchdata').value = params[1]
+                    }
+                    break;
+
+                case "get_analog_latch_data_reply":
+                    console.log('get_analog_latch_data_reply' + params);
+                    if (params[1] == null) {
+                        document.getElementById('alatchdata').value = "No Latch Set"
+                    }
+                    else {
+
+                        document.getElementById('alatchdata').value = params[1]
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+            //document.getElementById("ain").value = out;
+        };
+
+
+        function clicked(id) {
+            //console.log('clicked: ' + id);
+            switch (id) {
+                // show the pwm value field
+                case 'pwm3':
+                    $("#v3").show();
+                    setPinMode('3', pwmMode);
+                    break;
+                case 'pwm5':
+                    $("#v5").show();
+                    setPinMode('5', pwmMode);
+                    break;
+                case 'pwm6':
+                    $("#v6").show();
+                    setPinMode('6', pwmMode);
+                    break;
+                case 'pwm9':
+                    $("#v9").show();
+                    setPinMode('9', pwmMode);
+                    break;
+                case 'pwm10':
+                    $("#v10").show();
+                    setPinMode('10', pwmMode);
+                    break;
+                case 'pwm11':
+                    $("#v11").show();
+                    setPinMode('11', pwmMode);
+                    break;
+
+                // hide the pwm field
+                case "p2low":
+                    setPinMode('2', outputMode);
+                    digitalWrite('2', '0');
+                    break;
+                case 'p2high':
+                    setPinMode('2', outputMode);
+                    digitalWrite('2', '1');
+                    break;
+                case "p3low":
+                    $("#v3").hide();
+                    setPinMode('3', outputMode);
+                    digitalWrite('3', '0');
+                    break;
+                case 'p3high':
+                    $("#v3").hide();
+                    setPinMode('3', outputMode);
+                    digitalWrite('3', '1');
+                    break;
+
+                case 'p4low':
+                    setPinMode('4', outputMode);
+                    digitalWrite('4', '0');
+                    break;
+
+                case 'p4high':
+                    setPinMode('4', outputMode);
+                    digitalWrite('4', '1');
+                    break;
+
+                case "p5low":
+                    $("#v5").hide();
+                    setPinMode('5', outputMode);
+                    digitalWrite('5', '0');
+                    break;
+                case 'p5high':
+                    $("#v5").hide();
+                    setPinMode('5', outputMode);
+                    digitalWrite('5', '1');
+                    break;
+
+                case "p6low":
+                    $("#v6").hide();
+                    setPinMode('6', outputMode);
+                    digitalWrite('6', '0');
+                    break;
+
+                case 'p6high':
+                    $("#v6").hide();
+                    setPinMode('6', outputMode);
+                    digitalWrite('6', '1');
+                    break;
+
+                case 'p7low':
+                    setPinMode('7', outputMode);
+                    digitalWrite('7', '0');
+                    break;
+
+                case 'p7high':
+                    setPinMode('7', outputMode);
+                    digitalWrite('7', '1');
+                    break;
+
+                case 'p8low':
+                    setPinMode('8', outputMode);
+                    digitalWrite('86', '0');
+                    break;
+
+                case 'p8high':
+                    setPinMode('8', outputMode);
+                    digitalWrite('8', '1');
+                    break;
+
+                case "p9low":
+                    $("#v9").hide();
+                    setPinMode('9', outputMode);
+                    digitalWrite('9', '0');
+                    break;
+                case 'p9high':
+                    $("#v9").hide();
+                    setPinMode('9', outputMode);
+                    digitalWrite('9', '1');
+                    break;
+
+                case "p10low":
+                    $("#v10").hide();
+                    setPinMode('10', outputMode);
+                    digitalWrite('10', '0');
+                    break;
+                case 'p10high':
+                    $("#v10").hide();
+                    setPinMode('10', outputMode);
+                    digitalWrite('10', '1');
+                    break;
+
+                case "p11low":
+                    $("#v11").hide();
+                    setPinMode('11', outputMode);
+                    digitalWrite('11', '0');
+                    break;
+
+                case 'p11high':
+                    $("#v11").hide();
+                    setPinMode('11', outputMode);
+                    digitalWrite('11', '1');
+                    break;
+
+                case 'p12low':
+                    setPinMode('12', outputMode);
+                    digitalWrite('12', '0');
+                    break;
+
+                case 'p12high':
+                    setPinMode('12', outputMode);
+                    digitalWrite('12', '1');
+                    break;
+
+                case 'p13low':
+                    setPinMode('13', outputMode);
+                    digitalWrite('13', '0');
+                    break;
+
+                case 'p13high':
+                    setPinMode('13', outputMode);
+                    digitalWrite('13', '1');
+                    break;
+
+                case 'p14low':
+                    setPinMode('14', outputMode);
+                    digitalWrite('14', '0');
+                    break;
+
+                case 'p14high':
+                    setPinMode('14', outputMode);
+                    digitalWrite('14', '1');
+                    break;
+
+                case 'p15low':
+                    setPinMode('15', outputMode);
+                    digitalWrite('15', '0');
+                    break;
+
+                case 'p15high':
+                    setPinMode('15', outputMode);
+                    digitalWrite('15', '1');
+                    break;
+
+                case 'p16low':
+                    setPinMode('16', outputMode);
+                    digitalWrite('16', '0');
+                    break;
+
+                case 'p16high':
+                    setPinMode('16', outputMode);
+                    digitalWrite('16', '1');
+                    break;
+
+                case 'p17low':
+                    setPinMode('17', outputMode);
+                    digitalWrite('17', '0');
+                    break;
+
+                case 'p17high':
+                    setPinMode('17', outputMode);
+                    digitalWrite('17', '1');
+                    break;
+
+                case 'p18low':
+                    setPinMode('18', outputMode);
+                    digitalWrite('18', '0');
+                    break;
+
+                case 'p18high':
+                    setPinMode('18', outputMode);
+                    digitalWrite('18', '1');
+                    break;
+
+                case 'p19low':
+                    setPinMode('19', outputMode);
+                    digitalWrite('19', '0');
+                    break;
+
+                case 'p19high':
+                    setPinMode('19', outputMode);
+                    digitalWrite('19', '1');
+                    break;
+
+                case 'in0a':
+                    disableAnalogReporting("0");
+                    break;
+
+                case 'in1a':
+                    disableAnalogReporting("1");
+                    break;
+
+                case 'in2a':
+                    disableAnalogReporting("2");
+                    break;
+
+                case 'in3a':
+                    disableAnalogReporting("3");
+                    break;
+
+                case 'in4a':
+                    disableAnalogReporting("4");
+                    break;
+
+                case 'in5a':
+                    disableAnalogReporting("5");
+                    break;
+
+                case 'in2d':
+                    disableDigitalReporting("2");
+                    break;
+                case 'in3d':
+                    disableDigitalReporting("3");
+                    break;
+
+                case 'in4d':
+                    disableDigitalReporting("4");
+                    break;
+                case 'in5d':
+                    disableDigitalReporting("5");
+                    break;
+
+                case 'in6d':
+                    disableDigitalReporting("6");
+                    break;
+                case 'in7d':
+                    disableDigitalReporting("7");
+                    break;
+
+                case 'in8d':
+                    disableDigitalReporting("8");
+                    break;
+
+                case 'in9d':
+                    disableDigitalReporting("9");
+                    break;
+
+                case 'in10d':
+                    disableDigitalReporting("10");
+                    break;
+
+                case 'in11d':
+                    disableDigitalReporting("11");
+                    break;
+
+                case 'in12d':
+                    disableDigitalReporting("12");
+                    break;
+
+                case 'in13d':
+                    disableDigitalReporting("13");
+                    break;
+
+                case 'in14d':
+                    disableDigitalReporting("14");
+                    break;
+
+                case 'in15d':
+                    disableDigitalReporting("15");
+                    break;
+
+                case 'in16d':
+                    disableDigitalReporting("16");
+                    break;
+
+                case 'in17d':
+                    disableDigitalReporting("17");
+                    break;
+
+                case 'in18d':
+                    disableDigitalReporting("18");
+                    break;
+
+                case 'in19d':
+                    disableDigitalReporting("19");
+                    break;
+
+
+                case 'out2d':
+                    setPinMode('2', inputMode);
+                    break;
+
+                case 'out3d':
+                    setPinMode('3', inputMode);
+                    break;
+
+                case 'out4d':
+                    setPinMode('4', inputMode);
+                    break;
+
+                case 'out5d':
+                    setPinMode('5', inputMode);
+                    break;
+
+                case 'out6d':
+                    setPinMode('6', inputMode);
+                    break;
+
+                case 'out7d':
+                    setPinMode('7', inputMode);
+                    break;
+
+                case 'out8d':
+                    setPinMode('8', inputMode);
+                    break;
+
+                case 'out9d':
+                    setPinMode('9', inputMode);
+                    break;
+
+                case 'out10d':
+                    setPinMode('10', inputMode);
+                    break;
+
+                case 'out11d':
+                    setPinMode('11', inputMode);
+                    break;
+
+                case 'out12d':
+                    setPinMode('12', inputMode);
+                    break;
+
+                case 'out13d':
+                    setPinMode('13', inputMode);
+                    break;
+
+                case 'out14d':
+                    setPinMode('14', inputMode);
+                    break;
+
+                case 'out15d':
+                    setPinMode('15', inputMode);
+                    break;
+
+                case 'out16d':
+                    setPinMode('16', inputMode);
+                    break;
+
+                case 'out17d':
+                    setPinMode('17', inputMode);
+                    break;
+
+                case 'out18d':
+                    setPinMode('18', inputMode);
+                    break;
+
+                case 'out19d':
+                    setPinMode('19', inputMode);
+                    break;   
+
+                case 'out0a':
+                    setPinMode('0', analogMode);
+                    break;
+
+                case 'out1a':
+                    setPinMode('1', analogMode);
+                    break;
+
+                case 'out2a':
+
+                    setPinMode('2', analogMode);
+                    break;
+
+                case 'out3a':
+                    setPinMode('3', analogMode);
+                    break;
+
+                case 'out4a':
+                    setPinMode('4', analogMode);
+                    break;
+
+                case 'out5a':
+                    setPinMode('5', analogMode);
+                    break;
+
+
+            }
+            //console.log(id);
+
+        }
+
+        function pwmChange(control) {
+            var pin = 0;
+            value = 0;
+            switch (control) {
+                case 'v3':
+                    pin = '3';
+                    break;
+                case 'v5':
+                    pin = '5';
+                    break;
+                case 'v6':
+                    pin = '6';
+                    break;
+                case 'v9':
+                    pin = '9';
+                    break;
+                case 'v10':
+                    pin = '10';
+                    break;
+                case 'v11':
+                    pin = '11';
+                    break;
+            }
+            value = document.getElementById(control).value;
+            var msg = JSON.stringify({"method": "analog_write", "params": [pin, value]});
+            socket.send(msg);
+            //console.log(pin + ':' + value);
+
+        }
+
+
+        function servo() {
+            pin = document.getElementById('servoPin').value;
+            console.log('servoPin: ' + pin);
+            var angle = document.getElementById('servoAngle').value;
+            console.log('servoAngle: ' + angle);
+            var msg = JSON.stringify({"method": "servo_config", "params": [pin, "544", "2400"]});
+            socket.send(msg);
+            msg = JSON.stringify({"method": "analog_write", "params": [pin, angle]});
+            socket.send(msg);
+
+        }
+
+
+        function setPinMode(pin, mode) {
+            var msg = JSON.stringify({"method": "set_pin_mode", "params": [pin, mode]});
+            socket.send(msg);
+        }
+
+        function digitalWrite(pin, value) {
+            msg = JSON.stringify({"method": "digital_write", "params": [pin, value]});
+            socket.send(msg);
+        }
+
+        function disableDigitalReporting(pin) {
+            msg = JSON.stringify({"method": "disable_digital_reporting", "params": [pin]});
+            socket.send(msg);
+        }
+
+        function enableDigitalReporting(pin) {
+            msg = JSON.stringify({"method": "enable_digital_reporting", "params": [pin]});
+            socket.send(msg);
+        }
+
+        function disableAnalogReporting(pin) {
+            msg = JSON.stringify({"method": "disable_analog_reporting", "params": [pin]});
+            socket.send(msg);
+        }
+
+        function enbleAnalogReporting(pin) {
+            msg = JSON.stringify({"method": "endable_analog_reporting", "params": [pin]});
+            socket.send(msg);
+        }
+
+        function getAnalogMap() {
+            msg = JSON.stringify({"method": "get_analog_map", "params": ["null"]});
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function getCapabilityReport() {
+            msg = JSON.stringify({"method": "get_capability_report", "params": ["null"]});
+            //console.log(msg);
+            socket.send(msg);
+        }
+
+        function getFirmwareVersion() {
+            msg = JSON.stringify({"method": "get_firmware_version", "params": ["null"]});
+            //console.log(msg);
+            socket.send(msg);
+        }
+
+        function getProtocolVersion() {
+            msg = JSON.stringify({"method": "get_protocol_version", "params": ["null"]});
+            //console.log(msg);
+            socket.send(msg);
+        }
+
+        function getPymataVersion() {
+            msg = JSON.stringify({"method": "get_pymata_version", "params": ["null"]});
+            //console.log(msg);
+            socket.send(msg);
+        }
+
+        function getPinState() {
+            // first get the pin number from the spinner
+            pin = document.getElementById('pinSpinner').value;
+
+            msg = JSON.stringify({"method": "get_pin_state", "params": [pin]});
+            //console.log(msg);
+            socket.send(msg);
+        }
+
+        function digitalLatch(pin, id) {
+            //console.log('digitalLatch pin: ' + pin);
+            //console.log('id = ' + id);
+            var choice = document.getElementById(id).value;
+            var threshold;
+            //console.log('choice: ' + choice);
+            switch (choice) {
+                case '2':
+                    threshold = "1";
+                    break;
+                case '3':
+                    threshold = "0";
+                    break;
+            }
+            //console.log(threshold)
+            msg = JSON.stringify({"method": "set_digital_latch", "params": [pin, threshold]});
+            //console.log(msg)
+            socket.send(msg);
+        }
+
+        function analogLatch(pin, id) {
+            //get threshold
+            //console.log('analog latch pin: ' + pin);
+            var thId = "a1thr" + pin;
+            //console.log(thId)
+            var threshold = document.getElementById(thId).value;
+            //console.log('threshold: ' + threshold);
+            var choice = document.getElementById(id).value;
+
+            //console.log('choice = ' + choice)
+            switch (choice) {
+                case '2':
+                    var comp = "0";
+                    break;
+                case '3':
+                    comp = "2";
+                    break;
+                case '4':
+                    comp = "4";
+                    break;
+                case '5':
+                    comp = "1";
+                    break;
+                case '6':
+                    comp = "3";
+                    break;
+            }
+            msg = JSON.stringify({"method": "set_analog_latch", "params": [pin, comp, threshold]});
+            //console.log(msg)
+            socket.send(msg);
+
+        }
+
+
+        function digitalRead() {
+            pin = document.getElementById("drPin").value;
+            setPinMode(pin, inputMode);
+            msg = JSON.stringify({"method": "digital_read", "params": [pin]});
+            console.log(pin);
+            socket.send(msg);
+        }
+
+        function analogRead() {
+            pin = document.getElementById("arPin").value;
+            setPinMode(pin, analogMode);
+            msg = JSON.stringify({"method": "analog_read", "params": [pin]});
+            console.log(pin);
+            socket.send(msg);
+        }
+
+
+        function digitalLatchRead() {
+            pin = document.getElementById("dlData").value;
+            console.log('digitalLatchdata pin ' + pin);
+            setPinMode(pin, inputMode);
+            msg = JSON.stringify({"method": "get_digital_latch_data", "params": [pin]});
+            console.log(pin);
+            socket.send(msg);
+        }
+
+
+        function analogLatchRead() {
+            pin = document.getElementById("alData").value;
+            console.log('analogLatchdata pin ' + pin);
+            setPinMode(pin, analogMode);
+            msg = JSON.stringify({"method": "get_analog_latch_data", "params": [pin]});
+            console.log(msg);
+
+            socket.send(msg);
+        }
+
+        function playTone() {
+            pin = document.getElementById("tonePin").value;
+            var frequency = document.getElementById("freq").value;
+            var duration = document.getElementById("duration").value;
+            msg = JSON.stringify({"method": "play_tone", "params": [pin, "TONE_TONE", frequency, duration]});
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function encoderRead(type) {
+            var pin_a = document.getElementById("encoderPinA").value;
+            var pin_b = document.getElementById("encoderPinB").value;
+            msg = JSON.stringify({"method": "encoder_config", "params": [pin_a, pin_b]});
+            console.log(msg);
+            socket.send(msg);
+            if (type == 1) {
+                var msg = JSON.stringify(({"method": "encoder_read", "params": [pin_a]}));
+                console.log(msg);
+                socket.send(msg);
+            }
+        }
+
+        function sonarRead(type) {
+            var trigger = document.getElementById("sonarTriggerPin").value;
+            var echo = document.getElementById("sonarEchoPin").value;
+            var ping_interval = "50";
+            var max_dist = "200";
+            msg = JSON.stringify({"method": "sonar_config", "params": [trigger, echo, ping_interval, max_dist]});
+            console.log(msg);
+            socket.send(msg);
+            if (type == 1) {
+                var msg = JSON.stringify(({"method": "sonar_read", "params": [trigger]}));
+                console.log(msg);
+                socket.send(msg);
+            }
+        }
+
+        function runStepMotor() {
+            console.log('runStepMotor');
+            var pin1 = document.getElementById("stepperPin1").value;
+            var pin2 = document.getElementById("stepperPin2").value;
+            var pin3 = document.getElementById("stepperPin3").value;
+            var pin4 = document.getElementById("stepperPin4").value;
+            var stepsPerRev = document.getElementById("stepRev").value;
+            var speed = document.getElementById("motorSpeed").value;
+            var steps = document.getElementById("numSteps").value;
+            msg = JSON.stringify({"method": "stepper_config", "params": [stepsPerRev, [pin1, pin2, pin3, pin4]]});
+            console.log(msg);
+            socket.send(msg);
+            var msg = JSON.stringify({"method": "stepper_step", "params": [speed, steps]});
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function i2cConfig() {
+            var delay = document.getElementById("i2cDelayTime").value;
+            msg = JSON.stringify({"method": "i2c_config", "params": [delay]});
+            console.log(msg);
+            socket.send(msg);
+        }
+
+        function i2cReadRequest() {
+            var i2cAddress =  document.getElementById("i2cReadAddress").value;
+            var i2cRegister = document.getElementById("i2cReadRegister").value;
+            var i2cNumBytes = document.getElementById("i2cReadNumBytes").value;
+            var i2cReadTp = document.getElementById("i2cReadType").value;
+            msg = JSON.stringify({"method": "i2c_read_request", "params": [i2cAddress, i2cRegister,
+                i2cNumBytes, i2cReadTp ]});
+            console.log(msg);
+            socket.send(msg);
+
+        }
+
+        function i2cReadData() {
+            i2cAddress =  document.getElementById("i2cReadAddress").value;
+            msg = JSON.stringify({"method": "i2c_read_data", "params": [i2cAddress ]});
+            console.log(msg);
+            socket.send(msg);
+
+        }
+
+        function i2cWriteDemo(state) {
+            // send i2cConfig
+            var delay = 0;
+            var matrix_address = 112;
+            var oscillatorOn = 33;
+            var blinkCommand = 129;
+            var brightness = 231;
+
+            msg = JSON.stringify({"method": "i2c_config", "params": [matrix_address, [delay]]});
+            console.log(msg);
+            socket.send(msg);
+
+            // turn oscillator on
+            msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address, [oscillatorOn]]});
+            socket.send(msg);
+
+            // set blink rate
+            msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address, [blinkCommand]]});
+            socket.send(msg);
+
+            // set brightness
+            msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address, [brightness]]});
+            socket.send(msg);
+
+            // turn off all Leds
+            for( var r = 0; r < 8 ; r++) {
+                msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address, [r * 2, 0, 0]]});
+                socket.send(msg);
+                msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address,[ ((r * 2) + 1) , 0, 0]]});
+                socket.send(msg);
+            }
+
+            if( state == 1) {
+                for (r = 0; r < 8; r++) {
+                    msg = JSON.stringify({"method": "i2c_write_request", "params": [matrix_address, [r * 2, 0, 1]]});
+                    socket.send(msg);
+                    msg = JSON.stringify({
+                        "method": "i2c_write_request",
+                        "params": [matrix_address, [((r * 2) + 1), 0, 1]]
+                    });
+                    socket.send(msg);
+                }
+            }
+
+
+        }
+
+
+
+    </script>
+</form>
+</body>
+</html>

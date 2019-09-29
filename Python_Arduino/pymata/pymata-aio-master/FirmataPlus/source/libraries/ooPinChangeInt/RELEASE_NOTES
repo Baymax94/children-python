@@ -1,0 +1,114 @@
+---- RELEASE NOTES  ---------------------------------------------------------------------
+	ooPinChangeInt Release Notes
+
+	This is the ooPinChangeInt library for the Arduino.
+	See google code project for latest bugs and info http://code.google.com/p/arduino-oopinchangeint/
+
+	This library provides an extension to the interrupt support for arduino by adding pin change
+	interrupts, giving a way for users to have interrupts drive off of any pin (ATmega328-based
+	Arduinos) and by the Port B, J, and K pins on the Arduino Mega and its ilk.
+
+	Library is derived from and begins with the PinChangeInt v 1.3 code.  See http://code.google.com/p/arduino-pinchangeint/
+
+---- LICENSE ----------------------------------------------------------------------------
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+---- ACKNOWLEDGEMENTS --------------------------------------------------------------------
+	This library was originally written by Chris J. Klick, Robot builder and all around geek, who said of it,
+		"HI, Yeah, I wrote the original PCint library. It was a bit of a hack and the new one has better
+		features.  I intended the code to be freely usable.  Didn't really think about a license.  Feel
+		free to use it in your code: I hereby grant you permission."
+	Thanks, Chris! A hack? I dare say not, if I have taken this any further it's merely by standing on the
+	shoulders of giants. This library was the best "tutorial" I found on Arduino Pin Change Interrupts
+	and because of that I decided to continue to maintain and (hopefully) improve it. We, the Arduino
+	community of robot builders and geeks, owe you a great debt of gratitude for your hack- a hack in
+	the finest sense.
+
+	The library was then picked up by Lex Talionis, who created the Google Code website. We all owe a debt
+	of thanks to Lex, too, for all his hard work! He is currently the other official maintainer of this
+	code.
+
+	Chris' original PCInt Arduino Playground example is here: http://www.arduino.cc/playground/Main/PcInt
+
+	Many thanks to all the contributors who have contributed bug fixes, code, and suggestions
+	to this project: 
+	John Boiles and Baziki (who added fixes to PcInt), Maurice Beelen, nms277, Akesson Karlpetter, and
+	Orly Andico for various fixes to this code, Rob Tillaart for some excellent code reviews and nice
+	optimizations, Andre' Franken for a good bug report that kept me thinking, cserveny.tamas a special
+	shout out for providing the MEGA code to PinChangeInt- Thanks!
+
+	Regarding the MEGA and friends, Cserveny says: "J is mostly useless, because of the hardware UART. I was
+	not able to get pin change notifications from the TX pin (14), so only 15 left. All other pins are not
+	connected on the arduino boards."
+	
+---- LICENSE ----------------------------------------------------------------------------
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+---- VERSIONS ----------------------------------------------------------------------------
+Version 1.03(beta) Wed Nov 21 18:20:46 CST 2012
+Added MEGA support, as per PinChangeInt. This support has not been tested in this library; if you do use it with the MEGA please let me know. See the Google Code site for more information. Thanks.
+
+Modified to not delete() pins that get detachInterrupt()'ed. Now when you detachInterrupt(), the PORT just disables interrupts for that pin; the PCintPin object remains in memory and in the linked list of pins (possibly slowing down your interrupts a couple of micros).  You can reenable a detached interrupt- but you must do it within the PinChangeInt library (would anyone ever enable an interrupt on a pin, then disable it, then have need to reenable it but not using the library?).
+
+Made the interrupt handler faster with an optimization from robtillaart to take out the checks for changed pins from the while() loop that steps through the pins:
+uint8_t changedPins = (PCintPort::curr ^ lastPinView) &
+                      ((portRisingPins & PCintPort::curr ) | ( portFallingPins & ~PCintPort::curr ));
+
+...This speedup is offset by changes in the PCint() handler, especially the PCintPort::curr bug reported below. This change was brought over from the Version 2.13(beta) PinChangeInt code.
+
+Other bugfixes that follow the PinChangeInt-2.17beta release:
+
+1. PCintPort::curr bug. In the interrupt handler PCint(), we loop as long as PCIFR indicates a new interrupt wants to be triggered, provided DISABLE_PCINT_MULTI_SERVICE is not defined (it is not by default):
+#ifndef DISABLE_PCINT_MULTI_SERVICE
+        pcifr = PCIFR & PCICRbit;
+        PCIFR = pcifr;  // clear the interrupt if we will process it (no effect if bit is zero)
+} while(pcifr);
+#endif
+...Well. Problem is, if a pin pops up and causes the PCIFR to change, we have to reread the port and look at how it is now! I wasn't doing that before, so if a new interrupt appeared while I was still servicing the old one, odd behavior would take place. For example, an interrupt would register but then the userFunc would not be called upon to service it.
+2. attachInterrupt() now returns a uint8_t value:  1 on successful attach, 0 on successful attach but using an already-enabled pin, and -1 if the new() operator failed to create a PCintPin object.
+3. Created the enable() method, so that in the next interation I will be able to perform the optimization from robtillaart to take out the checks for the changed pins in the while() loop in PCint(). Look for a description of this change in the next beta version.
+
+	Version 1.00 Sat Dec  3 22:56:20 CST 2011
+	Modified to use the new() operator and symbolic links instead of creating a pre-populated
+	array of pointers to the pins.  This consumes more flash, but makes possible some
+	additional C++ style functionality later.
+
+	Version 1.01 Thu Dec  8 21:29:11 CST 2011
+	Modified to use a C++ callback function.  The arduinoPin variable is no longer necessary,
+	as this creates a new methodology for using the library.
+
+	Version 1.02 Tue Mon Mar  5 18:37:28 CST 2012
+	All code moved into this .h file so as to make it possible to recognize #define's in the
+	user's sketch.
+
+	Added #ifdef LIBCALL_OOPINCHANGEINT.  Programmers using this library in another library
+	should define this macro, because this will allow you to #include it in your sketch AND
+	#include it in the library.
+    (As a matter of act, you must always #include this file in your sketch, even if it's only
+	used to support another library.  See the Tigger library and example, for an example.)
+
+	Code uses the cbiface library, which is a much simplified and renamed version of cb.h
+	---- VERSIONS ----------------------------------------------------------------------------
+

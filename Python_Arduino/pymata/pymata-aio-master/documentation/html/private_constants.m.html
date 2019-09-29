@@ -1,0 +1,1825 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+    <title>pymata_aio.private_constants API documentation</title>
+    <meta name="description" content="Copyright (c) 2015-2019 Alan Yorinks All rights reserved.
+
+This program is free software; you can re..." />
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+  
+  <style type="text/css">
+  
+* {
+  box-sizing: border-box;
+}
+/*! normalize.css v1.1.1 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Prevent system color scheme's background color being used in Firefox, IE,
+ *    and Opera.
+ * 2. Prevent system color scheme's text color being used in Firefox, IE, and
+ *    Opera.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 4. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    background: #fff; /* 1 */
+    color: #000; /* 2 */
+    font-size: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 4 */
+    -ms-text-size-adjust: 100%; /* 4 */
+}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,
+strong {
+    font-weight: bold;
+}
+
+blockquote {
+    margin: 1em 40px;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+dl,
+menu,
+ol,
+ul {
+    margin: 1em 0;
+}
+
+dd {
+    margin: 0 0 0 40px;
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+
+menu,
+ol,
+ul {
+    padding: 0 0 0 40px;
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+  </style>
+
+  <style type="text/css">
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #fff;
+    font-family: "Source Sans Pro", "Helvetica Neueue", Helvetica, sans;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
+  #content {
+    width: 70%;
+    max-width: 850px;
+    float: left;
+    padding: 30px 60px;
+    border-left: 1px solid #ddd;
+  }
+  #sidebar {
+    width: 25%;
+    float: left;
+    padding: 30px;
+    overflow: hidden;
+  }
+  #nav {
+    font-size: 130%;
+    margin: 0 0 15px 0;
+  }
+
+  #top {
+    display: block;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    font-size: .85em;
+    text-transform: uppercase;
+  }
+
+  #footer {
+    font-size: .75em;
+    padding: 5px 30px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+  }
+    #footer p {
+      margin: 0 0 0 30px;
+      display: inline-block;
+    }
+
+  h1, h2, h3, h4, h5 {
+    font-weight: 300;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.1em;
+    margin: 0 0 .50em 0;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    margin: 1em 0 .50em 0;
+  }
+
+  h3 {
+    margin: 25px 0 10px 0;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 105%;
+  }
+
+  a {
+    color: #058;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+  }
+
+  a:hover {
+    color: #e08524;
+    transition: color .3s ease-in-out;
+  }
+
+  pre, code, .mono, .name {
+    font-family: "Ubuntu Mono", "Cousine", "DejaVu Sans Mono", monospace;
+  }
+
+  .title .name {
+    font-weight: bold;
+  }
+  .section-title {
+    margin-top: 2em;
+  }
+  .ident {
+    color: #900;
+  }
+
+  code {
+    background: #f9f9f9;
+  } 
+
+  pre {
+    background: #fefefe;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 0 #f3f3f3;
+    margin: 0 30px;
+    padding: 15px 30px;
+  }
+
+  .codehilite {
+    margin: 0 30px 10px 30px;
+  }
+
+    .codehilite pre {
+      margin: 0;
+    }
+    .codehilite .err { background: #ff3300; color: #fff !important; } 
+
+  table#module-list {
+    font-size: 110%;
+  }
+
+    table#module-list tr td:first-child {
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    table#module-list td {
+      vertical-align: top;
+      padding-bottom: 8px;
+    }
+
+      table#module-list td p {
+        margin: 0 0 7px 0;
+      }
+
+  .def {
+    display: table;
+  }
+
+    .def p {
+      display: table-cell;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .def p:first-child {
+      white-space: nowrap;
+    }
+
+    .def p:last-child {
+      width: 100%;
+    }
+
+
+  #index {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+    ul#index .class_name {
+      /* font-size: 110%; */
+      font-weight: bold;
+    }
+    #index ul {
+      margin: 0;
+    }
+
+  .item {
+    margin: 0 0 15px 0;
+  }
+
+    .item .class {
+      margin: 0 0 25px 30px;
+    }
+
+      .item .class ul.class_list {
+        margin: 0 0 20px 0;
+      }
+
+    .item .name {
+      background: #fafafa;
+      margin: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      min-width: 40%;
+    }
+      .item .name:hover {
+        background: #f6f6f6;
+      }
+
+    .item .empty_desc {
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .item .inheritance {
+      margin: 3px 0 0 30px;
+    }
+
+    .item .inherited {
+      color: #666;
+    }
+
+    .item .desc {
+      padding: 0 8px;
+      margin: 0;
+    }
+
+      .item .desc p {
+        margin: 0 0 10px 0;
+      }
+
+    .source_cont {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source_link a {
+      background: #ffc300;
+      font-weight: 400;
+      font-size: .75em;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f4b700;
+      
+      padding: 3px 8px;
+      border-radius: 2px;
+      transition: background .3s ease-in-out;
+    }
+      .source_link a:hover {
+        background: #FF7200;
+        text-shadow: none;
+        transition: background .3s ease-in-out;
+      }
+
+    .source {
+      display: none;
+      max-height: 600px;
+      overflow-y: scroll;
+      margin-bottom: 15px;
+    }
+
+      .source .codehilite {
+        margin: 0;
+      }
+
+  .desc h1, .desc h2, .desc h3 {
+    font-size: 100% !important;
+  }
+  .clear {
+    clear: both;
+  }
+
+  @media all and (max-width: 950px) {
+    #sidebar {
+      width: 35%;
+    }
+    #content {
+      width: 65%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    #top {
+      display: none;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+      padding: 30px;
+    }
+
+    #index ul {
+      padding: 0;
+      margin-bottom: 15px;
+    }
+    #index ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    #footer {
+      text-align: left;
+    }
+    #footer p {
+      display: block;
+      margin: inherit;
+    }
+  }
+
+  /*****************************/
+
+  </style>
+
+  <style type="text/css">
+  .codehilite .hll { background-color: #ffffcc }
+.codehilite  { background: #f8f8f8; }
+.codehilite .c { color: #408080; font-style: italic } /* Comment */
+.codehilite .err { border: 1px solid #FF0000 } /* Error */
+.codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+.codehilite .o { color: #666666 } /* Operator */
+.codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+.codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+.codehilite .gd { color: #A00000 } /* Generic.Deleted */
+.codehilite .ge { font-style: italic } /* Generic.Emph */
+.codehilite .gr { color: #FF0000 } /* Generic.Error */
+.codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.codehilite .gi { color: #00A000 } /* Generic.Inserted */
+.codehilite .go { color: #888888 } /* Generic.Output */
+.codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.codehilite .gs { font-weight: bold } /* Generic.Strong */
+.codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite .gt { color: #0044DD } /* Generic.Traceback */
+.codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+.codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.codehilite .kt { color: #B00040 } /* Keyword.Type */
+.codehilite .m { color: #666666 } /* Literal.Number */
+.codehilite .s { color: #BA2121 } /* Literal.String */
+.codehilite .na { color: #7D9029 } /* Name.Attribute */
+.codehilite .nb { color: #008000 } /* Name.Builtin */
+.codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.codehilite .no { color: #880000 } /* Name.Constant */
+.codehilite .nd { color: #AA22FF } /* Name.Decorator */
+.codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.codehilite .nf { color: #0000FF } /* Name.Function */
+.codehilite .nl { color: #A0A000 } /* Name.Label */
+.codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.codehilite .nv { color: #19177C } /* Name.Variable */
+.codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+.codehilite .mf { color: #666666 } /* Literal.Number.Float */
+.codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+.codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+.codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+.codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+.codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+.codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+.codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+.codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.codehilite .sx { color: #008000 } /* Literal.String.Other */
+.codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+.codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+.codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+.codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+.codehilite .vc { color: #19177C } /* Name.Variable.Class */
+.codehilite .vg { color: #19177C } /* Name.Variable.Global */
+.codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+.codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+.codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+  </style>
+
+  <style type="text/css">
+  
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+  </style>
+
+  <script type="text/javascript">
+  function toggle(id, $link) {
+    $node = document.getElementById(id);
+    if (!$node)
+    return;
+    if (!$node.style.display || $node.style.display == 'none') {
+    $node.style.display = 'block';
+    $link.innerHTML = 'Hide source &nequiv;';
+    } else {
+    $node.style.display = 'none';
+    $link.innerHTML = 'Show source &equiv;';
+    }
+  }
+  </script>
+</head>
+<body>
+<a href="#" id="top">Top</a>
+
+<div id="container">
+    
+  
+  <div id="sidebar">
+    <h1>Index</h1>
+    <ul id="index">
+
+
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
+      <ul>
+        <li class="mono">
+        <span class="class_name"><a href="#pymata_aio.private_constants.PrivateConstants">PrivateConstants</a></span>
+        
+        </li>
+      </ul>
+    </li>
+
+    </ul>
+  </div>
+
+    <article id="content">
+      
+  
+
+  
+
+
+  <header id="section-intro">
+  <h1 class="title"><span class="name">pymata_aio.private_constants</span> module</h1>
+  <p>Copyright (c) 2015-2019 Alan Yorinks All rights reserved.</p>
+<p>This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3 as published by the Free Software Foundation; either
+or (at your option) any later version.
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</p>
+  
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-pymata_aio.private_constants', this);">Show source &equiv;</a></p>
+  <div id="source-pymata_aio.private_constants" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> Copyright (c) 2015-2019 Alan Yorinks All rights reserved.</span>
+
+<span class="sd"> This program is free software; you can redistribute it and/or</span>
+<span class="sd"> modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE</span>
+<span class="sd"> Version 3 as published by the Free Software Foundation; either</span>
+<span class="sd"> or (at your option) any later version.</span>
+<span class="sd"> This library is distributed in the hope that it will be useful,</span>
+<span class="sd"> but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd"> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span>
+<span class="sd"> General Public License for more details.</span>
+
+<span class="sd"> You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE</span>
+<span class="sd"> along with this library; if not, write to the Free Software</span>
+<span class="sd"> Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">PrivateConstants</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class contains a set of constants for PyMata internal use .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># the following defines are from Firmata.h</span>
+    <span class="c1"># message command bytes (128-255/ 0x80- 0xFF)</span>
+    <span class="c1"># from this client to firmata</span>
+    <span class="n">MSG_CMD_MIN</span> <span class="o">=</span> <span class="mh">0x80</span>  <span class="c1"># minimum value for a message from firmata</span>
+    <span class="n">REPORT_ANALOG</span> <span class="o">=</span> <span class="mh">0xC0</span>  <span class="c1"># enable analog input by pin #</span>
+    <span class="n">REPORT_DIGITAL</span> <span class="o">=</span> <span class="mh">0xD0</span>  <span class="c1"># enable digital input by port pair</span>
+    <span class="n">SET_PIN_MODE</span> <span class="o">=</span> <span class="mh">0xF4</span>  <span class="c1"># set a pin to INPUT/OUTPUT/PWM/etc</span>
+    <span class="n">SET_DIGITAL_PIN_VALUE</span> <span class="o">=</span> <span class="mh">0xF5</span>  <span class="c1"># set a single digital pin value instead of entire port</span>
+    <span class="n">START_SYSEX</span> <span class="o">=</span> <span class="mh">0xF0</span>  <span class="c1"># start a MIDI Sysex message</span>
+    <span class="n">END_SYSEX</span> <span class="o">=</span> <span class="mh">0xF7</span>  <span class="c1"># end a MIDI Sysex message</span>
+    <span class="n">SYSTEM_RESET</span> <span class="o">=</span> <span class="mh">0xFF</span>  <span class="c1"># reset from MIDI</span>
+
+    <span class="c1"># messages from firmata</span>
+    <span class="n">DIGITAL_MESSAGE</span> <span class="o">=</span> <span class="mh">0x90</span>  <span class="c1"># send or receive data for a digital pin</span>
+    <span class="n">ANALOG_MESSAGE</span> <span class="o">=</span> <span class="mh">0xE0</span>  <span class="c1"># send or receive data for a PWM configured pin</span>
+    <span class="n">REPORT_VERSION</span> <span class="o">=</span> <span class="mh">0xF9</span>  <span class="c1"># report protocol version</span>
+
+    <span class="c1"># start of FirmataPlus defined SYSEX commands</span>
+    <span class="n">KEEP_ALIVE</span> <span class="o">=</span> <span class="mh">0x50</span>   <span class="c1"># keep alive message</span>
+    <span class="n">TONE_DATA</span> <span class="o">=</span> <span class="mh">0x5F</span>  <span class="c1"># play a tone at a specified frequency and duration</span>
+    <span class="n">ENCODER_CONFIG</span> <span class="o">=</span> <span class="mh">0x60</span>  <span class="c1"># create and enable encoder object</span>
+    <span class="n">ENCODER_DATA</span> <span class="o">=</span> <span class="mh">0x61</span>  <span class="c1"># current encoder position data</span>
+    <span class="n">SONAR_CONFIG</span> <span class="o">=</span> <span class="mh">0x62</span>  <span class="c1"># configure pins to control a sonar distance device</span>
+    <span class="n">SONAR_DATA</span> <span class="o">=</span> <span class="mh">0x63</span>  <span class="c1"># distance data returned</span>
+    <span class="n">PIXY_CONFIG</span> <span class="o">=</span> <span class="mh">0x64</span>  <span class="c1"># configure the Pixy.  Configure has 4 subcommands</span>
+    <span class="n">PIXY_DATA</span> <span class="o">=</span> <span class="mh">0x65</span>  <span class="c1"># blocks data returned</span>
+    <span class="c1"># end of FirmataPlus defined SYSEX commands</span>
+
+    <span class="n">SERVO_CONFIG</span> <span class="o">=</span> <span class="mh">0x70</span>  <span class="c1"># set servo pin and max and min angles</span>
+    <span class="n">STRING_DATA</span> <span class="o">=</span> <span class="mh">0x71</span>  <span class="c1"># a string message with 14-bits per char</span>
+    <span class="n">STEPPER_DATA</span> <span class="o">=</span> <span class="mh">0x72</span>  <span class="c1"># Stepper motor command</span>
+    <span class="n">I2C_REQUEST</span> <span class="o">=</span> <span class="mh">0x76</span>  <span class="c1"># send an I2C read/write request</span>
+    <span class="n">I2C_REPLY</span> <span class="o">=</span> <span class="mh">0x77</span>  <span class="c1"># a reply to an I2C read request</span>
+    <span class="n">I2C_CONFIG</span> <span class="o">=</span> <span class="mh">0x78</span>  <span class="c1"># config I2C settings such as delay times and power pins</span>
+    <span class="n">REPORT_FIRMWARE</span> <span class="o">=</span> <span class="mh">0x79</span>  <span class="c1"># report name and version of the firmware</span>
+    <span class="n">SAMPLING_INTERVAL</span> <span class="o">=</span> <span class="mh">0x7A</span>  <span class="c1"># modify the sampling interval</span>
+
+    <span class="n">EXTENDED_ANALOG</span> <span class="o">=</span> <span class="mh">0x6F</span>  <span class="c1"># analog write (PWM, Servo, etc) to any pin</span>
+    <span class="n">PIN_STATE_QUERY</span> <span class="o">=</span> <span class="mh">0x6D</span>  <span class="c1"># ask for a pin&#39;s current mode and value</span>
+    <span class="n">PIN_STATE_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6E</span>  <span class="c1"># reply with pin&#39;s current mode and value</span>
+    <span class="n">CAPABILITY_QUERY</span> <span class="o">=</span> <span class="mh">0x6B</span>  <span class="c1"># ask for supported modes of all pins</span>
+    <span class="n">CAPABILITY_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6C</span>  <span class="c1"># reply with supported modes and resolution</span>
+    <span class="n">ANALOG_MAPPING_QUERY</span> <span class="o">=</span> <span class="mh">0x69</span>  <span class="c1"># ask for mapping of analog to pin numbers</span>
+    <span class="n">ANALOG_MAPPING_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6A</span>  <span class="c1"># reply with analog mapping data</span>
+
+    <span class="c1"># reserved values</span>
+    <span class="n">SYSEX_NON_REALTIME</span> <span class="o">=</span> <span class="mh">0x7E</span>  <span class="c1"># MIDI Reserved for non-realtime messages</span>
+    <span class="n">SYSEX_REALTIME</span> <span class="o">=</span> <span class="mh">0x7F</span>  <span class="c1"># MIDI Reserved for realtime messages</span>
+
+    <span class="c1"># reserved for PyMata</span>
+    <span class="n">PYMATA_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2.30&quot;</span>
+
+    <span class="c1"># each byte represents a digital port</span>
+    <span class="c1">#  and its value contains the current port settings</span>
+    <span class="n">DIGITAL_OUTPUT_PORT_PINS</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]</span>
+
+    <span class="c1"># These values are the index into the data passed by _arduino and</span>
+    <span class="c1"># used to reassemble integer values</span>
+    <span class="n">MSB</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">LSB</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># enable reporting for REPORT_ANALOG or REPORT_DIGITAL message</span>
+    <span class="c1"># sent to firmata</span>
+    <span class="n">REPORTING_ENABLE</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># disable reporting for REPORT_ANALOG or REPORT_DIGITAL message</span>
+    <span class="c1"># sent to firmata</span>
+    <span class="n">REPORTING_DISABLE</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Stepper Motor Sub-commands</span>
+    <span class="n">STEPPER_CONFIGURE</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># configure a stepper motor for operation</span>
+    <span class="n">STEPPER_STEP</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># command a motor to move at the provided speed</span>
+    <span class="n">STEPPER_LIBRARY_VERSION</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># used to get stepper library version number</span>
+
+    <span class="c1"># Pixy sub commands</span>
+    <span class="n">PIXY_INIT</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initialize the Pixy object and set the max number of blocks to report</span>
+    <span class="n">PIXY_SET_SERVOS</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># directly control the pan and tilt servo motors</span>
+    <span class="n">PIXY_SET_BRIGHTNESS</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># adjust the brightness of the Pixy exposure</span>
+    <span class="n">PIXY_SET_LED</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># control the color of the Pixy LED</span>
+
+    <span class="c1"># Pin used to store Pixy data</span>
+    <span class="n">PIN_PIXY_MOSI</span> <span class="o">=</span> <span class="mi">11</span>
+</pre></div>
+
+  </div>
+
+  </header>
+
+  <section id="section-items">
+
+
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
+      <div class="item">
+      <p id="pymata_aio.private_constants.PrivateConstants" class="name">class <span class="ident">PrivateConstants</span></p>
+      
+  
+    <div class="desc"><p>This class contains a set of constants for PyMata internal use .</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-pymata_aio.private_constants.PrivateConstants', this);">Show source &equiv;</a></p>
+  <div id="source-pymata_aio.private_constants.PrivateConstants" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">PrivateConstants</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class contains a set of constants for PyMata internal use .</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># the following defines are from Firmata.h</span>
+    <span class="c1"># message command bytes (128-255/ 0x80- 0xFF)</span>
+    <span class="c1"># from this client to firmata</span>
+    <span class="n">MSG_CMD_MIN</span> <span class="o">=</span> <span class="mh">0x80</span>  <span class="c1"># minimum value for a message from firmata</span>
+    <span class="n">REPORT_ANALOG</span> <span class="o">=</span> <span class="mh">0xC0</span>  <span class="c1"># enable analog input by pin #</span>
+    <span class="n">REPORT_DIGITAL</span> <span class="o">=</span> <span class="mh">0xD0</span>  <span class="c1"># enable digital input by port pair</span>
+    <span class="n">SET_PIN_MODE</span> <span class="o">=</span> <span class="mh">0xF4</span>  <span class="c1"># set a pin to INPUT/OUTPUT/PWM/etc</span>
+    <span class="n">SET_DIGITAL_PIN_VALUE</span> <span class="o">=</span> <span class="mh">0xF5</span>  <span class="c1"># set a single digital pin value instead of entire port</span>
+    <span class="n">START_SYSEX</span> <span class="o">=</span> <span class="mh">0xF0</span>  <span class="c1"># start a MIDI Sysex message</span>
+    <span class="n">END_SYSEX</span> <span class="o">=</span> <span class="mh">0xF7</span>  <span class="c1"># end a MIDI Sysex message</span>
+    <span class="n">SYSTEM_RESET</span> <span class="o">=</span> <span class="mh">0xFF</span>  <span class="c1"># reset from MIDI</span>
+
+    <span class="c1"># messages from firmata</span>
+    <span class="n">DIGITAL_MESSAGE</span> <span class="o">=</span> <span class="mh">0x90</span>  <span class="c1"># send or receive data for a digital pin</span>
+    <span class="n">ANALOG_MESSAGE</span> <span class="o">=</span> <span class="mh">0xE0</span>  <span class="c1"># send or receive data for a PWM configured pin</span>
+    <span class="n">REPORT_VERSION</span> <span class="o">=</span> <span class="mh">0xF9</span>  <span class="c1"># report protocol version</span>
+
+    <span class="c1"># start of FirmataPlus defined SYSEX commands</span>
+    <span class="n">KEEP_ALIVE</span> <span class="o">=</span> <span class="mh">0x50</span>   <span class="c1"># keep alive message</span>
+    <span class="n">TONE_DATA</span> <span class="o">=</span> <span class="mh">0x5F</span>  <span class="c1"># play a tone at a specified frequency and duration</span>
+    <span class="n">ENCODER_CONFIG</span> <span class="o">=</span> <span class="mh">0x60</span>  <span class="c1"># create and enable encoder object</span>
+    <span class="n">ENCODER_DATA</span> <span class="o">=</span> <span class="mh">0x61</span>  <span class="c1"># current encoder position data</span>
+    <span class="n">SONAR_CONFIG</span> <span class="o">=</span> <span class="mh">0x62</span>  <span class="c1"># configure pins to control a sonar distance device</span>
+    <span class="n">SONAR_DATA</span> <span class="o">=</span> <span class="mh">0x63</span>  <span class="c1"># distance data returned</span>
+    <span class="n">PIXY_CONFIG</span> <span class="o">=</span> <span class="mh">0x64</span>  <span class="c1"># configure the Pixy.  Configure has 4 subcommands</span>
+    <span class="n">PIXY_DATA</span> <span class="o">=</span> <span class="mh">0x65</span>  <span class="c1"># blocks data returned</span>
+    <span class="c1"># end of FirmataPlus defined SYSEX commands</span>
+
+    <span class="n">SERVO_CONFIG</span> <span class="o">=</span> <span class="mh">0x70</span>  <span class="c1"># set servo pin and max and min angles</span>
+    <span class="n">STRING_DATA</span> <span class="o">=</span> <span class="mh">0x71</span>  <span class="c1"># a string message with 14-bits per char</span>
+    <span class="n">STEPPER_DATA</span> <span class="o">=</span> <span class="mh">0x72</span>  <span class="c1"># Stepper motor command</span>
+    <span class="n">I2C_REQUEST</span> <span class="o">=</span> <span class="mh">0x76</span>  <span class="c1"># send an I2C read/write request</span>
+    <span class="n">I2C_REPLY</span> <span class="o">=</span> <span class="mh">0x77</span>  <span class="c1"># a reply to an I2C read request</span>
+    <span class="n">I2C_CONFIG</span> <span class="o">=</span> <span class="mh">0x78</span>  <span class="c1"># config I2C settings such as delay times and power pins</span>
+    <span class="n">REPORT_FIRMWARE</span> <span class="o">=</span> <span class="mh">0x79</span>  <span class="c1"># report name and version of the firmware</span>
+    <span class="n">SAMPLING_INTERVAL</span> <span class="o">=</span> <span class="mh">0x7A</span>  <span class="c1"># modify the sampling interval</span>
+
+    <span class="n">EXTENDED_ANALOG</span> <span class="o">=</span> <span class="mh">0x6F</span>  <span class="c1"># analog write (PWM, Servo, etc) to any pin</span>
+    <span class="n">PIN_STATE_QUERY</span> <span class="o">=</span> <span class="mh">0x6D</span>  <span class="c1"># ask for a pin&#39;s current mode and value</span>
+    <span class="n">PIN_STATE_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6E</span>  <span class="c1"># reply with pin&#39;s current mode and value</span>
+    <span class="n">CAPABILITY_QUERY</span> <span class="o">=</span> <span class="mh">0x6B</span>  <span class="c1"># ask for supported modes of all pins</span>
+    <span class="n">CAPABILITY_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6C</span>  <span class="c1"># reply with supported modes and resolution</span>
+    <span class="n">ANALOG_MAPPING_QUERY</span> <span class="o">=</span> <span class="mh">0x69</span>  <span class="c1"># ask for mapping of analog to pin numbers</span>
+    <span class="n">ANALOG_MAPPING_RESPONSE</span> <span class="o">=</span> <span class="mh">0x6A</span>  <span class="c1"># reply with analog mapping data</span>
+
+    <span class="c1"># reserved values</span>
+    <span class="n">SYSEX_NON_REALTIME</span> <span class="o">=</span> <span class="mh">0x7E</span>  <span class="c1"># MIDI Reserved for non-realtime messages</span>
+    <span class="n">SYSEX_REALTIME</span> <span class="o">=</span> <span class="mh">0x7F</span>  <span class="c1"># MIDI Reserved for realtime messages</span>
+
+    <span class="c1"># reserved for PyMata</span>
+    <span class="n">PYMATA_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2.30&quot;</span>
+
+    <span class="c1"># each byte represents a digital port</span>
+    <span class="c1">#  and its value contains the current port settings</span>
+    <span class="n">DIGITAL_OUTPUT_PORT_PINS</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
+                                <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]</span>
+
+    <span class="c1"># These values are the index into the data passed by _arduino and</span>
+    <span class="c1"># used to reassemble integer values</span>
+    <span class="n">MSB</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">LSB</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># enable reporting for REPORT_ANALOG or REPORT_DIGITAL message</span>
+    <span class="c1"># sent to firmata</span>
+    <span class="n">REPORTING_ENABLE</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># disable reporting for REPORT_ANALOG or REPORT_DIGITAL message</span>
+    <span class="c1"># sent to firmata</span>
+    <span class="n">REPORTING_DISABLE</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Stepper Motor Sub-commands</span>
+    <span class="n">STEPPER_CONFIGURE</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># configure a stepper motor for operation</span>
+    <span class="n">STEPPER_STEP</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># command a motor to move at the provided speed</span>
+    <span class="n">STEPPER_LIBRARY_VERSION</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># used to get stepper library version number</span>
+
+    <span class="c1"># Pixy sub commands</span>
+    <span class="n">PIXY_INIT</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initialize the Pixy object and set the max number of blocks to report</span>
+    <span class="n">PIXY_SET_SERVOS</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># directly control the pan and tilt servo motors</span>
+    <span class="n">PIXY_SET_BRIGHTNESS</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># adjust the brightness of the Pixy exposure</span>
+    <span class="n">PIXY_SET_LED</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># control the color of the Pixy LED</span>
+
+    <span class="c1"># Pin used to store Pixy data</span>
+    <span class="n">PIN_PIXY_MOSI</span> <span class="o">=</span> <span class="mi">11</span>
+</pre></div>
+
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#pymata_aio.private_constants.PrivateConstants">PrivateConstants</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Class variables</h3>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_QUERY" class="name">var <span class="ident">ANALOG_MAPPING_QUERY</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.ANALOG_MAPPING_RESPONSE" class="name">var <span class="ident">ANALOG_MAPPING_RESPONSE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.ANALOG_MESSAGE" class="name">var <span class="ident">ANALOG_MESSAGE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.CAPABILITY_QUERY" class="name">var <span class="ident">CAPABILITY_QUERY</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.CAPABILITY_RESPONSE" class="name">var <span class="ident">CAPABILITY_RESPONSE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.DIGITAL_MESSAGE" class="name">var <span class="ident">DIGITAL_MESSAGE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.DIGITAL_OUTPUT_PORT_PINS" class="name">var <span class="ident">DIGITAL_OUTPUT_PORT_PINS</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.ENCODER_CONFIG" class="name">var <span class="ident">ENCODER_CONFIG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.ENCODER_DATA" class="name">var <span class="ident">ENCODER_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.END_SYSEX" class="name">var <span class="ident">END_SYSEX</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.EXTENDED_ANALOG" class="name">var <span class="ident">EXTENDED_ANALOG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.I2C_CONFIG" class="name">var <span class="ident">I2C_CONFIG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.I2C_REPLY" class="name">var <span class="ident">I2C_REPLY</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.I2C_REQUEST" class="name">var <span class="ident">I2C_REQUEST</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.KEEP_ALIVE" class="name">var <span class="ident">KEEP_ALIVE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.LSB" class="name">var <span class="ident">LSB</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.MSB" class="name">var <span class="ident">MSB</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.MSG_CMD_MIN" class="name">var <span class="ident">MSG_CMD_MIN</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIN_PIXY_MOSI" class="name">var <span class="ident">PIN_PIXY_MOSI</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIN_STATE_QUERY" class="name">var <span class="ident">PIN_STATE_QUERY</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIN_STATE_RESPONSE" class="name">var <span class="ident">PIN_STATE_RESPONSE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_CONFIG" class="name">var <span class="ident">PIXY_CONFIG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_DATA" class="name">var <span class="ident">PIXY_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_INIT" class="name">var <span class="ident">PIXY_INIT</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_BRIGHTNESS" class="name">var <span class="ident">PIXY_SET_BRIGHTNESS</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_LED" class="name">var <span class="ident">PIXY_SET_LED</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PIXY_SET_SERVOS" class="name">var <span class="ident">PIXY_SET_SERVOS</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.PYMATA_VERSION" class="name">var <span class="ident">PYMATA_VERSION</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORTING_DISABLE" class="name">var <span class="ident">REPORTING_DISABLE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORTING_ENABLE" class="name">var <span class="ident">REPORTING_ENABLE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORT_ANALOG" class="name">var <span class="ident">REPORT_ANALOG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORT_DIGITAL" class="name">var <span class="ident">REPORT_DIGITAL</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORT_FIRMWARE" class="name">var <span class="ident">REPORT_FIRMWARE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.REPORT_VERSION" class="name">var <span class="ident">REPORT_VERSION</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SAMPLING_INTERVAL" class="name">var <span class="ident">SAMPLING_INTERVAL</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SERVO_CONFIG" class="name">var <span class="ident">SERVO_CONFIG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SET_DIGITAL_PIN_VALUE" class="name">var <span class="ident">SET_DIGITAL_PIN_VALUE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SET_PIN_MODE" class="name">var <span class="ident">SET_PIN_MODE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SONAR_CONFIG" class="name">var <span class="ident">SONAR_CONFIG</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SONAR_DATA" class="name">var <span class="ident">SONAR_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.START_SYSEX" class="name">var <span class="ident">START_SYSEX</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.STEPPER_CONFIGURE" class="name">var <span class="ident">STEPPER_CONFIGURE</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.STEPPER_DATA" class="name">var <span class="ident">STEPPER_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.STEPPER_LIBRARY_VERSION" class="name">var <span class="ident">STEPPER_LIBRARY_VERSION</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.STEPPER_STEP" class="name">var <span class="ident">STEPPER_STEP</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.STRING_DATA" class="name">var <span class="ident">STRING_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SYSEX_NON_REALTIME" class="name">var <span class="ident">SYSEX_NON_REALTIME</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SYSEX_REALTIME" class="name">var <span class="ident">SYSEX_REALTIME</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.SYSTEM_RESET" class="name">var <span class="ident">SYSTEM_RESET</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+            <div class="item">
+            <p id="pymata_aio.private_constants.PrivateConstants.TONE_DATA" class="name">var <span class="ident">TONE_DATA</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
+      </div>
+      </div>
+
+  </section>
+
+    </article>
+  <div class="clear"> </div>
+  <footer id="footer">
+    <p>
+      Documentation generated by
+      <a href="https://github.com/BurntSushi/pdoc">pdoc 0.3.2</a>
+    </p>
+
+    <p>pdoc is in the public domain with the
+      <a href="http://unlicense.org">UNLICENSE</a></p>
+
+    <p>Design by <a href="http://nadh.in">Kailash Nadh</a></p>
+  </footer>
+</div>
+</body>
+</html>

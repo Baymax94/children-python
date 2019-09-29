@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""
+Drives the RedBot forward 5 wheel revolutions then stops
+"""
+
+from pymata_aio.pymata3 import PyMata3
+from pymata_aio.constants import Constants
+
+board = PyMata3()
+
+pins = {"BUTTON_SWITCH": 12, "LEFT_ENCODER": 16, "RIGHT_ENCODER": 10,
+        "LEFT_MOTOR_CONTROL_1": 2, "LEFT_MOTOR_CONTROL_2": 4, "LEFT_MOTOR_SPEED": 5,
+        "RIGHT_MOTOR_CONTROL_1": 7, "RIGHT_MOTOR_CONTROL_2": 8, "RIGHT_MOTOR_SPEED": 6,
+        "LED": 13}
+
+total_left_ticks = 0
+total_right_ticks = 0
+NUM_REVOLUTIONS = 5
+COUNTS_PER_REVOLUTION = 384 # 4 pairs of N-S x 48:1 gearbox = 192 rising edge ticks per wheel rev, 384 rising AND
+# falling edges due to current Firmata setup
+
+
+def setup():
+    """Setup pins"""
+    print("Encoder Demo")
+    board.set_pin_mode(pins["LEFT_MOTOR_CONTROL_1"], Constants.OUTPUT)
+    board.set_pin_mode(pins["LEFT_MOTOR_CONTROL_2"], Constants.OUTPUT)
+    board.set_pin_mode(pins["LEFT_MOTOR_SPEED"], Constants.PWM)
+    board.set_pin_mode(pins["RIGHT_MOTOR_CONTROL_1"], Constants.OUTPUT)
+    board.set_pin_mode(pins["RIGHT_MOTOR_CONTROL_2"], Constants.OUTPUT)
+    board.set_pin_mode(pins["RIGHT_MOTOR_SPEED"], Constants.PWM)
+
+    board.encoder_config(pins["LEFT_ENCODER"],pins["RIGHT_ENCODER"], encoder_callback, Constants.CB_TYPE_DIRECT, True)
+
+def encoder_callback(data):
+    global total_left_ticks, total_right_ticks
+    total_left_ticks += data[0]
+    total_right_ticks += data[1]
+
+
+
+def loop():
+    """Function that gets called again as soon as it finishes (forever)."""
+    global total_left_ticks, total_right_ticks
+    input("Press any key to drive {} revolutions".format(NUM_REVOLUTIONS))
+    total_left_ticks = 0
+    total_right_ticks = 0
+    print("Straight")
+    board.digital_write(pins["LEFT_MOTOR_CONTROL_1"], 1)
+    board.digital_write(pins["LEFT_MOTOR_CONTROL_2"], 0)
+    board.analog_write(pins["LEFT_MOTOR_SPEED"], 180)
+    board.digital_write(pins["RIGHT_MOTOR_CONTROL_1"], 1)
+    board.digital_write(pins["RIGHT_MOTOR_CONTROL_2"], 0)
+    board.analog_write(pins["RIGHT_MOTOR_SPEED"], 180)
+
+    while total_right_ticks <= NUM_REVOLUTIONS * COUNTS_PER_REVOLUTION and \
+                    total_left_ticks <= NUM_REVOLUTIONS * COUNTS_PER_REVOLUTION:
+        print("{}       {}".format(total_left_ticks, total_right_ticks))
+        board.sleep(0.1)
+
+
+
+
+
+    print("Stop")
+    board.digital_write(pins["LEFT_MOTOR_CONTROL_1"], 1)
+    board.digital_write(pins["LEFT_MOTOR_CONTROL_2"], 1)
+    board.analog_write(pins["LEFT_MOTOR_SPEED"], 255)
+    board.digital_write(pins["RIGHT_MOTOR_CONTROL_1"], 1)
+    board.digital_write(pins["RIGHT_MOTOR_CONTROL_2"], 1)
+    board.analog_write(pins["RIGHT_MOTOR_SPEED"], 255)
+
+
+if __name__ == "__main__":
+    setup()
+    while True:
+        loop()
+

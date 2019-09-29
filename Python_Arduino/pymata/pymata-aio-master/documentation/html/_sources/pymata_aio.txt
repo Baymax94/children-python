@@ -1,0 +1,78 @@
+pymata_aio package
+==================
+
+Submodules
+----------
+
+pymata_aio.constants module
+---------------------------
+
+.. automodule:: pymata_aio.constants
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pin_data module
+--------------------------
+
+.. automodule:: pymata_aio.pin_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.private_constants module
+-----------------------------------
+
+.. automodule:: pymata_aio.private_constants
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pymata3 module
+-------------------------
+
+.. automodule:: pymata_aio.pymata3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pymata_core module
+-----------------------------
+
+.. automodule:: pymata_aio.pymata_core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pymata_iot module
+----------------------------
+
+.. automodule:: pymata_aio.pymata_iot
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pymata_serial module
+-------------------------------
+
+.. automodule:: pymata_aio.pymata_serial
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pymata_aio.pymata_socket module
+-------------------------------
+
+.. automodule:: pymata_aio.pymata_socket
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: pymata_aio
+    :members:
+    :undoc-members:
+    :show-inheritance:

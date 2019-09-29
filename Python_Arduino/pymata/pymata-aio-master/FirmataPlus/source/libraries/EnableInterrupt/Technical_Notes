@@ -1,0 +1,929 @@
+// in vim, :set ts=2 sts=2 sw=2 et
+
+// Enable Interrupts
+
+=====================================================================================================
+=====================================================================================================
+ATmega328 Support
+=====================================================================================================
+=====================================================================================================
+
+Interrupt pins:
+Pin External           Pin  Pin Change       Pin  Pin Change
+    Interrupt               Interrupt             Interrupt 
+ 3 INT1      PD3        0   PCINT16   PD0     A0  PCINT8    PC0
+ 2 INT0      PD2        1   PCINT17   PD1     A1  PCINT9    PC1
+                        2   PCINT18   PD2     A2  PCINT10   PC2
+                        3   PCINT19   PD3     A3  PCINT11   PC3
+                        4   PCINT20   PD4     A4  PCINT12   PC4
+                        5   PCINT21   PD5     A5  PCINT13   PC5
+                        6   PCINT22   PD6
+                        7   PCINT23   PD7
+                        8   PCINT0    PB0
+                        9   PCINT1    PB1
+                        10  PCINT2    PB2
+                        11  PCINT3    PB3
+                        12  PCINT4    PB4
+                        13  PCINT5    PB5
+
+// The External Interrupts are triggered by the INT0 and INT1 pins or any of the PCINT23...0 pins.
+
+// PIN CHANGE INTERRUPT REGISTER BESTIARY
+// ATmega328p and similar (328, 168)
+The pin change interrupt PCI2 will trigger if any enabled PCINT[23:16] pin toggles.
+The pin change interrupt PCI1 will trigger if any enabled PCINT[14:8] pin toggles.
+The pin change interrupt PCI0 will trigger if any enabled PCINT[7:0] pin toggles.
+The PCMSK2, PCMSK1 and PCMSK0 Registers control which pins contribute to the pin change interrupts.
+Pin change interrupts on PCINT23...0 are detected asynchronously. This implies that these interrupts
+can be used for waking the part also from sleep modes other than Idle mode.
+
+// GLOBALLY
+SREG:  7   6   5   4   3   2   1   0  (AVR Status Register)
+       I -Global Interrupt Enable bit  Set to enable interrupts.
+      rw
+
+// PIN CHANGE INTERRUPTS REGISTER BESTIARY
+PCICR: 7   6   5   4   3   2   1   0  (When PCIE2 is set and GIE is set, PCI2 is enabled)
+                       PCIE2   1   0   Likewise for 1 and 0.
+       -   -   -   -   -  rw  rw  rw
+
+PCMSK2:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT23:16
+  PCINT23           ...      PCINT16   If PCIE2 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+    PD7  PD6 PD5 PD4 PD3 PD2 PD1 PD0   =PORTD
+
+PCMSK1:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT14:8
+       - PCINT14    ...       PCINT8   If PCIE1 in PCICR and this bit is set, it is enabled on that
+       r  rw  rw  rw  rw  rw  rw  rw   pin.)
+         PC6 PC5 PC4 PC3 PC2 PC1 PC0   =PORTC
+
+PCMSK0:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT7:0
+  PCINT7            ...       PCINT0   If PCIE0 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0   =PORTB
+
+// set...
+PCIFR: 7   6   5   4   3   2   1   0  (When logic change triggers IRQ, bececomes set. Cleared when
+                       PCIF2   1   0   IRQ is executed. PCIF2 == PCIE2, etc.)
+       -   -   -   -   -  rw  rw  rw
+
+// EXTERNAL INTERRUPTS REGISTER BESTIARY
+For ATmega328p and the like.
+
+INT0=pin2, INT1=pin3
+
+EICRA: 7   6   5   4   3   2   1   0  (External Interrupt Control Register A)
+                 ISC  11  10  01  00  Interrupt Sense Control Bits
+       -   -   -   -  rw  rw  rw  rw
+
+        ISC11 / ISC10 : INT1    ISC01 / ISC00
+          0      0    Low       (similar to ISC11/10)
+          0      1    Change
+          1      0    Falling
+          1      1    Rising
+
+EIMSK:  7   6   5   4   3   2   1   0  (External Interrupt Mask Register)
+                              INT1 INT0
+        -   -   -   -   -   -  rw  rw   set to 1 to enable this interrupt
+
+// set...
+EIFR: INTF1: Bit 1: set when edge/logic chg on INT1 triggers IRQ.  Cleared  when IRQ executed.
+      INTF0: Bit 0: set when edge/logic chg on INT0 triggers IRQ.  Cleared  when IRQ executed.
+
+
+The INT0 and INT1 interrupts can be triggered by a falling or rising edge or a low level. This is
+set up as indicated in the specification for the External Interrupt Control Register A – EICRA.
+When the INT0 or INT1 interrupts are enabled and are configured as level triggered, the inter-
+rupts will trigger as long as the pin is held low.
+Low level interrupt on INT0 and INT1 is detected asynchronously. This implies that this interrupt
+can be used for waking the part also from sleep modes other than Idle mode. The I/O clock is halted
+in all sleep modes except Idle mode.
+
+=============================================================================================
+
+Fri Jan 23 21:51:01 CST 2015
+PROBLEM:
+I have a "dirty" switch: it bounces a lot when pressed. The bounces can occur on the order of
+microseconds apart. So pretend I have turned on a port as an input port, and the pullup resistor
+is on. I have enabled a Pin Change Interrupt on the pin. It will trigger on any level change.
+So when I press the switch, the signal goes from high to low and the interrupt is triggered.
+
+Notice that for Pin Change Interrupts, the interrupt can take place when any pin on the port is
+interrupted. If you have the luxury of knowing ahead of time which pin(s) are interrupting, you
+can design fast, custom code that will react to your simple situation. But remember that I am
+writing a library: I don't know which pin may be doing the interrupting. So I have to survey the
+pins to figure out which one(s) changed, and had triggered the interrupt. Furthermore, there is
+an appreciable amount of time that it takes from the moment the triggering event happened to
+when I enter the interrupt subroutine (ISR) and have gone through the logic to figure out which
+pins did the triggering. ...How much time? That I aim to find out.
+
+Why is this a big deal? Remember my bouncy switch? ...The interrupt triggers, the ISR starts up,
+and the first thing I need to do is query the port to see the state of its pins. Well, some time
+has elapsed since the triggering event and this query. In the course of that time, it's entirely
+possible- and I'm writing this because it's not only possible, but it can happen quite readily-
+that the state of the pin changes before I get a chance to sample it. So I get an interrupt but
+it looks like a false alarm! The ISR never calls the user's function because none of the user's
+interrupt pins appear to have changed.
+
+There is no complete solution to this problem, because of the nature of Pin Change Interrupts.
+All you can do is mitigate the situation. I will attempt to do so by capturing the state of the
+port as early as possible in the ISR. The question is, how early is that?
+
+I attempt a test: my ISR looks like this; this will turn on and off the Arduino Uno's pin 13 LED:
+
+ISR(PORTC_VECT, ISR_NAKED) {
+  uint8_t interruptMask;
+  uint8_t ledon, ledoff;
+
+  ledon=0b00100000; ledoff=0b0;
+
+  PORTB=ledoff; // LOW
+  PORTB=ledon;         // HIGH
+  PORTB=ledoff; // LOW
+  PORTB=ledon;         // HIGH
+  PORTB=ledoff; // LOW
+  (...)
+}
+
+The generated assembly code looks like this:
+
+00000292 <__vector_4>:
+  ledon=0b00100000; ledoff=0b0;
+
+  PORTB=ledoff; // LOW
+     292:       15 b8           out     0x05, r1        ; 5
+  PORTB=ledon;         // HIGH
+     294:       80 e2           ldi     r24, 0x20       ; 32
+     296:       85 b9           out     0x05, r24       ; 5
+  PORTB=ledoff; // LOW
+     298:       15 b8           out     0x05, r1        ; 5
+  PORTB=ledon;         // HIGH
+     29a:       85 b9           out     0x05, r24       ; 5
+  PORTB=ledoff; // LOW
+     29c:       15 b8           out     0x05, r1        ; 5
+
+Notice a little optimization here: r1 is defined to always contain 0, so we don't even have to load
+a value from memory. 0 is an important number! This makes the initial command very quick, and by using
+an oscilloscope we can see just how quickly the chip reacts after receiving the signal.
+see just how fast 
+
+
+***** MACRO vs. INLINE the ISR frontend **************************
+The code compiles to very similar assembler. However, the inline is better looking C code.
+Refer to the "testing0" branch for comparison.
+
+I will use the INLINE method in the production code.
+***** MACRO vs. INLINE the ISR frontend **************************
+
+A lot of the basic Pin and Port definitions are in /usr/avr/include/avr/iom328p.h
+
+================== ================== ================== ================== ==================
+
+=====================================================================================================
+=====================================================================================================
+Leonardo Support LEONARDO
+=====================================================================================================
+=====================================================================================================
+
+// Map SPI port to 'new' pins D14..D17
+static const uint8_t SS   = 17;
+static const uint8_t MOSI = 16;
+static const uint8_t MISO = 14;
+static const uint8_t SCK  = 15;
+// A0 starts at 18
+
+
+Interrupt pins:
+Pin	External          	Pin	Pin Change
+        Interrupt                       Interrupt
+ 3	INT0  PD0		8	PCINT4     PB4
+ 2	INT1  PD1		9	PCINT5     PB5
+ 0	INT2  PD2		10	PCINT6     PB6
+ 1	INT3  PD3		11	PCINT7     PB7
+ 7	INT6  PE6		SCK/15	PCINT1     PB1
+				MOSI/16	PCINT2     PB2
+				MISO/14	PCINT3     PB3
+				SS/17	PCINT0     PB0 (on 3rd party boards)
+
+on ICSP:
+SCK/15: PCINT1 (PB1)
+MOSI/16: PCINT2 (PB2)
+MISO/14: PCINT3 (PB3)
+
+PCINT0 (PB0) is RXLED and is not exposed as a pin on the Leonardo board.
+
+External Interrupts ------------------------------------------------------------------------------
+
+...it is recommended to first disable INTn by clearing its Interrupt Enable bit in the
+EIMSK Register. Then, the ISCn bit can be changed. Finally, the INTn interrupt flag should be
+cleared by writing a logical one to its Interrupt Flag bit (INTFn) in the EIFR Register before the
+interrupt is re-enabled.
+
+EICRA: 7   6   5   4   3   2   1   0  (External Interrupt Control Register A)
+ ISC: 31  30  21  20  11  10  01  00  Interrupt Sense Control Bits
+      rw  rw  rw  rw  rw  rw  rw  rw
+
+EICRB: 7   6   5   4   3   2   1   0  (External Interrupt Control Register A)
+ ISC:  -   -  61  60   -   -   -   -  Interrupt Sense Control Bits
+      rw  rw  rw  rw  rw  rw  rw  rw
+
+        ISCx1 / ISCx0 : INTx
+          0      0    Low
+          0      1    Change
+          1      0    Falling
+          1      1    Rising
+
+EIMSK:  7   6   5   4   3   2   1   0  (External Interrupt Mask Register)
+            n           n   n   n   n
+        -  rw   -   -  rw  rw  rw  rw   set to 1 to enable this interrupt
+
+n= INTn number
+
+External Interrupt Flag Register is set to 1 when a signal generates an IRQ.
+Cleared upon entering the ISR. Can be cleared by writing a 1 to it.
+EIFR:   7   6   5   4   3   2   1   0  (External Interrupt Flag Register)
+            n           n   n   n   n
+        -  rw   -   -  rw  rw  rw  rw
+
+n= INTn number
+
+
+Pin Change Interrupts ---------------------------------------------------------------------------
+// PIN CHANGE INTERRUPTS REGISTER BESTIARY
+PCICR: 7   6   5   4   3   2   1   0  (When PCIE0 is set and GIE is set, PCI0 is enabled)
+                               PCIE0
+       -   -   -   -   -   -   -  rw
+
+// set...
+PCIFR: 7   6   5   4   3   2   1   0  (When logic change triggers IRQ, bececomes set. Cleared when
+                               PCIF0   IRQ is executed. PCIF0 == PCIE0.)
+       -   -   -   -   -   -   -  rw   Can be cleared by writing 1 to it.
+
+PCMSK0:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT7:0
+  PCINT7            ...       PCINT0   If PCIE0 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0   =PORTB
+
+=====================================================================================================
+=====================================================================================================
+ATmega2560 Support
+=====================================================================================================
+=====================================================================================================
+
+External Interrupts ------------------------------------------------------------------------------
+The following External Interrupts are available on the Arduino:
+Arduino           
+  Pin*  PORT INT  ATmega2560 pin
+  21     PD0  0     43
+  20     PD1  1     44
+  19     PD2  2     45
+  18     PD3  3	    46
+   2     PE4  4      6
+   3     PE5  5      7
+ n/c     PE6  6	     8  (fake pin 75)
+ n/c     PE7  7	     9  (fake pin 76)
+
+...it is recommended to first disable INTn by clearing its Interrupt Enable bit in the
+EIMSK Register. Then, the ISCn bit can be changed. Finally, the INTn interrupt flag should be
+cleared by writing a logical one to its Interrupt Flag bit (INTFn) in the EIFR Register before the
+interrupt is re-enabled.
+
+EICRA: 7   6   5   4   3   2   1   0  (External Interrupt Control Register A)
+ ISC: 31  30  21  20  11  10  01  00  Interrupt Sense Control Bits
+      rw  rw  rw  rw  rw  rw  rw  rw
+
+EICRB: 7   6   5   4   3   2   1   0  (External Interrupt Control Register B)
+ ISC: 71  70  61  60  51  50  41  40  Interrupt Sense Control Bits
+      rw  rw  rw  rw  rw  rw  rw  rw  NOTE: NO CONNECTION for INT6 and INT7 on ATmega2560**
+
+        ISCx1 / ISCx0 : INTx
+          0      0    Low
+          0      1    Change
+          1      0    Falling
+          1      1    Rising
+
+EIMSK:  7   6   5   4   3   2   1   0  (External Interrupt Mask Register)
+        n   n   n   n   n   n   n   n  NOTE:  NO CONNECTION FOR  INT6 and INT7 on ATmega2560**
+       rw  rw  rw  rw  rw  rw  rw  rw
+n= INTn number
+
+External Interrupt Flag Register is set to 1 when a signal generates an IRQ.
+Cleared upon entering the ISR. Can be cleared by writing a 1 to it.
+EIFR:   7   6   5   4   3   2   1   0  (External Interrupt Flag Register)
+        n   n   n   n   n   n   n   n  NOTE:  NO CONNECTION FOR  INT6 and INT7 on ATmega2560**
+       rw  rw  rw  rw  rw  rw  rw  rw
+n= INTn number
+
+** But that doesn't mean they wouldn't make an excellent resource for software interrupts! ;-) )
+
+Pin Change Interrupts ---------------------------------------------------------------------------
+
+ATMEGA2560 Pin Change Interrupts
+Arduino              Arduino              Arduino
+  Pin*  PORT PCINT     Pin   PORT PCINT     Pin   PORT PCINT
+  A8     PK0  16       10     PB4   4       SS     PB0   0
+  A9     PK1  17       11     PB5   5       SCK    PB1   1
+ A10     PK2  18       12     PB6   6       MOSI   PB2   2
+ A11     PK3  19       13     PB7   7       MISO   PB3   3
+ A12     PK4  20       14     PJ1  10
+ A13     PK5  21       15     PJ0   9
+ A14     PK6  22        0     PE0   8 - this one is a little odd.*
+ A15     PK7  23
+...indeed, the ATmega2560 chip supports many more Pin Change Interrupt pins but
+they are unavailable on the Arduino, unless you want to solder teeny tiny wires.
+(However, that doesn't mean they wouldn't make an excellent resource for software interrupts! :-) )
+
+* Note: Arduino Pin 0 is PE0 (PCINT8), which is RX0. Also, it is the only other
+pin on another port on PCI1. This would make it very costly to integrate with
+the library's code and thus is not supported by this library.  It is the same
+pin the Arduino uses to upload sketches, and it is connected to the FT232RL
+USB-to-Serial chip (ATmega16U2 on the R3).
+
+static const uint8_t SS   = 53;
+static const uint8_t MOSI = 51;
+static const uint8_t MISO = 50;
+static const uint8_t SCK  = 52;
+static const uint8_t A8 = 62;
+static const uint8_t A9 = 63;
+static const uint8_t A10 = 64;
+static const uint8_t A11 = 65;
+static const uint8_t A12 = 66;
+static const uint8_t A13 = 67;
+static const uint8_t A14 = 68;
+static const uint8_t A15 = 69;
+
+
+
+// PIN CHANGE INTERRUPTS REGISTER BESTIARY for the ATmega2560
+
+PCICR: 7   6   5   4   3   2   1   0  (When PCIE2 is set and GIE is set, PCI2 is enabled)
+                       PCIE2   1   0   Likewise for 1 and 0.
+       -   -   -   -   -  rw  rw  rw
+
+// set...
+PCIFR: 7   6   5   4   3   2   1   0  (When logic change triggers IRQ, bececomes set. Cleared when
+                       PCIF2   1   0   IRQ is executed. PCIF2 == PCIE2, etc.)
+       -   -   -   -   -  rw  rw  rw
+
+PCMSK2:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT23:16
+  PCINT23           ...      PCINT16   If PCIE2 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PK7 PK6 PK5 PK4 PK3 PK2 PK1 PK0   =PORTK
+       +   +   +   +   +   +   +   +   + == available on the Arduino board.
+
+PCMSK1:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT15:8
+  PCINT15           ...       PCINT8   If PCIE1 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PJ6 PJ5 PJ4 PJ3 PJ2 PJ1 PJ0 PE0   =PORTJ/E Note pin PE0 is the Arduino's RX pin for programming.
+                           +   +   +   
+
+PCMSK0:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled o2560n PCINT7:0
+  PCINT7            ...       PCINT0   If PCIE0 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0   =PORTB
+       +   +   +   +   +   +   +   +
+
+=====================================================================================================
+=====================================================================================================
+ATmega644 / 1284 Support (MIGHTY1284 used as a reference, NOT Sanguino)
+=====================================================================================================
+=====================================================================================================
+// Sanguino, Mosquino uino bobino bonanafannafofino, me my momino...
+#if defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
+
+// Here I use the mighty-1284p pinout from https://maniacbug.wordpress.com/2011/11/27/arduino-on-atmega1284p-4/
+                    +---\/---+
+          (D 0) PB0 |1     40| PA0 (AI 0 / D24)
+          (D 1) PB1 |2     39| PA1 (AI 1 / D25)
+     INT2 (D 2) PB2 |3     38| PA2 (AI 2 / D26)
+      PWM (D 3) PB3 |4     37| PA3 (AI 3 / D27)
+ PWM   SS (D 4) PB4 |5     36| PA4 (AI 4 / D28)
+     MOSI (D 5) PB5 |6     35| PA5 (AI 5 / D29)
+ PWM MISO (D 6) PB6 |7     34| PA6 (AI 6 / D30)
+ PWM  SCK (D 7) PB7 |8     33| PA7 (AI 7 / D31)
+                RST |9     32| AREF
+                VCC |10    31| GND
+                GND |11    30| AVCC
+              XTAL2 |12    29| PC7 (D 23)
+              XTAL1 |13    28| PC6 (D 22)
+      RX0 (D 8) PD0 |14    27| PC5 (D 21) TDI
+      TX0 (D 9) PD1 |15    26| PC4 (D 20) TDO
+INT0 RX1 (D 10) PD2 |16    25| PC3 (D 19) TMS
+INT1 TX1 (D 11) PD3 |17    24| PC2 (D 18) TCK
+     PWM (D 12) PD4 |18    23| PC1 (D 17) SDA
+     PWM (D 13) PD5 |19    22| PC0 (D 16) SDL
+     PWM (D 14) PD6 |20    21| PD7 (D 15) PWM
+                    +--------+
+
+External Interrupts ------------------------------------------------------------------------------
+The following External Interrupts are available on the Sanguino:
+Sanguino           
+  Pin*  PORT INT  ATmega644/1284 pin
+   2    PB2   2      3
+  10    PD2   0     16
+  11    PD3   1     17
+
+The following Pin Change Interrupts are available on the ATmega1284p:
+Mighty                                 Mighty           
+  Pin*  PORT PCINT ATmega644/1284 pin    Pin*  PORT PCINT ATmega644/1284 pin
+   0     PB0   8         1                15    PD7  31        21
+   1     PB1   9         2                16    PC0  16        22
+   2     PB2   2         3                17    PC1  17        23
+   3     PB3  11         4                18    PC2  18        24
+   4     PB4  12         5                19    PC3  19        25
+   5     PB5  13         6                20    PC4  20        26
+   6     PB6  14         7                21    PC5  21        27
+   7     PB7  15         8                22    PC6  22        28
+   8     PD0  24        14                23    PC7  23        29
+   9     PD1  25        15             31/A7    PA7   7        33
+  10     PD2  26        16             30/A6    PA6   6        34
+  11     PD3  27        17             29/A5    PA5   5        35
+  12     PD4  28        18             28/A4    PA4   4        36
+  13     PD5  29        19             27/A3    PA3   3        37
+  14     PD6  30        20             26/A2    PA2   2        38
+                                       25/A1    PA1   1        39
+                                       24/A0    PA0   0        40
+
+EICRA: 7   6   5   4   3   2   1   0  (External Interrupt Control Register A)
+ ISC:  -   -  21  20  11  10  01  00  Interrupt Sense Control Bits (ISCxx)
+       r   r  rw  rw  rw  rw  rw  rw
+
+EIMSK:  7   6   5   4   3   2   1   0  (External Interrupt Mask Register)
+        -   -   -   -   -   n   n   n  NOTE:  NO CONNECTION FOR  INT6 and INT7 on ATmega2560**
+        r   r   r   r   r  rw  rw  rw
+n= INTn number
+
+EIFR: External Interrupt Flag Register is set to 1 when a signal generates an IRQ.
+Cleared upon entering the ISR. Can be cleared by writing a 1 to it.
+EIFR:   7   6   5   4   3   2   1   0  (External Interrupt Flag Register)
+        -   -   -   -   -   n   n   n  NOTE:  NO CONNECTION FOR  INT6 and INT7 on ATmega2560**
+       rw   r   r   r  rw  rw  rw  rw
+n= INTn number
+
+PCICR: 7   6   5   4   3   2   1   0  (When PCIE2 is set and GIE is set, PCI2 is enabled)
+                   PCIE3   2   1   0   Likewise for 1 and 0.
+       r   r   r   r  rw  rw  rw  rw
+
+PCIFR: 7   6   5   4   3   2   1   0  (When logic change triggers IRQ, becomes set. Cleared when
+                   PCIF3   2   1   0   IRQ is executed. PCIF2 == PCIE2, etc.)
+       r   r   r   r  rw  rw  rw  rw
+
+0x73
+PCMSK3:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT23:16
+  PCINT31           ...      PCINT24   If PCIE2 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PD7 PD6 PD5 PD4 PD3 PD2 PD1 PD0   =PORTD
+      15  14  13  12  11  10  09  08   -->Sanguino Pins, DIP40 package
+
+0x6D
+PCMSK2:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT23:16
+  PCINT23           ...      PCINT16   If PCIE2 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PC7 PC6 PC5 PC4 PC3 PC2 PC1 PC0   =PORTC
+      23  22  21  20  19  18  17  16   -->Sanguino Pins, DIP40 package
+
+PCMSK1:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT15:8
+  PCINT15           ...       PCINT8   If PCIE1 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PB7 PB6 PB5 PB4 PB3 PB2 PB1 PB0   =PORTB
+       7   6   5   4   3   2   1   0   -->Sanguino Pins, DIP40 package
+
+PCMSK0:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled o2560n PCINT7:0
+  PCINT7            ...       PCINT0   If PCIE0 in PCICR and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PA7 PA6 PA5 PA4 PA3 PA2 PA1 PA0   =PORTB
+      24  25  26  27  28 29   30  31   -->Sanguino Pins, DIP40 package
+ 
+
+=====================================================================================================
+=====================================================================================================
+ATtiny 24/44/84 support ATTINY24
+=====================================================================================================
+=====================================================================================================
+Only the 44/84 are supported.
+
+Support for this chip is based on David Mellis' work at https://github.com/damellis/attiny
+This is an ATmega that comes in a 14-pin configuration. There are two ports, A and B. PCint pins are
+configured on both ports. The following is the pinout, and shows the Arduino pin numbering scheme: 
+// ATtiny24/44/84 / ARDUINO
+//
+//                           +-\/-+
+//                     VCC  1|    |14  GND
+//             (D 10)  PB0  2|    |13  PA0  (D  0) == AREF
+//             (D  9)  PB1  3|    |12  PA1  (D  1) 
+//                     PB3  4|    |11  PA2  (D  2) 
+//  PWM  INT0  (D  8)  PB2  5|    |10  PA3  (D  3) 
+//  PWM        (D  7)  PA7  6|    |9   PA4  (D  4) 
+//  PWM        (D  6)  PA6  7|    |8   PA5  (D  5)        PWM
+//                           +----+
+
+gcc CPU designations are as follows:
+__AVR_ATtiny24__  __AVR_ATtiny24A__  __AVR_ATtiny44__  __AVR_ATtiny44A__
+__AVR_ATtiny84__  __AVR_ATtiny84A__
+
+The following External Interrupts are available on the ATtiny24/44/84:
+Arduino(tiny)
+  Pin*  PORT INT  ATtiny44/84 pin
+   8    PB2   0      5
+
+The following Pin Change Interrupts are available on the ATmega24/44/84:
+Arduino(tiny)                          Arduino(tiny)
+  Pin*  PORT PCINT ATmega24/44/84 pin    Pin*  PORT PCINT ATmega24/44/84 pin
+   0     PA0   0        13                 5    PA5   5         8
+   1     PA1   1        12                 6    PA6   6         7
+   2     PA2   2        11                 7    PA7   7         6
+   3     PA3   3        10                 8    PB2  10         5
+   4     PA4   4         9                 9    PB1   9         3
+                                          10    PB0   8         2
+                                   "fake" 11    PB3  11         4
+
+Interrupt registers are different on the Tiny series. Interrupts are set by MCUCR, GIMSK, GIFR, PCMSK0, and PCMSK1.
+
+EXTERNAL INTERRUPTS
+-------------------
+MCUCR:
+ ISC:  -   -   -   -   -   -  01  00  Interrupt Sense Control Bits (ISCxx)
+       rw  rw rw  rw  rw  rw  rw  rw
+                           ISC01  00
+
+INT0 "is activated if the SREG I-flag and the MCUCR mask is set" (but see GIMSK, below).
+ISC01      ISC00
+  0          0     INT0 interrupted on LOW level
+  1          1     INT0 interrupted on CHANGE
+  0          0     INT0 interrupted on FALLING
+  1          1     INT0 interrupted on RISING
+
+GIMSK:
+When INT0 == 1  and SREG I-flag set, External Interrupt enabled.
+When PCIE1 == 1 and SREG I-flag set, pin change Interrupt PCINT11:8 enabled.
+When PCIE0 == 1 and SREG I-flag set, pin change Interrupt PCINT7:0 enabled.
+       -   INT0  PCIE0  -   -   -   -
+              PCIE1
+       rw  rw  rw  rw  rw  rw  rw  rw
+      --------------------------------
+
+
+GIFR:  7   6   5   4   3   2   1   0  (When logic change triggers IRQ, becomes set. Cleared when
+         INTF0   PCIF0   2   1   0     IRQ is executed. INTF0 == INT0, etc.)
+       -     PCIF1     -   -   -   -   INT0 is always cleared when INT0 is a LOW interrupt
+       r   rw  rw  rw  r   r   r   r
+
+PCMSK1:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT15:8
+                 PCINT11 ...  PCINT8   If PCIE1 in GIMSK and this bit is set, it is enabled on that
+       r   r   r   r  rw  rw  rw  rw   pin.)
+       -   -   -   - PB3 PB2 PB1 PB0   =PORTB
+       -   -   -   -   4   5   3   2   -->ATtiny 24/44/84 Pins, DIP14 package
+       -   -   -   -  11*  8   9  10   -->Arduino Pins, DIP14 package. * - "Fake" Arduino pin.
+
+PCMSK0:7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT7:0
+  PCINT7            ...       PCINT0   If PCIE0 in GIMSK and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+     PA7 PA6 PA5 PA4 PA3 PA2 PA1 PA0   =PORTA
+       7   6   5   4   3   2   1   1   -->ATtiny 24/44/84 Pins, DIP14 package
+       6   7   8   9  10  11  12  13   -->Arduino Pins, DIP14 package. * - "Fake" Arduino pin.
+
+=====================================================================================================
+=====================================================================================================
+ATtiny 25/45/85 support ATTINY25
+=====================================================================================================
+=====================================================================================================
+Only the ATtiny 45/85 are supported.
+Support for this chip is based on David Mellis' work at https://github.com/damellis/attiny
+This is an ATmega that comes in an 8-pin configuration. There is a single port, B.
+
+gcc CPU designations are as follows:
+__AVR_ATtiny25__  __AVR_ATtiny45__  __AVR_ATtiny85__
+
+The following is the pinout, and shows the Arduino pin numbering scheme:
+// ATtiny25/45/85 / ARDUINO
+//
+//             +-\/-+
+// (D 5) PB5  1|    |8  Vcc
+// (D 3) PB3  2|    |7  PB2 (D 2) (INT0)   (== Gemma B2)
+// (D 4) PB4  3|    |6  PB1 (D 1)          (== Gemma B1)
+//       GND  4|    |5  PB0 (D 0)          (== Gemma B0)
+//             +----+
+
+The following External Interrupts are available on the ATtiny25/45/85:
+Arduino(tiny)
+  Pin*  PORT INT  ATtiny25/45/85 pin
+   2    PB2   0      7
+
+The following Pin Change Interrupts are available on the ATmega25/45/85:
+Arduino(tiny)                          Arduino(tiny)
+  Pin*  PORT PCINT ATmega25/45/85 pin    Pin*  PORT PCINT ATmega25/45/85 pin
+   0     PB0   0        5                  3    PB3   3         2
+   1     PB1   1        6                  4    PB4   4         3
+   2     PB2   2        7                  5    PB5   5         1
+
+Interrupt registers are different on the Tiny series. Interrupts are set by MCUCR, GIMSK, GIFR, PCMSK0, and PCMSK1.
+
+
+MCUCR:
+ ISC:  -   -   -   -   -   -  01  00  Interrupt Sense Control Bits (ISCxx)
+       rw  rw rw  rw  rw  rw  rw  rw
+                           ISC01  00
+
+INT0 "is activated if the SREG I-flag and the MCUCR mask is set" (but see GIMSK, below).
+ISC01      ISC00
+  0          0     INT0 interrupted on LOW level
+  1          1     INT0 interrupted on CHANGE
+  0          0     INT0 interrupted on FALLING
+  1          1     INT0 interrupted on RISING
+
+GIMSK:
+When INT0 == 1 and SREG I-flag set, External Interrupt enabled.
+When PCIE == 1 and SREG I-flag set, pin change Interrupt PCINT5:0 enabled.
+       -   INT0    -   -   -   -   -
+              PCIE
+       r   rw  rw  r   r   r   r   r 
+      --------------------------------
+
+
+GIFR:  7   6   5   4   3   2   1   0  (When logic change triggers IRQ, becomes set. Cleared when
+         INT0                        IRQ is executed. INT0 == INT0, etc.)
+       -     PCIE  -  -   -   -   -   INT0 is always cleared when INT0 is a LOW interrupt
+       r   rw  rw  r  r   r   r   r
+
+PCMSK :7   6   5   4   3   2   1   0  (Selects whether pin change interrupt is enabled on PCINT7:0
+             PCINT5  ...      PCINT0   If PCIE0 in GIMSK and this bit is set, it is enabled on that
+      rw  rw  rw  rw  rw  rw  rw  rw   pin.)
+       -   - PB5 PB4 PB3 PB2 PB1 PB0   =PORTB
+               1   3   2   7   6   5   -->ATtiny 25/45/85 Pins, DIP8 package
+
+
+=================================================================================================================
+From http://www.atmel.com/Images/doc8468.pdf:
+
+External interrupts can be sensed and registered either synchronously or asynchronously. Synchronous sensing
+requires I/O clock whereas asynchronous sensing does not requires I/O clock. This implies that the interrupts
+that are detected asynchronously can be used for waking the device from sleep modes other than idle
+mode because the I/O clock is halted in all sleep modes except idle mode.  The sense configuration for
+external interrupts and pin change interrupts for Atmel ATmega2560 is given in Table 2-2. For device
+specific sense configuration, please refer to the respective datasheet.
+
+Table 2-2.  External interrupts sense configuration.
+Program address	Interrupt source	Sensing
+$0002		INT0			Asynchronous (Edges and level)
+$0004		INT1			Asynchronous (Edges and level)
+$0006		INT2			Asynchronous (Edges and level)
+$0008		INT3			Asynchronous (Edges and level)
+$000A		INT4			Synchronous (Edges and level)
+$000C		INT5			Synchronous (Edges and level)
+$000E		INT6 			Synchronous (Edges and level)
+$0010		INT7			Synchronous (Edges and level)
+$0012		PCINT0			Asynchronous
+$0014		PCINT1			Asynchronous
+$0016		PCINT2			Asynchronous
+From Table 2-2, all the pin change interrupts are detected asynchronously.
+
+...
+The interrupt execution response for all the enabled AVR interrupts is four/five clock cycle’s minimum.
+This four/five clock cycles depends on the program counter width. If the program counter width is not
+more than two bytes, then the interrupt response time will be four clock cycles minimum and if the
+program counter width is more than two bytes, then the interrupt response time will be minimum five
+clock cycles.  These four/five clock cycles include:
+1. Two/Three cycles for pushing the Program Counter (PC) value into the stack.
+2. One cycle for updating the stack pointer.
+3. One cycle for clearing the Global interrupt enable (I) bit.
+If an interrupt occurs when the MCU is in sleep mode, the interrupt execution response time is increased
+by five clock cycles. This increase comes in addition to the start-up time from the selected sleep mode.
+This start up time is the time it will take to start the clock source. 
+
+=====================================================================================================
+ARDUINO CPU BESTIARY
+=====================================================================================================
+See /usr/avr/include/avr/io.h for the actual #defines for the different CPUs.
+The CPUs are converted to the #defined macros (eg., __AVR_ATmega169__) by the compiler from
+the source file "avr-mcus.def". See
+https://github.com/gcc-mirror/gcc/blob/master/gcc/config/avr/avr-mcus.def
+
+$ grep mcu /usr/share/arduino/hardware/arduino/boards.txt
+uno.build.mcu=atmega328p
+atmega328.build.mcu=atmega328p
+diecimila.build.mcu=atmega168
+nano328.build.mcu=atmega328p
+nano.build.mcu=atmega168
+mega2560.build.mcu=atmega2560
+mega.build.mcu=atmega1280
+leonardo.build.mcu=atmega32u4
+esplora.build.mcu=atmega32u4
+micro.build.mcu=atmega32u4
+mini328.build.mcu=atmega328p
+mini.build.mcu=atmega168
+ethernet.build.mcu=atmega328p
+fio.build.mcu=atmega328p
+bt328.build.mcu=atmega328p
+bt.build.mcu=atmega168
+LilyPadUSB.build.mcu=atmega32u4
+lilypad328.build.mcu=atmega328p
+lilypad.build.mcu=atmega168
+pro5v328.build.mcu=atmega328p
+pro5v.build.mcu=atmega168
+pro328.build.mcu=atmega328p
+pro.build.mcu=atmega168
+atmega168.build.mcu=atmega168
+atmega8.build.mcu=atmega8
+robotControl.build.mcu=atmega32u4
+robotMotor.build.mcu=atmega32u4
+
+ISR Register handling
+
+Tested the following code to ensure that all registers would be pushed/popped correctly, even
+if I was using NAKED_ISR. Note that I did not run code, I merely eyeballed the output to ensure
+it was doing what I expected:
+
+volatile uint8_t storage0;
+volatile uint8_t storage1;
+volatile uint8_t storage2;
+volatile uint8_t storage3;
+volatile uint8_t storage4;
+volatile uint8_t storage5;
+volatile uint8_t storage6;
+volatile uint8_t storage7;
+volatile uint8_t storage8;
+volatile uint8_t storage9;
+volatile uint8_t storage10;
+volatile uint8_t storage11;
+volatile uint8_t storage12;
+volatile uint8_t storage13;
+volatile uint8_t storage14;
+volatile uint8_t storage15;
+volatile uint8_t storage16;
+volatile uint8_t storage17;
+volatile uint8_t storage18;
+volatile uint8_t storage19;
+
+void test_ISR(uint8_t current) {
+
+  uint8_t local0=storage0;
+  uint8_t local1=storage1;
+  uint8_t local2=storage2;
+  uint8_t local3=storage3;
+  uint8_t local4=storage4;
+  uint8_t local5=storage5;
+  uint8_t local6=storage6;
+  uint8_t local7=storage7;
+  uint8_t local8=storage8;
+  uint8_t local9=storage9;
+  uint8_t local10=storage10;
+  uint8_t local11=storage11;
+  uint8_t local12=storage12;
+  uint8_t local13=storage13;
+  uint8_t local14=storage14;
+  uint8_t local15=storage15;
+  uint8_t local16=storage16;
+  uint8_t local17=storage17;
+  uint8_t local18=storage18;
+  uint8_t local19=storage19;
+
+  local0+=current;
+  local1+=current;
+  local2+=current;
+  local3+=current;
+  local4+=current;
+  local5+=current;
+  local6+=current;
+  local7+=current;
+  local8+=current;
+  local9+=current;
+  local10+=current;
+  local11+=current;
+  local12+=current;
+  local13+=current;
+  local14+=current;
+  local15+=current;
+  local16+=current;
+  local17+=current;
+  local18+=current;
+  local19+=current;
+
+  storage0=local0;
+  storage1=local1;
+  storage2=local2;
+  storage3=local3;
+  storage4=local4;
+  storage5=local5;
+  storage6=local6;
+  storage7=local7;
+  storage8=local8;
+  storage9=local9;
+  storage10=local10;
+  storage11=local11;
+  storage12=local12;
+  storage13=local13;
+  storage14=local14;
+  storage15=local15;
+  storage16=local16;
+  storage17=local17;
+  storage18=local18;
+  storage19=local19;
+}
+
+ISR(PORTD_VECT, ISR_NAKED) {
+  register uint8_t current asm("r18");
+  EI_ASM_PREFIX(PIND);
+
+  test_ISR(current);
+
+  EI_ASM_SUFFIX;
+}
+
+MISCELLANEOUS:
+STORING FUNCTION POINTERS IN PROGMEM:
+http://stackoverflow.com/questions/28261595/put-progmem-function-pointer-array-into-another-progmem-array
+
+
+Calling the function pointers by checking each pin's bitmask individually:
+
+  if (interruptMask & _BV(0)) functionPointerB0();	Cycles
+     8b8:       c0 ff           sbrs    r28, 0		1 if move on, 2 if skip (to 8bc)
+     8ba:       05 c0           rjmp    .+10            2 (move on)
+     8bc:       e0 91 60 02     lds     r30, 0x0260	2
+     8c0:       f0 91 61 02     lds     r31, 0x0261	2
+     8c4:       19 95           eicall			4
+     8c6:    (move on)					TOTAL: 10 if matches, 3 if not
+							== 21 cycles till get to last function call,
+							then 10 cycles to execute it: 31 cycles
+
+							If an interrupt on third pin:
+							2 x 3 (not matched) + 10 == 16, plus
+							4 x 3 (not matched) = 28 total.
+
+Calling the function pointers referred to in an array, using while loop:
+
+     8c6:       d0 e0           ldi     r29, 0x00       ; 0 this is the "i" variable
+
+  while (1) {
+    if (interruptMask & 0x01) {
+     8c8:       c0 ff           sbrs    r28, 0		1 if it's not set, 2 if skip 
+     8ca:       0a c0           rjmp    .+20            2 (move on to try next bit at 0x8e0)
+      (*functionPointerArray[i])();
+     8cc:       ed 2f           mov     r30, r29	1 (it's set, execute the function)
+     8ce:       f0 e0           ldi     r31, 0x00       1 ; loads 0
+     8d0:       ee 0f           add     r30, r30	1
+     8d2:       ff 1f           adc     r31, r31	1
+     8d4:       e7 57           subi    r30, 0x77       1 ; 119
+     8d6:       fd 4f           sbci    r31, 0xFD       1 ; 253
+     8d8:       01 90           ld      r0, Z+		1 load from data memory
+     8da:       f0 81           ld      r31, Z		1
+     8dc:       e0 2d           mov     r30, r0		1
+     8de:       19 95           eicall			4
+    }
+    interruptMask=interruptMask >> 1;
+     8e0:       c6 95           lsr     r28		1
+    if (interruptMask == 0) goto exitISR;
+     8e2:       11 f0           breq    .+4             1 if not zero, 2 if zero (jumps out...) ; 0x8e8 <__vector_9+0x86>
+    i++;
+     8e4:       df 5f           subi    r29, 0xFF       1 ; 255
+     8e6:       f0 cf           rjmp    .-32            2 ; 0x8c8 <__vector_9+0x66>
+
+							TOTAL: 14 if matches, 9 if not
+							== 63 cycles to get to last function call,
+							then 14 cycles to execute it: 77 cycles
+
+							If an interrupt on third pin:
+							2 x 7 (not matched) == 14 + 14 == 28 total.
+							Then a couple of cycles to get out.
+
+
+===========================================================================================================
+Space Optimizations
+===========================================================================================================
+Compile Simple.ino, using pin 10, compile for ATmega2560:
+Program:    6402 bytes (2.4% Full)
+(.text + .data + .bootloader)
+
+Data:        859 bytes (10.5% Full)
+(.data + .bss + .noinit)
+
+
+Compile Simple.ino, using pin 10, define EI_NOTEXTERNAL:
+Program:    5328 bytes (2.0% Full)
+(.text + .data + .bootloader)
+
+Data:        843 bytes (10.3% Full)
+(.data + .bss + .noinit)
+
+Compile Simple.ino, using pin 10, define EI_NOTPORTJ:
+Program:    5006 bytes (1.9% Full)
+(.text + .data + .bootloader)
+
+Data:        825 bytes (10.1% Full)
+(.data + .bss + .noinit)
+
+Compile Simple.ino, using pin 10, define EI_NOTPORTJ EI_NOTPORTK:
+Program:    4686 bytes (1.8% Full)
+(.text + .data + .bootloader)
+
+Data:        806 bytes (9.8% Full)
+(.data + .bss + .noinit)
+
+
+Compile Simple.ino, using pin 10, define EI_NOTPORTJ EI_NOTPORTK EI_NOTEXTERNAL:
+Program:    4674 bytes (1.8% Full)
+(.text + .data + .bootloader)
+
+Data:        806 bytes (9.8% Full)
+(.data + .bss + .noinit)
+

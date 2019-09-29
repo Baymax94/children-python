@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pymata_aio</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+<h2>Press A Button To Activate Pin 6 PWM Controlled LED</h2>
+<input id="ledOn" type="button" value="On" onclick="ledOn();"/>
+&nbsp;
+<input id="ledOff" type="button" value="Off" onclick="ledOff();"/>
+
+<script>
+
+    // IP server information
+    var ipAddress = "localhost";
+    var ipPort = "9000";
+
+
+    // convenience "defines"
+    var inputMode = "0";
+    var outputMode = "1";
+    var analogMode = "2";
+    var pwmMode = "3";
+
+    // instantiate the websocket
+    var socket = new WebSocket('ws://' + ipAddress + ':' + ipPort);
+
+    // working variables
+    var pin_mode = "";
+    var pin = "";
+    var outputValue = "";
+    var msg;
+
+    // Socket handlers
+    socket.onopen = function (event) {
+        $("#connected").text('PyMata IoT Has Successfully Connected');
+    };
+
+    socket.onclose = function (event) {
+        alert("The socket has closed! Did you start the server?");
+    };
+
+    socket.onmessage = function (message) {
+        // put your code that handles incoming messages from pymata_aio here.
+        console.log('got message' + message.data);
+
+    };
+
+
+    // turn the led on
+    function ledOn() {
+
+        // create a set pin mode message and send it to the server
+        msg = JSON.stringify({"method": "set_pin_mode", "params": ["6", pwmMode]});
+        socket.send(msg);
+
+        // set the pin to 128
+        msg = JSON.stringify({"method": "analog_write", "params": ["6", "128"]});
+        socket.send(msg);
+    }
+
+    function ledOff() {
+        // create a set pin mode message and send it to the server
+        msg = JSON.stringify({"method": "set_pin_mode", "params": ["6", pwmMode]});
+        socket.send(msg);
+
+        // set the pin to zero
+        msg = JSON.stringify({"method": "analog_write", "params": ["6", "0"]});
+        socket.send(msg);
+    }
+
+</script>
+
+</body>
+</html>

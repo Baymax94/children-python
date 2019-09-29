@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pymata3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>pymata3</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"></font></td></tr></table>
+    <p><tt>Copyright&nbsp;(c)&nbsp;2015&nbsp;Alan&nbsp;Yorinks&nbsp;All&nbsp;rights&nbsp;reserved.<br>
+&nbsp;<br>
+This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or<br>
+modify&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;&nbsp;General&nbsp;Public<br>
+License&nbsp;as&nbsp;published&nbsp;by&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either<br>
+version&nbsp;3&nbsp;of&nbsp;the&nbsp;License,&nbsp;or&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.<br>
+&nbsp;<br>
+This&nbsp;library&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,<br>
+but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of<br>
+MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the&nbsp;GNU<br>
+General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.<br>
+&nbsp;<br>
+You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public<br>
+License&nbsp;along&nbsp;with&nbsp;this&nbsp;library;&nbsp;if&nbsp;not,&nbsp;write&nbsp;to&nbsp;the&nbsp;Free&nbsp;Software<br>
+Foundation,&nbsp;Inc.,&nbsp;51&nbsp;Franklin&nbsp;St,&nbsp;Fifth&nbsp;Floor,&nbsp;Boston,&nbsp;MA&nbsp;&nbsp;02110-1301&nbsp;&nbsp;USA</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">PyMata3</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PyMata3">class <strong>PyMata3</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;exposes&nbsp;and&nbsp;implements&nbsp;a&nbsp;proxy&nbsp;API&nbsp;for&nbsp;the&nbsp;pymata_core&nbsp;asyncio<br>
+API,&nbsp;&nbsp;If&nbsp;your&nbsp;application&nbsp;does&nbsp;not&nbsp;use&nbsp;asyncio&nbsp;directly,&nbsp;this&nbsp;is<br>
+the&nbsp;API&nbsp;that&nbsp;you&nbsp;should&nbsp;use..<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PyMata3-__init__"><strong>__init__</strong></a>(self, arduino_wait=2, sleep_tune=0.0001, log_output=False, com_port=None, ip_address=None, ip_port=2000, ip_handshake='*HELLO*')</dt><dd><tt>Constructor&nbsp;for&nbsp;the&nbsp;PyMata3</a>&nbsp;API<br>
+If&nbsp;log_output&nbsp;is&nbsp;set&nbsp;to&nbsp;True,&nbsp;a&nbsp;log&nbsp;file&nbsp;called&nbsp;'pymata_log'<br>
+will&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;current&nbsp;directory&nbsp;and&nbsp;all&nbsp;pymata_aio&nbsp;output<br>
+will&nbsp;be&nbsp;redirected&nbsp;to&nbsp;the&nbsp;log&nbsp;with&nbsp;no&nbsp;output&nbsp;appearing&nbsp;on&nbsp;the&nbsp;console.<br>
+&nbsp;<br>
+:param&nbsp;arduino_wait:&nbsp;Amount&nbsp;of&nbsp;time&nbsp;to&nbsp;allow&nbsp;Arduino&nbsp;to&nbsp;finish&nbsp;its<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reset&nbsp;(2&nbsp;seconds&nbsp;for&nbsp;Uno,&nbsp;Leonardo&nbsp;can&nbsp;be&nbsp;0)<br>
+:param&nbsp;sleep_tune:&nbsp;This&nbsp;parameter&nbsp;sets&nbsp;the&nbsp;amount&nbsp;of&nbsp;time&nbsp;PyMata&nbsp;core<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses&nbsp;to&nbsp;set&nbsp;asyncio.sleep<br>
+:param&nbsp;log_output:&nbsp;If&nbsp;True,&nbsp;pymata_aio.log&nbsp;is&nbsp;created&nbsp;and&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console&nbsp;output&nbsp;is&nbsp;redirected&nbsp;to&nbsp;this&nbsp;file.<br>
+:param&nbsp;com_port:&nbsp;If&nbsp;specified,&nbsp;auto&nbsp;port&nbsp;detection&nbsp;will&nbsp;not&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performed&nbsp;and&nbsp;this&nbsp;com&nbsp;port&nbsp;will&nbsp;be&nbsp;used.<br>
+:param&nbsp;ip_address:&nbsp;If&nbsp;using&nbsp;a&nbsp;WiFly&nbsp;module,&nbsp;set&nbsp;its&nbsp;address&nbsp;here<br>
+:param&nbsp;ip_port:&nbsp;Port&nbsp;to&nbsp;used&nbsp;with&nbsp;ip_address<br>
+:param&nbsp;ip_handshake:&nbsp;Connectivity&nbsp;handshake&nbsp;string&nbsp;sent&nbsp;by&nbsp;IP&nbsp;device<br>
+&nbsp;<br>
+:returns:&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-analog_read"><strong>analog_read</strong></a>(self, pin)</dt><dd><tt>Retrieve&nbsp;the&nbsp;last&nbsp;data&nbsp;update&nbsp;for&nbsp;the&nbsp;specified&nbsp;analog&nbsp;pin.<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;a&nbsp;polling&nbsp;application.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number&nbsp;(ex.&nbsp;A2&nbsp;is&nbsp;specified&nbsp;as&nbsp;2)<br>
+:returns:&nbsp;Last&nbsp;value&nbsp;reported&nbsp;for&nbsp;the&nbsp;analog&nbsp;pin</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-analog_write"><strong>analog_write</strong></a>(self, pin, value)</dt><dd><tt>Set&nbsp;the&nbsp;selected&nbsp;PWM&nbsp;pin&nbsp;to&nbsp;the&nbsp;specified&nbsp;value.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;PWM&nbsp;pin&nbsp;number<br>
+:param&nbsp;value:&nbsp;&nbsp;Set&nbsp;the&nbsp;selected&nbsp;pin&nbsp;to&nbsp;the&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value.&nbsp;0-0x4000&nbsp;(14&nbsp;bits)<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-digital_pin_write"><strong>digital_pin_write</strong></a>(self, pin, value=0)</dt><dd><tt>Set&nbsp;the&nbsp;specified&nbsp;digital&nbsp;input&nbsp;pin&nbsp;to&nbsp;the&nbsp;provided&nbsp;value<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;to&nbsp;be&nbsp;set<br>
+:param&nbsp;value:&nbsp;0&nbsp;or&nbsp;1<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-digital_read"><strong>digital_read</strong></a>(self, pin)</dt><dd><tt>Retrieve&nbsp;the&nbsp;last&nbsp;data&nbsp;update&nbsp;for&nbsp;the&nbsp;specified&nbsp;digital&nbsp;pin.<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;a&nbsp;polling&nbsp;application.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;number<br>
+:returns:&nbsp;Last&nbsp;value&nbsp;reported&nbsp;for&nbsp;the&nbsp;digital&nbsp;pin</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-digital_write"><strong>digital_write</strong></a>(self, pin, value=0)</dt><dd><tt>Set&nbsp;the&nbsp;specified&nbsp;digital&nbsp;input&nbsp;pin&nbsp;to&nbsp;the&nbsp;provided&nbsp;value<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;to&nbsp;be&nbsp;set<br>
+:param&nbsp;value:&nbsp;0&nbsp;or&nbsp;1<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-disable_analog_reporting"><strong>disable_analog_reporting</strong></a>(self, pin)</dt><dd><tt>Disables&nbsp;analog&nbsp;reporting&nbsp;for&nbsp;a&nbsp;single&nbsp;analog&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number.&nbsp;For&nbsp;example&nbsp;for&nbsp;A0,&nbsp;the&nbsp;number&nbsp;is&nbsp;0.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-disable_digital_reporting"><strong>disable_digital_reporting</strong></a>(self, pin)</dt><dd><tt>Disables&nbsp;digital&nbsp;reporting.&nbsp;By&nbsp;turning&nbsp;reporting&nbsp;off&nbsp;for&nbsp;this&nbsp;pin,<br>
+reporting&nbsp;is&nbsp;disabled&nbsp;for&nbsp;all&nbsp;8&nbsp;bits&nbsp;in&nbsp;the&nbsp;"port"<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;and&nbsp;all&nbsp;pins&nbsp;for&nbsp;this&nbsp;port<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-enable_analog_reporting"><strong>enable_analog_reporting</strong></a>(self, pin)</dt><dd><tt>Enables&nbsp;analog&nbsp;reporting&nbsp;for&nbsp;a&nbsp;single&nbsp;analog&nbsp;pin,<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number.&nbsp;For&nbsp;example&nbsp;for&nbsp;A0,&nbsp;the&nbsp;number&nbsp;is&nbsp;0.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-enable_digital_reporting"><strong>enable_digital_reporting</strong></a>(self, pin)</dt><dd><tt>Enables&nbsp;digital&nbsp;reporting.&nbsp;By&nbsp;turning&nbsp;reporting&nbsp;on&nbsp;for&nbsp;all<br>
+8&nbsp;bits&nbsp;in&nbsp;the&nbsp;"port".<br>
+This&nbsp;is&nbsp;part&nbsp;of&nbsp;Firmata's&nbsp;protocol&nbsp;specification.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;and&nbsp;all&nbsp;pins&nbsp;for&nbsp;this&nbsp;port<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-encoder_config"><strong>encoder_config</strong></a>(self, pin_a, pin_b, cb=None, cb_type=None, hall_encoder=False)</dt><dd><tt>This&nbsp;command&nbsp;enables&nbsp;the&nbsp;rotary&nbsp;encoder&nbsp;(2&nbsp;pin&nbsp;+&nbsp;ground)&nbsp;and&nbsp;will<br>
+enable&nbsp;encoder&nbsp;reporting.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+Encoder&nbsp;data&nbsp;is&nbsp;retrieved&nbsp;by&nbsp;performing&nbsp;a&nbsp;digital_read&nbsp;from<br>
+pin&nbsp;a&nbsp;(encoder&nbsp;pin&nbsp;1)<br>
+&nbsp;<br>
+:param&nbsp;pin_a:&nbsp;Encoder&nbsp;pin&nbsp;1.<br>
+:param&nbsp;pin_b:&nbsp;Encoder&nbsp;pin&nbsp;2.<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;encoder&nbsp;changes<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:param&nbsp;hall_encoder:&nbsp;wheel&nbsp;hall_encoder&nbsp;-&nbsp;set&nbsp;to&nbsp;True&nbsp;to&nbsp;select<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hall&nbsp;encoder&nbsp;support&nbsp;support.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-encoder_read"><strong>encoder_read</strong></a>(self, pin)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;latest&nbsp;encoder&nbsp;data&nbsp;value.<br>
+It&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Encoder&nbsp;Pin<br>
+:returns:&nbsp;encoder&nbsp;data&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-extended_analog"><strong>extended_analog</strong></a>(self, pin, data)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;send&nbsp;an&nbsp;extended-data&nbsp;analog&nbsp;write&nbsp;command<br>
+to&nbsp;the&nbsp;selected&nbsp;pin..<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;0&nbsp;-&nbsp;127<br>
+:param&nbsp;data:&nbsp;0&nbsp;-&nbsp;0-0x4000&nbsp;(14&nbsp;bits)<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_analog_latch_data"><strong>get_analog_latch_data</strong></a>(self, pin)</dt><dd><tt>A&nbsp;list&nbsp;is&nbsp;returned&nbsp;containing&nbsp;the&nbsp;latch&nbsp;state&nbsp;for&nbsp;the&nbsp;pin,&nbsp;the<br>
+latched&nbsp;value,&nbsp;and&nbsp;the&nbsp;time&nbsp;stamp<br>
+[pin_num,&nbsp;latch_state,&nbsp;latched_value,&nbsp;time_stamp]<br>
+If&nbsp;the&nbsp;the&nbsp;latch&nbsp;state&nbsp;is&nbsp;LATCH_LATCHED,&nbsp;the&nbsp;table&nbsp;is&nbsp;reset<br>
+(data&nbsp;and&nbsp;timestamp&nbsp;set&nbsp;to&nbsp;zero)<br>
+It&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;a&nbsp;polling&nbsp;application.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number.<br>
+:returns:&nbsp;&nbsp;[latched_state,&nbsp;threshold_type,&nbsp;threshold_value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latched_data,&nbsp;time_stamp]</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_analog_map"><strong>get_analog_map</strong></a>(self, cb=None)</dt><dd><tt>This&nbsp;method&nbsp;requests&nbsp;and&nbsp;returns&nbsp;an&nbsp;analog&nbsp;map.<br>
+&nbsp;<br>
+:param&nbsp;cb:&nbsp;Optional&nbsp;callback&nbsp;reference<br>
+:returns:&nbsp;An&nbsp;analog&nbsp;map&nbsp;response&nbsp;or&nbsp;None&nbsp;if&nbsp;a&nbsp;timeout&nbsp;occurs</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_capability_report"><strong>get_capability_report</strong></a>(self, raw=True, cb=None)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;Firmata&nbsp;capability&nbsp;report<br>
+&nbsp;<br>
+:param&nbsp;raw:&nbsp;If&nbsp;True,&nbsp;it&nbsp;either&nbsp;stores&nbsp;or&nbsp;provides&nbsp;the&nbsp;callback<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;report&nbsp;as&nbsp;list.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;False,&nbsp;prints&nbsp;a&nbsp;formatted&nbsp;report&nbsp;to&nbsp;the&nbsp;console<br>
+:param&nbsp;cb:&nbsp;Optional&nbsp;callback&nbsp;reference&nbsp;to&nbsp;receive&nbsp;a&nbsp;raw&nbsp;report<br>
+:returns:&nbsp;capability&nbsp;report</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_digital_latch_data"><strong>get_digital_latch_data</strong></a>(self, pin)</dt><dd><tt>A&nbsp;list&nbsp;is&nbsp;returned&nbsp;containing&nbsp;the&nbsp;latch&nbsp;state&nbsp;for&nbsp;the&nbsp;pin,&nbsp;the<br>
+latched&nbsp;value,&nbsp;and&nbsp;the&nbsp;time&nbsp;stamp<br>
+&nbsp;<br>
+[pin_num,&nbsp;latch_state,&nbsp;latched_value,&nbsp;time_stamp]<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;the&nbsp;latch&nbsp;state&nbsp;is&nbsp;LATCH_LATCHED,&nbsp;the&nbsp;table&nbsp;is&nbsp;reset<br>
+(data&nbsp;and&nbsp;timestamp&nbsp;set&nbsp;to&nbsp;zero).<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;use&nbsp;by&nbsp;a&nbsp;polling&nbsp;application.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number.<br>
+:returns:&nbsp;&nbsp;[latched_state,&nbsp;threshold_type,&nbsp;threshold_value,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latched_data,&nbsp;time_stamp]</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_firmware_version"><strong>get_firmware_version</strong></a>(self, cb=None)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;Firmata&nbsp;firmware&nbsp;version<br>
+&nbsp;<br>
+:param&nbsp;cb:&nbsp;Reference&nbsp;to&nbsp;a&nbsp;callback&nbsp;function<br>
+:returns:If&nbsp;no&nbsp;callback&nbsp;is&nbsp;specified,&nbsp;the&nbsp;firmware&nbsp;version</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_pin_state"><strong>get_pin_state</strong></a>(self, pin, cb=None)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;a&nbsp;pin&nbsp;state&nbsp;report&nbsp;for&nbsp;the&nbsp;specified&nbsp;pin<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;of&nbsp;interest<br>
+:param&nbsp;cb:&nbsp;optional&nbsp;callback&nbsp;reference<br>
+:returns:&nbsp;pin&nbsp;state&nbsp;report</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_protocol_version"><strong>get_protocol_version</strong></a>(self, cb=None)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;Firmata&nbsp;protocol&nbsp;version<br>
+&nbsp;<br>
+:param&nbsp;cb:&nbsp;Optional&nbsp;callback&nbsp;reference.<br>
+:returns:If&nbsp;no&nbsp;callback&nbsp;is&nbsp;specified,&nbsp;the&nbsp;firmware&nbsp;version</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-get_pymata_version"><strong>get_pymata_version</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;PyMata&nbsp;version&nbsp;number<br>
+&nbsp;<br>
+:returns:&nbsp;PyMata&nbsp;version&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-i2c_config"><strong>i2c_config</strong></a>(self, read_delay_time=0)</dt><dd><tt>This&nbsp;method&nbsp;configures&nbsp;Arduino&nbsp;i2c&nbsp;with&nbsp;an&nbsp;optional&nbsp;read&nbsp;delay&nbsp;time.<br>
+&nbsp;<br>
+:param&nbsp;read_delay_time:&nbsp;firmata&nbsp;i2c&nbsp;delay&nbsp;time<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-i2c_read_data"><strong>i2c_read_data</strong></a>(self, address)</dt><dd><tt>Retrieve&nbsp;result&nbsp;of&nbsp;last&nbsp;data&nbsp;read&nbsp;from&nbsp;i2c&nbsp;device.<br>
+i2c_read_request&nbsp;should&nbsp;be&nbsp;called&nbsp;before&nbsp;trying&nbsp;to&nbsp;retrieve&nbsp;data.<br>
+It&nbsp;is&nbsp;intended&nbsp;for&nbsp;use&nbsp;by&nbsp;a&nbsp;polling&nbsp;application.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;i2c<br>
+:returns:&nbsp;last&nbsp;data&nbsp;read&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;data&nbsp;is&nbsp;present.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-i2c_read_request"><strong>i2c_read_request</strong></a>(self, address, register, number_of_bytes, read_type, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;issues&nbsp;an&nbsp;i2c&nbsp;read&nbsp;request&nbsp;for&nbsp;a&nbsp;single&nbsp;read,continuous<br>
+read&nbsp;or&nbsp;a&nbsp;stop,&nbsp;specified&nbsp;by&nbsp;the&nbsp;read_type.<br>
+Because&nbsp;different&nbsp;i2c&nbsp;devices&nbsp;return&nbsp;data&nbsp;at&nbsp;different&nbsp;rates,<br>
+if&nbsp;a&nbsp;callback&nbsp;is&nbsp;not&nbsp;specified,&nbsp;the&nbsp;user&nbsp;must&nbsp;first&nbsp;call&nbsp;this&nbsp;method<br>
+and&nbsp;then&nbsp;call&nbsp;i2c_read_data&nbsp;&nbsp;after&nbsp;waiting&nbsp;for&nbsp;sufficient&nbsp;time&nbsp;for&nbsp;the<br>
+i2c&nbsp;device&nbsp;to&nbsp;respond.<br>
+Some&nbsp;devices&nbsp;require&nbsp;that&nbsp;transmission&nbsp;be&nbsp;restarted<br>
+(e.g.&nbsp;MMA8452Q&nbsp;accelerometer).<br>
+Use&nbsp;I2C_READ&nbsp;|&nbsp;I2C_RESTART_TX&nbsp;for&nbsp;those&nbsp;cases.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;i2c&nbsp;device<br>
+:param&nbsp;register:&nbsp;i2c&nbsp;register&nbsp;number<br>
+:param&nbsp;number_of_bytes:&nbsp;number&nbsp;of&nbsp;bytes&nbsp;to&nbsp;be&nbsp;returned<br>
+:param&nbsp;read_type:&nbsp;&nbsp;Constants.I2C_READ,&nbsp;Constants.I2C_READ_CONTINUOUSLY<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;Constants.I2C_STOP_READING.<br>
+Constants.I2C_RESTART_TX&nbsp;may&nbsp;be&nbsp;OR'ed&nbsp;when&nbsp;required<br>
+:param&nbsp;cb:&nbsp;optional&nbsp;callback&nbsp;reference<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-i2c_write_request"><strong>i2c_write_request</strong></a>(self, address, args)</dt><dd><tt>Write&nbsp;data&nbsp;to&nbsp;an&nbsp;i2c&nbsp;device.<br>
+&nbsp;<br>
+:param&nbsp;address:&nbsp;i2c&nbsp;device&nbsp;address<br>
+:param&nbsp;args:&nbsp;A&nbsp;variable&nbsp;number&nbsp;of&nbsp;bytes&nbsp;to&nbsp;be&nbsp;sent&nbsp;to&nbsp;the&nbsp;device<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passed&nbsp;in&nbsp;as&nbsp;a&nbsp;list.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-keep_alive"><strong>keep_alive</strong></a>(self, period=1, margin=0.3)</dt><dd><tt>Periodically&nbsp;send&nbsp;a&nbsp;keep&nbsp;alive&nbsp;message&nbsp;to&nbsp;the&nbsp;Arduino.<br>
+Frequency&nbsp;of&nbsp;keep&nbsp;alive&nbsp;transmission&nbsp;is&nbsp;calculated&nbsp;as&nbsp;follows:<br>
+keep_alive_sent&nbsp;=&nbsp;period&nbsp;-&nbsp;(period&nbsp;*&nbsp;margin)<br>
+&nbsp;<br>
+&nbsp;<br>
+:param&nbsp;period:&nbsp;Time&nbsp;period&nbsp;between&nbsp;keepalives.&nbsp;Range&nbsp;is&nbsp;0-10&nbsp;seconds.&nbsp;0&nbsp;disables&nbsp;the&nbsp;keepalive&nbsp;mechanism.<br>
+:param&nbsp;margin:&nbsp;Safety&nbsp;margin&nbsp;to&nbsp;assure&nbsp;keepalives&nbsp;are&nbsp;sent&nbsp;before&nbsp;period&nbsp;expires.&nbsp;Range&nbsp;is&nbsp;0.1&nbsp;to&nbsp;0.9<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-pixy_get_blocks"><strong>pixy_get_blocks</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;retrieves&nbsp;the&nbsp;latest&nbsp;Pixy&nbsp;data&nbsp;value<br>
+&nbsp;<br>
+:returns:&nbsp;Pixy&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-pixy_init"><strong>pixy_init</strong></a>(self, max_blocks=5, cb=None, cb_type=None)</dt><dd><tt>Initialize&nbsp;Pixy&nbsp;and&nbsp;will&nbsp;enable&nbsp;Pixy&nbsp;block&nbsp;reporting.<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlusRB&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;Pixy&nbsp;blocks<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:param&nbsp;max_blocks:&nbsp;Maximum&nbsp;number&nbsp;of&nbsp;Pixy&nbsp;blocks&nbsp;to&nbsp;report&nbsp;when&nbsp;many&nbsp;signatures&nbsp;are&nbsp;found.<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-pixy_set_brightness"><strong>pixy_set_brightness</strong></a>(self, brightness)</dt><dd><tt>Sends&nbsp;the&nbsp;setBrightness&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;brightness&nbsp;(exposure)&nbsp;of&nbsp;Pixy's&nbsp;camera.<br>
+&nbsp;<br>
+:param&nbsp;brightness:&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255&nbsp;with&nbsp;255&nbsp;being&nbsp;the&nbsp;brightest&nbsp;setting<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-pixy_set_led"><strong>pixy_set_led</strong></a>(self, r, g, b)</dt><dd><tt>Sends&nbsp;the&nbsp;setLed&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;RGB&nbsp;LED&nbsp;on&nbsp;front&nbsp;of&nbsp;Pixy.<br>
+&nbsp;<br>
+:param&nbsp;r:&nbsp;red&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:param&nbsp;g:&nbsp;green&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:param&nbsp;b:&nbsp;blue&nbsp;range&nbsp;between&nbsp;0&nbsp;and&nbsp;255<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-pixy_set_servos"><strong>pixy_set_servos</strong></a>(self, s0, s1)</dt><dd><tt>Sends&nbsp;the&nbsp;setServos&nbsp;Pixy&nbsp;command.<br>
+This&nbsp;method&nbsp;sets&nbsp;the&nbsp;pan/tilt&nbsp;servos&nbsp;that&nbsp;are&nbsp;plugged&nbsp;into&nbsp;Pixy's&nbsp;two&nbsp;servo&nbsp;ports.<br>
+&nbsp;<br>
+:param&nbsp;s0:&nbsp;value&nbsp;0&nbsp;to&nbsp;1000<br>
+:param&nbsp;s1:&nbsp;value&nbsp;0&nbsp;to&nbsp;1000<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-play_tone"><strong>play_tone</strong></a>(self, pin, tone_command, frequency, duration=None)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;call&nbsp;the&nbsp;Tone&nbsp;library&nbsp;for&nbsp;the&nbsp;selected&nbsp;pin.<br>
+It&nbsp;requires&nbsp;FirmataPlus&nbsp;to&nbsp;be&nbsp;loaded&nbsp;onto&nbsp;the&nbsp;arduino<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;tone&nbsp;command&nbsp;is&nbsp;set&nbsp;to&nbsp;TONE_TONE,&nbsp;then&nbsp;the&nbsp;specified&nbsp;tone&nbsp;will&nbsp;be&nbsp;played.<br>
+&nbsp;<br>
+Else,&nbsp;if&nbsp;the&nbsp;tone&nbsp;command&nbsp;is&nbsp;TONE_NO_TONE,&nbsp;then&nbsp;any&nbsp;currently&nbsp;playing&nbsp;tone&nbsp;will&nbsp;be&nbsp;disabled.<br>
+&nbsp;<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Pin&nbsp;number<br>
+:param&nbsp;tone_command:&nbsp;Either&nbsp;TONE_TONE,&nbsp;or&nbsp;TONE_NO_TONE<br>
+:param&nbsp;frequency:&nbsp;Frequency&nbsp;of&nbsp;tone<br>
+:param&nbsp;duration:&nbsp;Duration&nbsp;of&nbsp;tone&nbsp;in&nbsp;milliseconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-send_reset"><strong>send_reset</strong></a>(self)</dt><dd><tt>Send&nbsp;a&nbsp;Firmata&nbsp;reset&nbsp;command<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-servo_config"><strong>servo_config</strong></a>(self, pin, min_pulse=544, max_pulse=2400)</dt><dd><tt>This&nbsp;method&nbsp;configures&nbsp;the&nbsp;Arduino&nbsp;for&nbsp;servo&nbsp;operation.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Servo&nbsp;control&nbsp;pin<br>
+:param&nbsp;min_pulse:&nbsp;Minimum&nbsp;pulse&nbsp;width<br>
+:param&nbsp;max_pulse:&nbsp;Maximum&nbsp;pulse&nbsp;width<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-set_analog_latch"><strong>set_analog_latch</strong></a>(self, pin, threshold_type, threshold_value, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;"arms"&nbsp;an&nbsp;analog&nbsp;pin&nbsp;for&nbsp;its&nbsp;data&nbsp;to&nbsp;be&nbsp;latched&nbsp;and<br>
+saved&nbsp;in&nbsp;the&nbsp;latching&nbsp;table.<br>
+If&nbsp;a&nbsp;callback&nbsp;method&nbsp;is&nbsp;provided,&nbsp;when&nbsp;latching&nbsp;criteria&nbsp;is&nbsp;achieved,<br>
+the&nbsp;callback&nbsp;function&nbsp;is&nbsp;called&nbsp;with&nbsp;latching&nbsp;data&nbsp;notification.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Analog&nbsp;pin&nbsp;number&nbsp;(value&nbsp;following&nbsp;an&nbsp;'A'&nbsp;designator,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.e.&nbsp;A5&nbsp;=&nbsp;5<br>
+:param&nbsp;threshold_type:&nbsp;Constants.LATCH_GT&nbsp;|&nbsp;Constants.LATCH_LT&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.LATCH_GTE&nbsp;|&nbsp;Constants.LATCH_LTE<br>
+:param&nbsp;threshold_value:&nbsp;numerical&nbsp;value&nbsp;-&nbsp;between&nbsp;0&nbsp;and&nbsp;1023<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;method<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;if&nbsp;parameter&nbsp;data&nbsp;is&nbsp;invalid</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-set_digital_latch"><strong>set_digital_latch</strong></a>(self, pin, threshold_value, cb=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;"arms"&nbsp;a&nbsp;digital&nbsp;pin&nbsp;for&nbsp;its&nbsp;data&nbsp;to&nbsp;be&nbsp;latched&nbsp;and&nbsp;saved<br>
+in&nbsp;the&nbsp;latching&nbsp;table.<br>
+If&nbsp;a&nbsp;callback&nbsp;method&nbsp;is&nbsp;provided,&nbsp;when&nbsp;latching&nbsp;criteria&nbsp;is&nbsp;achieved,<br>
+the&nbsp;callback&nbsp;function&nbsp;is&nbsp;called<br>
+with&nbsp;latching&nbsp;data&nbsp;notification.<br>
+&nbsp;<br>
+:param&nbsp;pin:&nbsp;Digital&nbsp;pin&nbsp;number<br>
+:param&nbsp;threshold_value:&nbsp;0&nbsp;or&nbsp;1<br>
+:param&nbsp;cb:&nbsp;callback&nbsp;function<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;True&nbsp;if&nbsp;successful,&nbsp;False&nbsp;if&nbsp;parameter&nbsp;data&nbsp;is&nbsp;invalid</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-set_pin_mode"><strong>set_pin_mode</strong></a>(self, pin_number, pin_state, callback=None, cb_type=None)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;&nbsp;pin&nbsp;mode&nbsp;for&nbsp;the&nbsp;specified&nbsp;pin.<br>
+&nbsp;<br>
+:param&nbsp;pin_number:&nbsp;Arduino&nbsp;Pin&nbsp;Number<br>
+:param&nbsp;pin_state:&nbsp;INPUT/OUTPUT/ANALOG/PWM&nbsp;-&nbsp;for&nbsp;SERVO&nbsp;use<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PyMata3-servo_config">servo_config</a>()<br>
+:param&nbsp;callback:&nbsp;Optional:&nbsp;A&nbsp;reference&nbsp;to&nbsp;a&nbsp;call&nbsp;back&nbsp;function&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;called&nbsp;when&nbsp;pin&nbsp;data&nbsp;value&nbsp;changes<br>
+:param&nbsp;cb_type:&nbsp;Constants.CB_TYPE_DIRECT&nbsp;=&nbsp;direct&nbsp;call&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants.CB_TYPE_ASYNCIO&nbsp;=&nbsp;asyncio&nbsp;coroutine<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-set_sampling_interval"><strong>set_sampling_interval</strong></a>(self, interval)</dt><dd><tt>This&nbsp;method&nbsp;sets&nbsp;the&nbsp;sampling&nbsp;interval&nbsp;for&nbsp;the&nbsp;Firmata&nbsp;loop&nbsp;method<br>
+&nbsp;<br>
+:param&nbsp;interval:&nbsp;time&nbsp;in&nbsp;milliseconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-shutdown"><strong>shutdown</strong></a>(self)</dt><dd><tt>Shutdown&nbsp;the&nbsp;application&nbsp;and&nbsp;exit<br>
+&nbsp;<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-sleep"><strong>sleep</strong></a>(self, time)</dt><dd><tt>Perform&nbsp;an&nbsp;asyncio&nbsp;sleep&nbsp;for&nbsp;the&nbsp;time&nbsp;specified&nbsp;in&nbsp;seconds.&nbsp;T<br>
+his&nbsp;method&nbsp;should&nbsp;be&nbsp;used&nbsp;in&nbsp;place&nbsp;of&nbsp;time.<a href="#PyMata3-sleep">sleep</a>()<br>
+&nbsp;<br>
+:param&nbsp;time:&nbsp;time&nbsp;in&nbsp;seconds<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-sonar_config"><strong>sonar_config</strong></a>(self, trigger_pin, echo_pin, cb=None, ping_interval=50, max_distance=200, cb_type=None)</dt><dd><tt>Configure&nbsp;the&nbsp;pins,ping&nbsp;interval&nbsp;and&nbsp;maximum&nbsp;distance&nbsp;for&nbsp;an&nbsp;HC-SR04<br>
+type&nbsp;device.<br>
+Single&nbsp;pin&nbsp;configuration&nbsp;may&nbsp;be&nbsp;used.&nbsp;To&nbsp;do&nbsp;so,&nbsp;set&nbsp;both&nbsp;the&nbsp;trigger<br>
+and&nbsp;echo&nbsp;pins&nbsp;to&nbsp;the&nbsp;same&nbsp;value.<br>
+Up&nbsp;to&nbsp;a&nbsp;maximum&nbsp;of&nbsp;6&nbsp;SONAR&nbsp;devices&nbsp;is&nbsp;supported<br>
+If&nbsp;the&nbsp;maximum&nbsp;is&nbsp;exceeded&nbsp;a&nbsp;message&nbsp;is&nbsp;sent&nbsp;to&nbsp;the&nbsp;console&nbsp;and&nbsp;the<br>
+request&nbsp;is&nbsp;ignored.<br>
+NOTE:&nbsp;data&nbsp;is&nbsp;measured&nbsp;in&nbsp;centimeters<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;trigger_pin:&nbsp;The&nbsp;pin&nbsp;number&nbsp;of&nbsp;for&nbsp;the&nbsp;trigger&nbsp;(transmitter).<br>
+:param&nbsp;echo_pin:&nbsp;The&nbsp;pin&nbsp;number&nbsp;for&nbsp;the&nbsp;received&nbsp;echo.<br>
+:param&nbsp;cb:&nbsp;optional&nbsp;callback&nbsp;function&nbsp;to&nbsp;report&nbsp;sonar&nbsp;data&nbsp;changes<br>
+:param&nbsp;ping_interval:&nbsp;Minimum&nbsp;interval&nbsp;between&nbsp;pings.&nbsp;Lowest&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;use&nbsp;is&nbsp;33&nbsp;ms.Max&nbsp;is&nbsp;127<br>
+:param&nbsp;max_distance:&nbsp;Maximum&nbsp;distance&nbsp;in&nbsp;cm.&nbsp;Max&nbsp;is&nbsp;200.<br>
+:param&nbsp;cb_type:&nbsp;direct&nbsp;call&nbsp;or&nbsp;asyncio&nbsp;yield&nbsp;from<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-sonar_data_retrieve"><strong>sonar_data_retrieve</strong></a>(self, trigger_pin)</dt><dd><tt>Retrieve&nbsp;Ping&nbsp;(HC-SR04&nbsp;type)&nbsp;data.&nbsp;The&nbsp;data&nbsp;is&nbsp;presented&nbsp;as&nbsp;a<br>
+dictionary.<br>
+The&nbsp;'key'&nbsp;is&nbsp;the&nbsp;trigger&nbsp;pin&nbsp;specified&nbsp;in&nbsp;<a href="#PyMata3-sonar_config">sonar_config</a>()&nbsp;and&nbsp;the<br>
+'data'&nbsp;is&nbsp;the&nbsp;current&nbsp;measured&nbsp;distance&nbsp;(in&nbsp;centimeters)<br>
+for&nbsp;that&nbsp;pin.&nbsp;If&nbsp;there&nbsp;is&nbsp;no&nbsp;data,&nbsp;the&nbsp;value&nbsp;is&nbsp;set&nbsp;to&nbsp;None.<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+:param&nbsp;trigger_pin:&nbsp;trigger&nbsp;pin&nbsp;specified&nbsp;in&nbsp;sonar_config<br>
+:returns:&nbsp;active_sonar_map</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-stepper_config"><strong>stepper_config</strong></a>(self, steps_per_revolution, stepper_pins)</dt><dd><tt>Configure&nbsp;stepper&nbsp;motor&nbsp;prior&nbsp;to&nbsp;operation.<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;steps_per_revolution:&nbsp;number&nbsp;of&nbsp;steps&nbsp;per&nbsp;motor&nbsp;revolution<br>
+:param&nbsp;stepper_pins:&nbsp;a&nbsp;list&nbsp;of&nbsp;control&nbsp;pin&nbsp;numbers&nbsp;-&nbsp;either&nbsp;4&nbsp;or&nbsp;2<br>
+:returns:&nbsp;No&nbsp;return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PyMata3-stepper_step"><strong>stepper_step</strong></a>(self, motor_speed, number_of_steps)</dt><dd><tt>Move&nbsp;a&nbsp;stepper&nbsp;motor&nbsp;for&nbsp;the&nbsp;number&nbsp;of&nbsp;steps&nbsp;at&nbsp;the&nbsp;specified&nbsp;speed<br>
+This&nbsp;is&nbsp;a&nbsp;FirmataPlus&nbsp;feature.<br>
+&nbsp;<br>
+:param&nbsp;motor_speed:&nbsp;21&nbsp;bits&nbsp;of&nbsp;data&nbsp;to&nbsp;set&nbsp;motor&nbsp;speed<br>
+:param&nbsp;number_of_steps:&nbsp;14&nbsp;bits&nbsp;for&nbsp;number&nbsp;of&nbsp;steps&nbsp;&amp;&nbsp;direction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;positive&nbsp;is&nbsp;forward,&nbsp;negative&nbsp;is&nbsp;reverse</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
