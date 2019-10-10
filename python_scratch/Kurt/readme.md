@@ -39,3 +39,13 @@ license
 Kurt's documentation is hosted [on Read the Docs](http://kurt.readthedocs.org/).
 #### License
 Kurt is released under the [LGPL](http://www.gnu.org/licenses/lgpl) Version 3.
+
+## Kurt_Scratch
+Kurt是由blob8108创建的Python库，该库允许通过简单的Python命令对Scratch Project文件（.sb文件）进行复杂的操作。 它包括一个允许将项目加载到一组Python对象中的编译器和反编译器，以及一个将一组基于图像/文本的脚本打包到项目中的编译器。
+### 用法
+Kurt可用于简化许多Scratch任务。例如，一个人可以非常快速地将电影的几百帧加载到项目中，而这一任务可能导致Scratch挂断几分钟。它具有一个内置的双向转换器，可以转换为Blocks Plugin格式，从而可以轻松地将脚本导出为该格式，并以该格式编辑脚本。这使得复杂脚本的创建更加容易，例如在制作单帧渲染图形时。
+### Kurt 2
+Kurt的下一版本Kurt 2将支持在各种格式之间进行转换，例如Scratch 1.4，Scratch 2.0，BYOB 3.1和Snap!。
+
+## 拓展
+> [Github Repository](https://github.com/tjvr/kurt)
