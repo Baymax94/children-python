@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "D:\\Users\\LejuRobot\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "D:\\ProgramData\\Anaconda3\\python.exe",
     //"python.pythonPath": "C:\\Users\\LejuRobot\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     //"python.linting.enabled": false,
     "python.linting.pylintEnabled": false,
