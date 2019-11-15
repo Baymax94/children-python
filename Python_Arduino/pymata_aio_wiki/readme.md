@@ -29,3 +29,6 @@
 * [Reporting Bugs/Contact Info](https://github.com/MrYsLab/pymata-aio/wiki/Contacting-Us)
 
 翻译文档
++ [Home](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/Home.md)
++ [Major Features](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/Major%20Features.md)
++ 
