@@ -36,7 +36,7 @@
 * [Installation](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/Installation.md)
 * [Uploading StandardFirmata](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/Uploading%20StandardFirmata%20To%20Arduino.md)
 * [Uploading FirmataPlus](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/Uploading%20FirmataPlus%20to%20Arduino.md)
-* [API Documentation](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/)
+* [API Documentation](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/API%20Documentation.md)
      * [pymata_3](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/)
      * [pymata_core](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/)
      * [pymata_iot](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/)
