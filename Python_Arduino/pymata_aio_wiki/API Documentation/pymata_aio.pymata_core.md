@@ -1,0 +1,1 @@
+# [pymata_aio.pymata_core](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/pymata_core.m.html) 模块
