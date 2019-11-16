@@ -8,8 +8,8 @@
 + [pymata_aio.pymata_serial](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/pymata_serial.m.html)
 + [pymata_aio.pymata_socket](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/pymata_socket.m.html)
 ## 索引（暂未翻译）
-+ [pymata_aio.constants]()
-+ [pymata_aio.pin_data]()
++ [pymata_aio.constants](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/API%20Documentation/pymata_aio.constants.md)
++ [pymata_aio.pin_data](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/API%20Documentation/pymata_aio.pin_data.md)
 + [pymata_aio.private_constants]()
 + [pymata_aio.pymata3]()
 + [pymata_aio.pymata_core]()
@@ -52,8 +52,8 @@ The pymata_aio package that implements a Python asyncio Arduino StandardFirmata 
 >[pymata_aio.pymata_serial](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/pymata_serial.m.html)  
 >[pymata_aio.pymata_socket](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/pymata_socket.m.html)
 ## 更新
->[pymata_aio.constants]()  
->[pymata_aio.pin_data]()  
+>[pymata_aio.constants](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/API%20Documentation/pymata_aio.constants.md)  
+>[pymata_aio.pin_data](https://github.com/Baymax94/children-python/blob/master/Python_Arduino/pymata_aio_wiki/API%20Documentation/pymata_aio.pin_data.md)  
 >[pymata_aio.private_constants]()  
 >[pymata_aio.pymata3]()  
 >[pymata_aio.pymata_core]()  

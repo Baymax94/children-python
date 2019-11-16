@@ -1,4 +1,4 @@
-# pymata_aio.constants 模块
+# [pymata_aio.constants](https://htmlpreview.github.io/?https://raw.githubusercontent.com/MrYsLab/pymata-aio/master/documentation/html/constants.m.html) 模块
 ## Classes（类）
 `class Constans`  
 此类包含一组可由应用程序编写器使用的常量。  
