@@ -1,0 +1,3 @@
+# Uploading StandardFirmata To Arduino（将StandardFirmata上传到Arduino）
+Arduino IDE随附StandardFirmata。要将StandardFirmata编译并上传到Arduino，请打开IDE，然后选择File/Examples/Firmata/StandardFirmata。将Arduino开发板连接到计算机，选择正确的开发板类型和端口，最后单击IDE上的Upload按钮。  
+![StandardFirmata](https://camo.githubusercontent.com/8179401db6eb23ffae65cf9bddf4466aa640de20/68747470733a2f2f6d7279736c61622e6769746875622e696f2f70796d6174612d61696f2f646f63756d656e746174696f6e2f696d616765732f61726475696e6f312e706e67)
