@@ -1,0 +1,38 @@
+'''
+程序：画太极图，并填充
+作者：苏秦@小海豚科学馆公众号
+来源：图书《Python趣味编程：从入门到人工智能》
+'''
+from turtle import *
+pensize(2)
+fillcolor('Black')
+begin_fill()
+circle(100, 180, steps=48)
+circle(50, 180)
+circle(-50, 180)
+end_fill()
+circle(-100, 180, steps=48)
+up()
+right(90)
+fd(50)
+seth(0)
+fd(25)
+seth(90)
+down()
+fillcolor('White')
+begin_fill()
+circle(20, steps=24)
+end_fill()
+up()
+home()
+seth(90)
+fd(50)
+left(90)
+fd(25)
+left(90)
+down()
+fillcolor('Black')
+begin_fill()
+circle(20, steps=24)
+end_fill()
+ht()

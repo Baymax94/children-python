@@ -1,0 +1,42 @@
+第23课练习题答案
+
+1.完善程序，将整数5插入到一个有序列表中，要求插入后的列表仍然有序。
+n = 9
+a = [1, 2, 4, 5, 8, 16]
+i = len(a)
+a.append(n)
+while i > 0:
+    if a[i] < a[i-1]:
+        a[i], a[i-1] = a[i-1], a[i]
+        i = i - 1
+    else:
+        i = 0
+print(a)
+
+2.完善程序，实现对字符串列表按降序排序。
+fruits = ['banana', 'grape', 'apple', 'orange', 'pear']
+j = 1
+while j < len(fruits):
+    i = j
+    while i > 0:
+        if fruits[i] > fruits[i-1]:
+            fruits[i], fruits[i-1] = fruits[i-1], fruits[i]
+            i = i - 1
+        else:
+            i = 0
+    print(j, fruits)
+    j = j + 1
+
+3.完善程序，实现对整数列表按升序排序。
+a = [5, 16, 8, 4, 12, 1]
+for j in range(1, len(a)):
+    i = j
+    while i > 0:
+        if a[i] < a[i-1]:
+            a[i], a[i-1] = a[i-1], a[i]
+            i = i - 1
+        else:
+            i = 0
+    print(j, a)
+
+

@@ -1,0 +1,37 @@
+第22课练习题答案
+
+1.请完善程序，从列表中找出一个最小的元素。
+a = [9, 28, 14, 7, 22, 11]
+p = 0
+i = 1
+while i < len(a):
+    if a[i] > a[p]:
+        p = i
+    i = i + 1
+print(a[p])
+
+2.请完善程序，按照从大到小的顺序，对列表中的字符串类型的数据进行排序。
+fruits = ['banana', 'grape', 'apple', 'orange', 'pear']
+j = 0
+while j < len(fruits) - 1:
+    p = j
+    i = j + 1
+    while i < len(fruits):
+        if fruits[i] > fruits[p]:
+            p = i
+        i = i + 1
+    if p != j:
+        fruits[j], fruits[p] = fruits[p], fruits[j]
+    print(j+1, fruits)
+    j = j + 1
+
+3.请完善程序，实现对整数列表按升序排序。
+a = [5, 16, 8, 4, 2, 1]
+for j in range(len(a)):
+    p = j
+    for i in range(j+1, len(a)):
+        if a[i] < a[p]:
+            p = i
+    if p != j:
+        a[j], a[p] = a[p], a[j]
+    print(j+1, a)

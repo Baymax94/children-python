@@ -1,0 +1,42 @@
+第9课练习题答案
+
+1. True, False
+
+2. ==
+
+3. False,True,True,False,False,Trues
+
+4. 判断框，菱
+
+5. x % 2 == 0
+
+6. year % 400 ==0, year % 4 == 0 and year % 100 != 0
+
+7.
+score = int(input('请输入成绩：'))
+if score < 60:
+    print('不合格')
+elif 60 <= score <= 69:
+    print('合格')
+elif 70 <= score <= 89:
+    print('良好')
+elif 90 <= score <= 100:
+    print('优秀')
+else:
+    print('错误数据')
+
+8.
+mass = float(input('请输入体重(kg)：'))
+height = float(input('请输入身高(m)：'))
+
+bmi = round(mass / height / height)
+if bmi < 18.5 :
+    body = '偏瘦'
+elif 18.5 <= bmi < 24 :
+    body = '正常'
+elif 24 <= bmi < 28 :
+    body = '超重'
+elif bmi >= 28 :
+    body = '肥胖'
+
+print(body)

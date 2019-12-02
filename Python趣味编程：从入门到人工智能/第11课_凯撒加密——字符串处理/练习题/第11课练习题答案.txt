@@ -1,0 +1,30 @@
+第11课练习题答案
+
+1. 双引号，\'
+
+2. 119,111,114,108,100
+
+3. 取得字符的ASCII码
+
+4. 取得ASCII码对应的字符
+
+5.
+a, b = '黄鹂', '白鹭'
+print('两个%s鸣翠柳，一行%s上青天' % (a, b))
+
+6.
+a, b, c = '唐代', '将进酒', '李白'
+print('《{1}》是{0}诗人{2}的诗作'.format(a, b, c))
+
+7.
+s = 'python'
+i = 0
+while i < len(s):
+    print(ord(s[i]))
+    i += 1
+
+8.
+s = 'hello, world'
+for c in s:
+    print(c)
+    

@@ -1,0 +1,32 @@
+第13课练习题答案
+
+1. 键值对
+
+2. get()
+
+3. 正确：A、C；错误：B、D
+
+4.
+fruits = {'apple':5, 'banana':8, 'grape':2, 'orange':9}
+temp = []
+
+for fruit in fruits.keys():
+    if 'e' not in fruit:
+        temp.append(fruit)
+        
+for key in temp:
+    del fruits[key]
+
+print(fruits)
+
+5.
+words = input('请输入一个英文句子:')
+d = {}
+for letter in words:
+    letter = letter.lower()
+    if letter.isalpha():
+        d[letter] = d.get(letter, 0) + 1
+
+letters = sorted(d.keys())
+for letter in letters:
+    print(letter, d[letter])

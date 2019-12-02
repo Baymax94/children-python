@@ -1,0 +1,33 @@
+第14课练习题答案
+
+1. 正确：A、B、C；错误：D
+
+2.
+def circle(r):
+    d = round(3.14 * r * 2, 2)
+    s = round(3.14 * r * r, 2)
+    return (d, s)
+    
+(d, s) = circle(3)
+print(d, s)
+
+3.
+import math
+def distance(x1, y1, x2=0, y2=0):
+    d = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+    d = round(d, 2)
+    return d
+
+d = distance(3, 4)
+print(d)
+
+4.
+def add(n):
+    if n > 1:
+        return add(n-1) + n
+    else:
+        return 1
+        
+s = add(100)
+print(s)
+

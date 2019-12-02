@@ -1,0 +1,25 @@
+第5课练习题答案
+1. 正确：B、C、E；错误：A、D
+2. speed = 100
+3. book = '西游记'
+4. 正确：A、B、D；错误：C
+5. D
+
+6. 
+a = 10
+b = 5
+s = a * b // 2
+print(s)
+
+7.
+a = '可乐'
+b = '雪碧'
+print(a, b)
+c = a
+a = b
+b = c
+print(a, b)
+
+
+
+

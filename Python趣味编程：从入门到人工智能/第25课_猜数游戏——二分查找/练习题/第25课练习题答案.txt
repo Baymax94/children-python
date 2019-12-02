@@ -1,0 +1,50 @@
+第25课练习题答案
+
+1.
+'''二分猜数'''
+import random
+n = random.randint(1, 100)
+while True:
+    guess = int(input('请输入一个整数:'))
+    if guess == n:
+        print('猜对了')
+        break
+    if guess > n:
+        print('大了')
+    else:
+        print('小了')
+
+
+2.
+'''猜数策略'''
+left, right = 1, 100
+while True:
+    mid = (right - left) // 2 + left
+    print('建议猜数:', mid)
+    state = input('大了？小了？对了？(d/x/ok):')
+    if state == 'ok':
+        print('完成')
+        break
+    elif state == 'd':#大小
+        right = mid - 1
+    elif state == 'x':#小了
+        left = mid + 1
+
+
+
+3.完善程序，实现从字符串列表中查找"banana"所在位置。
+target = 'banana'
+fruits = ['pear', 'orange', 'grape', 'banana', 'apple']
+left, right = 0, len(fruits) - 1
+while left <= right:
+    mid = (right - left) // 2 + left
+    if target == fruits[mid]:
+        print(mid)
+        break
+    elif target < fruits[mid]:
+        left = mid + 1
+    else:
+        right = mid - 1
+else:
+    print('找不到')
+

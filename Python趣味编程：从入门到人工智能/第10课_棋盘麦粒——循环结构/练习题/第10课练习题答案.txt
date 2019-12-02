@@ -1,0 +1,61 @@
+第10课练习题答案
+
+1. 循环
+
+2. 判断框，流程线
+
+3. 计数型，条件型
+
+4. continue
+
+5. break
+
+6.
+num, total = 0, 0
+while num <= 50:
+    total = total + num
+    num = num + 2
+print(total)
+
+7.
+i = 1
+while i <= 9:
+    j = 1
+    while j <= i:
+        print(j, 'x', i, '=', i * j, end='  ')
+        j += 1
+    print()
+    i += 1
+
+8.
+from turtle import *
+pensize(2)
+seth(108)
+for i in range(5):
+    left(144)
+    fd(100)
+    right(72)
+    fd(100)
+
+9.
+h = 8848 * 100 * 10
+n = 0.5
+t = 0
+while True:
+    n = n * 2
+    t += 1
+    if n >= h:
+        break
+print(t)
+
+10.
+pi, n, op = 3, 2, -1
+i = 0
+while i < 15000:
+    op = -1 * op
+    pi = pi + op * 4 / (n * (n+1) * (n+2))
+    n += 2
+    i += 1
+print(pi)
+
+
