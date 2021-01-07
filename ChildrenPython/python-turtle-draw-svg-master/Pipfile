@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-lxml = "==4.2.1"
+lxml = "==4.6.2"
 "beautifulsoup4" = "==4.6.0"
 numpy = "==1.14.5"
 opencv-python = "==3.4.1.15"
